@@ -1,0 +1,40 @@
+@mixin flex($flexDirection: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin button(
+  $padding: 20px 100px,
+  $bgColor: yellow,
+  $border: none,
+  $radius: 5px,
+  $size: 17px,
+  $color: inherit,
+  $cursor: pointer
+) {
+  padding: $padding;
+  background-color: $bgColor;
+  border: $border;
+  border-radius: $radius;
+  font-size: $size;
+  color: $color;
+  cursor: $cursor;
+}
+
+@mixin input(
+  $padding: 15px 14px,
+  $width: 100%,
+  $border: 1px solid $lightGray,
+  $bgColor: white
+) {
+  width: $width;
+
+  @include button(
+    $bgColor: $bgColor,
+    $padding: $padding,
+    $border: 1px solid $lightGray,
+    $cursor: none
+  );
+}
