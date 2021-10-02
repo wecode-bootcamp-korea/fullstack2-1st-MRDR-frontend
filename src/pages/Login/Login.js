@@ -8,12 +8,37 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { checkEmailValid, checkPasswordValid } from '../../utils';
 import Border from './components/Border/Border';
 import Button from './components/Button/Button';
 import Input from './components/Input/Input';
 import './Login.scss';
 
 class Login extends React.Component {
+  state = { email: '', password: '' };
+
+  onChange = e => {
+    const {
+      target: { name, value },
+    } = e;
+    this.setState(() => ({ [name]: value }));
+  };
+
+  onSubmit = e => {
+    const {
+      state: { email, password },
+    } = this;
+    e.preventDefault();
+    const isValid = this.checkIsValid(email, password);
+    if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
+
+    //통신코드 작성
+  };
+
+  checkIsValid = (email, password) => {
+    return checkEmailValid(email) && checkPasswordValid(password);
+  };
+
   render() {
     return (
       <div className="Login">
@@ -36,12 +61,19 @@ class Login extends React.Component {
 
           <Border />
 
-          <form>
-            <Input placeholder="아이디" className="loginInput" />
+          <form onSubmit={this.onSubmit}>
             <Input
+              name="email"
+              placeholder="아이디"
+              className="loginInput"
+              onChange={this.onChange}
+            />
+            <Input
+              name="password"
               placeholder="비밀번호"
               className="loginInput"
               type="password"
+              onChange={this.onChange}
             />
             <div class="loginSecurity">
               <FontAwesomeIcon icon={faUnlockAlt} />
