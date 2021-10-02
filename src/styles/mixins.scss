@@ -7,20 +7,20 @@
 
 @mixin button(
   $padding: 20px 100px,
-  $border: none,
   $bgColor: yellow,
+  $border: none,
   $radius: 5px,
-  $color: inherit,
   $size: 17px,
+  $color: inherit,
   $cursor: pointer
 ) {
-  cursor: $cursor;
-  font-size: $size;
   padding: $padding;
   background-color: $bgColor;
   border: $border;
   border-radius: $radius;
+  font-size: $size;
   color: $color;
+  cursor: $cursor;
 }
 
 @mixin input(
@@ -32,9 +32,9 @@
   width: $width;
 
   @include button(
-    $cursor: none,
     $bgColor: $bgColor,
     $padding: $padding,
-    $border: 1px solid $lightGray
+    $border: 1px solid $lightGray,
+    $cursor: none
   );
 }
