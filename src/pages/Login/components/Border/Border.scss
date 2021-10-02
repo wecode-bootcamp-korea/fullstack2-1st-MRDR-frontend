@@ -1,0 +1,15 @@
+@import '../../../../styles/common.scss';
+@import '../../../../styles/mixins.scss';
+
+.Border {
+  width: 100%;
+  @include flex($justify: space-between);
+  margin: 36px 0;
+  font-size: 13px;
+  color: $middleGray;
+  .borderLine {
+    width: 42%;
+    height: 1px;
+    background-color: $lightGray;
+  }
+}

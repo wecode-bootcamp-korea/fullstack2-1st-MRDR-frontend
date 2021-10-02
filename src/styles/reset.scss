@@ -143,6 +143,16 @@ table {
   border-spacing: 0;
 }
 
+input {
+  all: unset;
+  box-sizing: border-box;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }
