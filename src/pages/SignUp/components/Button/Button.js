@@ -8,7 +8,7 @@ class Button extends React.Component {
 
     return (
       <div className={className}>
-        {content ? content : null} {message}
+        {content ? content : ''} {message}
       </div>
     );
   }

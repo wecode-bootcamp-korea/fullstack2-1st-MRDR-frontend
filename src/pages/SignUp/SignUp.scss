@@ -1,4 +1,15 @@
+@import '../../styles/../styles/mixins.scss';
+
 .SignUp {
-  background-color: red;
-  font-size: 50px;
+  .innerRow {
+    @include flex();
+  }
+
+  .tdd {
+    background-color: red;
+  }
+
+  .trr {
+    background-color: green;
+  }
 }

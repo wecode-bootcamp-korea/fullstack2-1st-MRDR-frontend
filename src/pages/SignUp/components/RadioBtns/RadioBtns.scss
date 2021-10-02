@@ -1,0 +1,12 @@
+@import '../../../../styles/mixins.scss';
+
+.RadioBtns {
+  label {
+    @include flex();
+  }
+  @include flex();
+  .radioBtn {
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+}
