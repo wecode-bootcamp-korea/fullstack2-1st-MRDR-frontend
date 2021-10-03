@@ -1,15 +1,71 @@
 @import '../../styles/../styles/mixins.scss';
+@import '../../styles/../styles/common.scss';
 
 .SignUp {
+  padding-top: 15%;
+  width: 100%;
+  .signUpWrapper {
+    @include flex($flexDirection: column);
+    min-width: 800px;
+
+    .signUpTitle {
+      @include title($size: $secondBigFontSize, $weight: 770);
+      margin-bottom: 84px;
+    }
+
+    .signUpSubTitle {
+      @include title($size: $thirdMiddleFontSize, $weight: 700);
+    }
+
+    table {
+      width: 100%;
+      font-size: $smallFontSize;
+      border-collapse: collapse;
+
+      thead {
+        border-bottom: 3px solid black;
+      }
+
+      th,
+      td {
+        padding: 18px;
+        border-bottom: 1px solid $borderGray;
+      }
+
+      tbody {
+        tr {
+          .input {
+            @include input($width: 80%, $padding: 12px 10px, $radius: 1px);
+            font-size: $smallerFontSize;
+          }
+
+          .businessInfo {
+            .RadioBtns {
+              @include flex($justify: flex-start);
+            }
+          }
+
+          td:first-child {
+            background-color: $lighterGray;
+          }
+        }
+      }
+
+      .firstThTd {
+        text-align: left;
+      }
+      .secondThTd {
+        text-align: right;
+        padding-right: 0;
+
+        .RadioBtns {
+          @include flex($justify: flex-end);
+        }
+      }
+    }
+  }
+
   .innerRow {
     @include flex();
-  }
-
-  .tdd {
-    background-color: red;
-  }
-
-  .trr {
-    background-color: green;
   }
 }

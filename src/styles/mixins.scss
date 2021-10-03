@@ -1,3 +1,5 @@
+@import './common.scss';
+
 @mixin flex($flexDirection: row, $align: center, $justify: center) {
   display: flex;
   flex-direction: $flexDirection;
@@ -27,14 +29,21 @@
   $padding: 15px 14px,
   $width: 100%,
   $border: 1px solid $lightGray,
-  $bgColor: white
+  $bgColor: white,
+  $radius: 5px
 ) {
   width: $width;
 
   @include button(
+    $radius: $radius,
     $bgColor: $bgColor,
     $padding: $padding,
     $border: 1px solid $lightGray,
     $cursor: none
   );
+}
+
+@mixin title($size: $bigFontSize, $weight: 800) {
+  font-size: $size;
+  font-weight: $weight;
 }

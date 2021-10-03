@@ -7,9 +7,9 @@ class Button extends React.Component {
     } = this;
 
     return (
-      <div className={className}>
-        {content ? content : ''} {message}
-      </div>
+      <button className={className}>
+        {content ? content : null} {message}
+      </button>
     );
   }
 }

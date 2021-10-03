@@ -10,7 +10,7 @@ class TableRows extends React.Component {
       <tr className={className}>
         <td>{td}</td>
         <td colSpan="2">
-          <Input placeholder={placeholder} />
+          <Input placeholder={placeholder} className="input" />
         </td>
       </tr>
     );

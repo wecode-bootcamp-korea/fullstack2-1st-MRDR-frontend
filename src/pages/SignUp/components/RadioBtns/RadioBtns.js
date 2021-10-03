@@ -1,31 +1,28 @@
 import React from 'react';
-import Input from '../Input/Input';
+import RadioBtn from '../RadioBtn/RadioBtn';
 import './RadioBtns.scss';
 
 class RadioBtns extends React.Component {
   render() {
     const {
-      props: { btns },
+      props: { btns, name },
     } = this;
 
     return (
-      <div className="RadioBtns">
+      <form className="RadioBtns">
         {btns.map(btn => {
-          const { id, value, label } = btn;
+          const { id, label, value } = btn;
           return (
-            <React.Fragment key={id}>
-              <Input
-                className="radioBtn"
-                type={'radio'}
-                id={id}
-                for={id}
-                value={value}
-              />
-              <label for={id}>{label}</label>
-            </React.Fragment>
+            <RadioBtn
+              key={id}
+              name={name}
+              label={label}
+              id={id}
+              value={value}
+            />
           );
         })}
-      </div>
+      </form>
     );
   }
 }
