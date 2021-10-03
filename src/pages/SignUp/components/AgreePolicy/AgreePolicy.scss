@@ -1,0 +1,35 @@
+@import '../../../../styles//mixins.scss';
+@import '../../../../styles//common.scss';
+
+.AgreePolicy {
+  label {
+    margin-left: 10px;
+  }
+
+  table {
+    .plusColumn > a {
+      margin-right: 10px;
+      font-size: 30px;
+      font-weight: 340;
+      color: $gray;
+    }
+
+    .flexRow {
+      @include flex($justify: flex-start);
+      .CheckBoxRow:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .subSignUpSubTitle,
+  .subSignUpSubTitle > label {
+    @include title($size: $secondMiddleFontSize, $weight: 700);
+    cursor: pointer;
+  }
+
+  .subArgeeColumn {
+    font-size: $smallFontSize;
+    color: $middleGray;
+  }
+}

@@ -1,5 +1,5 @@
 @import '../../../../styles//common.scss';
-.RadioBtn {
+.CheckBoxRow {
   input[type='radio']:checked,
   input[type='radio']:not(:checked) {
     display: none;

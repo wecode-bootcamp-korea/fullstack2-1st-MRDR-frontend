@@ -144,12 +144,15 @@ table {
 }
 
 input {
-  all: unset;
+  &:focus {
+    outline: none;
+  }
   box-sizing: border-box;
 }
 
 a {
-  all: unset;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 

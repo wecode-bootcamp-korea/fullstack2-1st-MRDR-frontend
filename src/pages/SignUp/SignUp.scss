@@ -3,9 +3,24 @@
 
 .SignUp {
   @include flex();
-  position: relative;
   padding-top: 15%;
   min-width: 800px;
+
+  table {
+    width: 800px;
+    font-size: $smallFontSize;
+    border-collapse: collapse;
+
+    thead {
+      border-bottom: 3px solid black;
+    }
+
+    th,
+    td {
+      padding: 13px;
+      border-bottom: 1px solid $borderGray;
+    }
+  }
 
   small {
     font-size: $smallFontSize;
@@ -22,97 +37,6 @@
 
     .signUpSubTitle {
       @include title($size: $thirdMiddleFontSize, $weight: 700);
-    }
-
-    table {
-      width: 800px;
-      font-size: $smallFontSize;
-      border-collapse: collapse;
-
-      thead {
-        border-bottom: 3px solid black;
-      }
-
-      th,
-      td {
-        padding: 13px;
-        border-bottom: 1px solid $borderGray;
-      }
-
-      .idTr {
-        .idTdContainer {
-          @include flex($flexDirection: column, $align: flex-start);
-          small {
-            margin: 15px 0 0 5px;
-          }
-        }
-      }
-
-      tbody {
-        .input {
-          @include input($width: 80%, $padding: 10px, $radius: 1px);
-          font-size: $smallFontSize;
-
-          &::placeholder {
-            color: $middleGray;
-          }
-        }
-
-        tr {
-          .innerRow {
-            .input {
-              margin-right: 5px;
-              width: 30%;
-            }
-
-            select.phoneNumberInput {
-              border: 1px solid $lightGray;
-              &:focus {
-                outline: none;
-              }
-            }
-            .phoneNumberInput {
-              height: 37px;
-              width: 122px;
-              margin-right: 5px;
-            }
-
-            @include flex($justify: flex-start);
-            .adressNumber {
-              @include button(
-                $bgColor: $black,
-                $radius: 1px,
-                $padding: 10px 17px,
-                $border: 1px solid black
-              );
-              color: white;
-              font-size: $smallFontSize;
-            }
-          }
-
-          .businessInfo {
-            .RadioBtns {
-              @include flex($justify: flex-start);
-            }
-          }
-
-          td:first-child {
-            background-color: $lighterGray;
-          }
-        }
-      }
-
-      .firstThTd {
-        text-align: left;
-      }
-      .secondThTd {
-        text-align: right;
-        padding-right: 0;
-
-        .RadioBtns {
-          @include flex($justify: flex-end);
-        }
-      }
     }
   }
 
