@@ -31,8 +31,6 @@ class Login extends React.Component {
     e.preventDefault();
     const isValid = this.checkIsValid(email, password);
     if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
-
-    //통신코드 작성
   };
 
   checkIsValid = (email, password) => {
@@ -58,9 +56,7 @@ class Login extends React.Component {
             content={<FontAwesomeIcon icon={faComment} />}
             message={'카카오 회원가입/로그인'}
           />
-
           <Border />
-
           <form onSubmit={this.onSubmit}>
             <Input
               name="email"
@@ -79,7 +75,6 @@ class Login extends React.Component {
               <FontAwesomeIcon icon={faUnlockAlt} />
               <span>보안접속</span>
             </div>
-
             <Button content="로그인" className={'loginButton'} />
           </form>
           <ul className="loginLinks">
@@ -99,7 +94,6 @@ class Login extends React.Component {
               <Link> 강사회원 신청</Link>
             </li>
           </ul>
-
           <div className="loginButtons">
             <button>
               <FontAwesomeIcon className="loginNaver icon" icon={faPenNib} />
@@ -111,9 +105,7 @@ class Login extends React.Component {
             </button>
           </div>
           <Border />
-
           <Button content="회원가입 후 혜택받기" className={'loginSubBtn'} />
-
           <div className="smallMsgs">
             <small>
               <FontAwesomeIcon className="icon" icon={faAddressCard} />꼭 확인
