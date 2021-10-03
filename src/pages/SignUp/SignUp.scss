@@ -3,7 +3,9 @@
 
 .SignUp {
   @include flex();
+  position: relative;
   padding-top: 15%;
+  min-width: 800px;
 
   small {
     font-size: $smallFontSize;
@@ -11,11 +13,9 @@
   }
 
   .signUpWrapper {
-    background-color: red;
     @include flex($flexDirection: column);
 
     .signUpTitle {
-      background-color: green;
       @include title($size: $secondBigFontSize, $weight: 770);
       margin-bottom: 84px;
     }
@@ -25,8 +25,7 @@
     }
 
     table {
-      background-color: gray;
-      min-width: 800px;
+      width: 800px;
       font-size: $smallFontSize;
       border-collapse: collapse;
 
@@ -36,7 +35,7 @@
 
       th,
       td {
-        padding: 18px;
+        padding: 13px;
         border-bottom: 1px solid $borderGray;
       }
 
@@ -50,13 +49,44 @@
       }
 
       tbody {
-        tr {
-          .input {
-            @include input($width: 80%, $padding: 10px, $radius: 1px);
-            font-size: $smallFontSize;
+        .input {
+          @include input($width: 80%, $padding: 10px, $radius: 1px);
+          font-size: $smallFontSize;
 
-            &::placeholder {
-              color: $middleGray;
+          &::placeholder {
+            color: $middleGray;
+          }
+        }
+
+        tr {
+          .innerRow {
+            .input {
+              margin-right: 5px;
+              width: 30%;
+            }
+
+            select.phoneNumberInput {
+              border: 1px solid $lightGray;
+              &:focus {
+                outline: none;
+              }
+            }
+            .phoneNumberInput {
+              height: 37px;
+              width: 122px;
+              margin-right: 5px;
+            }
+
+            @include flex($justify: flex-start);
+            .adressNumber {
+              @include button(
+                $bgColor: $black,
+                $radius: 1px,
+                $padding: 10px 17px,
+                $border: 1px solid black
+              );
+              color: white;
+              font-size: $smallFontSize;
             }
           }
 
@@ -86,7 +116,9 @@
     }
   }
 
-  .innerRow {
-    @include flex();
+  .adressTr {
+    .innerRowColumn {
+      margin-bottom: 10px;
+    }
   }
 }

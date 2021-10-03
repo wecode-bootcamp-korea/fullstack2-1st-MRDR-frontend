@@ -18,7 +18,7 @@ class SignUp extends React.Component {
                 <td className="signUpSubTitle firstThTd">기본정보</td>
                 <td className="secondThTd" colSpan="3">
                   <RadioBtns
-                    name="userInfo"
+                    name="userCountry"
                     btns={[
                       {
                         id: 'personal',
@@ -45,7 +45,7 @@ class SignUp extends React.Component {
                 <td>사업자 구분</td>
                 <td className="businessInfo" colSpan="2">
                   <RadioBtns
-                    name="businessInfo"
+                    name="userBusiness"
                     btns={[
                       {
                         id: 'companyBusiness',
@@ -62,13 +62,22 @@ class SignUp extends React.Component {
                 </td>
               </tr>
 
-              <TableRows td="상호명" className="companyName" />
-              <TableRows td="사업자번호" className="tr" />
+              <TableRows
+                td="상호명"
+                className="companyName"
+                name="userCompanyName"
+              />
+              <TableRows
+                td="사업자번호"
+                className="tr"
+                name="userBusinessNumber"
+              />
               <tr className="idTr">
                 <td>아이디</td>
                 <td colSpan="2" tdClassName="idTd">
                   <div className="idTdContainer">
                     <Input
+                      name="userId"
                       placeholder={'영소문자/숫자,4~16자'}
                       className="input"
                     />
@@ -77,24 +86,31 @@ class SignUp extends React.Component {
                 </td>
               </tr>
               <TableRows
+                name="userPassword"
                 placeholder="(영문 대소문자/숫자/특문자 중 2가지 이상 조합.8~16자)"
                 td="비밀번호"
                 className="tr"
               />
 
-              <TableRows td="비밀번호 확인" className="tr" />
-              <TableRows td="이름" className="tr" />
-              <tr>
+              <TableRows
+                name="userPasswordConfirm"
+                td="비밀번호 확인"
+                className="tr"
+              />
+              <TableRows td="이름" className="tr" name="userFirstAdress" />
+              <tr className="adressTr">
                 <td rowSpan="3">주소</td>
-                <td rowSpan="3" colSpan="2">
-                  <div className="innerRow">
-                    <Input />
-                    <Button content={'우편번호'} />
+                <td rowSpan="3" className="daressTd" colSpan="2">
+                  <div className="innerRow innerRowColumn">
+                    <Input className="input" name="userMiddleAdress" />
+                    <Button content={'우편번호'} className="adressNumber" />
                   </div>
-                  <div>
-                    <Input placeholder="기본주소" />
-                  </div>
-                  <Input />{' '}
+                  <Input
+                    name="userSecondAdress"
+                    className="input innerRowColumn"
+                    placeholder="기본주소"
+                  />
+                  <Input className="input" name="userthirdAdress" />
                 </td>
                 <td></td>
               </tr>
@@ -106,7 +122,11 @@ class SignUp extends React.Component {
                 <td colSpan="2">휴대폰 번호</td>
                 <td>
                   <div className="innerRow">
-                    <select name="phoneNumber" id="phoneNumber">
+                    <select
+                      className="phoneNumberInput"
+                      name="userFirstPhoneNumber"
+                      id="phoneNumber"
+                    >
                       <option check="true" value="010">
                         010
                       </option>
@@ -116,11 +136,18 @@ class SignUp extends React.Component {
                       <option value="018">018</option>
                       <option value="019">019</option>
                     </select>
-                    - <Input /> - <Input />
+                    <Input
+                      name="userSecondPhoneNumber"
+                      className="input phoneNumberInput"
+                    />
+                    <Input
+                      name="userThirdPhoneNumber"
+                      className="input phoneNumberInput"
+                    />
                   </div>
                 </td>
               </tr>
-              <TableRows td="이메일" className="tr" />
+              <TableRows td="이메일" className="tr" name="userEmail" />
             </tbody>
           </table>
           <h1 className="signUpSubTitle">추가정보</h1>
