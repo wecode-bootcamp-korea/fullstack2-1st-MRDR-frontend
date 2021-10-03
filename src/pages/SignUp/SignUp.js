@@ -6,6 +6,11 @@ import TableRows from './components/TableRows/TableRows';
 import './SignUp.scss';
 
 class SignUp extends React.Component {
+  bi;
+
+  constructor() {
+    this.func = this.func.bind(this);
+  }
   render() {
     return (
       <div className="SignUp">
