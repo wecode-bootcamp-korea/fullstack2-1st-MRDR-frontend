@@ -2,13 +2,20 @@
 @import '../../styles/../styles/common.scss';
 
 .SignUp {
+  @include flex();
   padding-top: 15%;
-  width: 100%;
+
+  small {
+    font-size: $smallFontSize;
+    color: $middleGray;
+  }
+
   .signUpWrapper {
+    background-color: red;
     @include flex($flexDirection: column);
-    min-width: 800px;
 
     .signUpTitle {
+      background-color: green;
       @include title($size: $secondBigFontSize, $weight: 770);
       margin-bottom: 84px;
     }
@@ -18,7 +25,8 @@
     }
 
     table {
-      width: 100%;
+      background-color: gray;
+      min-width: 800px;
       font-size: $smallFontSize;
       border-collapse: collapse;
 
@@ -32,11 +40,24 @@
         border-bottom: 1px solid $borderGray;
       }
 
+      .idTr {
+        .idTdContainer {
+          @include flex($flexDirection: column, $align: flex-start);
+          small {
+            margin: 15px 0 0 5px;
+          }
+        }
+      }
+
       tbody {
         tr {
           .input {
-            @include input($width: 80%, $padding: 12px 10px, $radius: 1px);
-            font-size: $smallerFontSize;
+            @include input($width: 80%, $padding: 10px, $radius: 1px);
+            font-size: $smallFontSize;
+
+            &::placeholder {
+              color: $middleGray;
+            }
           }
 
           .businessInfo {

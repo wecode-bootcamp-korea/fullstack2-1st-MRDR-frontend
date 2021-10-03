@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from './components/Button/Button';
 import Input from './components/Input/Input';
-import RadioBtn from './components/RadioBtn/RadioBtn';
 import RadioBtns from './components/RadioBtns/RadioBtns';
 import TableRows from './components/TableRows/TableRows';
 import './SignUp.scss';
@@ -65,16 +64,24 @@ class SignUp extends React.Component {
 
               <TableRows td="상호명" className="companyName" />
               <TableRows td="사업자번호" className="tr" />
-              <TableRows
-                placeholder="영소문자/숫자,4~16자"
-                td="아이디"
-                className="tr"
-              />
+              <tr className="idTr">
+                <td>아이디</td>
+                <td colSpan="2" tdClassName="idTd">
+                  <div className="idTdContainer">
+                    <Input
+                      placeholder={'영소문자/숫자,4~16자'}
+                      className="input"
+                    />
+                    <small>아이디를 입력해 주세요.</small>
+                  </div>
+                </td>
+              </tr>
               <TableRows
                 placeholder="(영문 대소문자/숫자/특문자 중 2가지 이상 조합.8~16자)"
                 td="비밀번호"
                 className="tr"
               />
+
               <TableRows td="비밀번호 확인" className="tr" />
               <TableRows td="이름" className="tr" />
               <tr>

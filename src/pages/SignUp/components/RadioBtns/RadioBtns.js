@@ -9,7 +9,7 @@ class RadioBtns extends React.Component {
     } = this;
 
     return (
-      <form className="RadioBtns">
+      <div className="RadioBtns">
         {btns.map(btn => {
           const { id, label, value } = btn;
           return (
@@ -22,7 +22,7 @@ class RadioBtns extends React.Component {
             />
           );
         })}
-      </form>
+      </div>
     );
   }
 }
