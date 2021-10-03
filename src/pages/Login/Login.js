@@ -71,7 +71,7 @@ class Login extends React.Component {
               type="password"
               onChange={this.onChange}
             />
-            <div class="loginSecurity">
+            <div className="loginSecurity">
               <FontAwesomeIcon icon={faUnlockAlt} />
               <span>보안접속</span>
             </div>
@@ -79,19 +79,19 @@ class Login extends React.Component {
           </form>
           <ul className="loginLinks">
             <li>
-              <Link> 아이디 찾기</Link>
+              <Link to="/"> 아이디 찾기</Link>
             </li>
             <li>|</li>
             <li>
-              <Link> 비밀번호 찾기</Link>
+              <Link to="/"> 비밀번호 찾기</Link>
             </li>
             <li>|</li>
             <li>
-              <Link> 비회원주문조회</Link>
+              <Link to="/"> 비회원주문조회</Link>
             </li>
             <li>|</li>
             <li>
-              <Link> 강사회원 신청</Link>
+              <Link to="/"> 강사회원 신청</Link>
             </li>
           </ul>
           <div className="loginButtons">
