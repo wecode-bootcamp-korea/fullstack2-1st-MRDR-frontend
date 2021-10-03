@@ -5,7 +5,7 @@ import './RadioBtns.scss';
 class RadioBtns extends React.Component {
   render() {
     const {
-      props: { btns, name },
+      props: { btns, name, tableTypeChanger },
     } = this;
 
     return (
@@ -14,6 +14,7 @@ class RadioBtns extends React.Component {
           const { id, label, value } = btn;
           return (
             <RadioBtn
+              tableTypeChanger={tableTypeChanger}
               key={id}
               name={name}
               label={label}

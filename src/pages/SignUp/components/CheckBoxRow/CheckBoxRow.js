@@ -9,7 +9,7 @@ class CheckBoxRow extends React.Component {
     } = this;
     return (
       <div className="CheckBoxRow">
-        <Input type="checkBox" id={id} name={name} reaonly={true} />
+        <Input type="checkBox" id={id} name={name} readOnly={true} />
         <label htmlFor={name}>{label}</label>
       </div>
     );

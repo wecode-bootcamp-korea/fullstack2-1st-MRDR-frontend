@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CheckBoxRow from '../CheckBoxRow/CheckBoxRow';
-import Input from '../Input/Input';
-import './AgreePolicy.scss';
+import './AgreePolicyTable.scss';
 
-class AgreePolicy extends React.Component {
+class AgreePolicyTable extends React.Component {
   render() {
     return (
       <div className="AgreePolicy">
@@ -17,16 +16,12 @@ class AgreePolicy extends React.Component {
             </tr>
             <tr className="subSignUpSubTitle">
               <td>
-                <Input
-                  type="checkbox"
+                <CheckBoxRow
                   id="agreeBox"
                   name="agreeBox"
-                  value="allAgree"
+                  label="  이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신 선택에 모두
+                    동의합니다."
                 />
-                <label htmlFor="agreeBox">
-                  이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신(선택에 모두
-                  동의합니다.
-                </label>
               </td>
             </tr>
           </thead>
@@ -82,4 +77,4 @@ class AgreePolicy extends React.Component {
   }
 }
 
-export default AgreePolicy;
+export default AgreePolicyTable;

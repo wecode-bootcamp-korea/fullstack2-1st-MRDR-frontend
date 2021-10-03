@@ -1,0 +1,11 @@
+@import '../../../../styles//mixins.scss';
+@import '../../../../styles//common.scss';
+
+.AdditionalInfoTable {
+  .input {
+    @include input($padding: 10px, $radius: 1px, $border: 1px solid $lightGray);
+    height: 39px;
+    width: 80px;
+    margin: 0 5px 0 15px;
+  }
+}

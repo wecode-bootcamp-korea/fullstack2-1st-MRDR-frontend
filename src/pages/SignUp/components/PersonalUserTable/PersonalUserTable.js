@@ -1,74 +1,21 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import RadioBtns from '../RadioBtns/RadioBtns';
+import TableHeader from '../TableHeader/TableHeader';
 import TableRows from '../TableRows/TableRows';
-import './BusinessUser.scss';
+import './PersonalUserTable.scss';
 
-class BusinessUser extends React.Component {
+class PersonalUserTable extends React.Component {
   render() {
-    return (
-      <div className="BusinessUser">
-        <table className="basicInfo">
-          <thead>
-            <tr>
-              <td className="signUpSubTitle firstThTd">기본정보</td>
-              <td className="secondThTd" colSpan="3">
-                <RadioBtns
-                  name="userCountry"
-                  btns={[
-                    {
-                      id: 'personal',
-                      value: 'personal',
-                      label: '개인정보',
-                    },
-                    {
-                      id: 'buiness',
-                      value: 'buiness',
-                      label: '사업자회원',
-                    },
-                    {
-                      id: 'foreigner',
-                      value: 'foreigner',
-                      label: '외국인 회원(foreigner)',
-                    },
-                  ]}
-                />
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>사업자 구분</td>
-              <td className="businessInfo" colSpan="2">
-                <RadioBtns
-                  name="userBusiness"
-                  btns={[
-                    {
-                      id: 'companyBusiness',
-                      value: 'companyBusiness',
-                      label: '법인사업자',
-                    },
-                    {
-                      id: 'personalBusiness',
-                      value: 'personalBusiness',
-                      label: '개인사업자',
-                    },
-                  ]}
-                />
-              </td>
-            </tr>
+    const {
+      props: { tableTypeChanger },
+    } = this;
 
-            <TableRows
-              td="상호명"
-              className="companyName"
-              name="userCompanyName"
-            />
-            <TableRows
-              td="사업자번호"
-              className="tr"
-              name="userBusinessNumber"
-            />
+    return (
+      <div className="PersonalUserTable">
+        <table className="basicInfo">
+          <TableHeader tableTypeChanger={tableTypeChanger} />
+          <tbody>
             <tr className="idTr">
               <td>아이디</td>
               <td colSpan="2" className="idTd">
@@ -154,4 +101,4 @@ class BusinessUser extends React.Component {
   }
 }
 
-export default BusinessUser;
+export default PersonalUserTable;

@@ -1,20 +1,32 @@
 import React from 'react';
-import AgreePolicy from './components/AgreePolicy/AgreePolicy';
-import BusinessUser from './components/BusinessUser/BusinessUser';
+import { joinPageComponentsSwitcher } from '../../util';
+import AdditionalInfoTable from './components/AdditionalInfoTable/AdditionalInfoTable';
+import AgreePolicyTable from './components/AgreePolicyTable/AgreePolicyTable';
 import './SignUp.scss';
 
 class SignUp extends React.Component {
+  state = { tableType: 0 };
+
+  tableTypeChanger = e => {
+    const {
+      target: { value },
+    } = e;
+    this.setState(() => ({ tableType: Number(value) }));
+  };
+
   render() {
+    const {
+      tableTypeChanger,
+      state: { tableType },
+    } = this;
+
     return (
       <div className="SignUp">
         <div className="signUpWrapper">
           <h1 className="signUpTitle">회원가입</h1>
-          <BusinessUser />
-          <h1 className="signUpSubTitle">추가정보</h1>
-          {/* <table>
-            <TableRows td="생년월일" />
-          </table> */}
-          <AgreePolicy />
+          {joinPageComponentsSwitcher[tableType]({ tableTypeChanger })}
+          <AdditionalInfoTable />
+          <AgreePolicyTable />
         </div>
       </div>
     );
