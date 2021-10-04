@@ -37,7 +37,6 @@ class SignUp extends React.Component {
     const {
       target: { value, name },
     } = e;
-
     this.setState(() => ({ [name]: value }));
   };
 
@@ -56,6 +55,7 @@ class SignUp extends React.Component {
             usertype,
             userBusiness,
             onClick,
+            onChange,
           })}
           <AdditionalInfoTable onChange={onChange} />
           <AgreePolicyTable onChange={onChange} />

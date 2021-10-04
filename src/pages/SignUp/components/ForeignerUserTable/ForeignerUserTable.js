@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import RadioBtns from '../RadioBtns/RadioBtns';
 import TableHeader from '../TableHeader/TableHeader';
 import TableRows from '../TableRows/TableRows';
 import './ForeignerUserTable.scss';
@@ -9,7 +8,7 @@ import './ForeignerUserTable.scss';
 class ForeignerUserTable extends React.Component {
   render() {
     const {
-      props: { onClick, usertype },
+      props: { onClick, usertype, onChange },
     } = this;
     return (
       <div className="ForeignerUserTable">
@@ -17,11 +16,13 @@ class ForeignerUserTable extends React.Component {
           <TableHeader onClick={onClick} usertype={usertype} />
           <tbody>
             <TableRows
+              onChange={onChange}
               td="외국인 등록번호"
               className="foreignerNumber"
               name="foreignerNumber"
             />
             <TableRows
+              onChange={onChange}
               placeholder={'국가를 선택해주세요.'}
               td="국적"
               className="tr"
@@ -32,6 +33,7 @@ class ForeignerUserTable extends React.Component {
               <td colSpan="2" className="idTd">
                 <div className="idTdContainer">
                   <Input
+                    onChange={onChange}
                     name="userId"
                     placeholder={'영소문자/숫자,4~16자'}
                     className="input"
@@ -41,6 +43,7 @@ class ForeignerUserTable extends React.Component {
               </td>
             </tr>
             <TableRows
+              onChange={onChange}
               name="userPassword"
               placeholder="(영문 대소문자/숫자/특문자 중 2가지 이상 조합.8~16자)"
               td="비밀번호"
@@ -48,24 +51,39 @@ class ForeignerUserTable extends React.Component {
             />
 
             <TableRows
+              onChange={onChange}
               name="userPasswordConfirm"
               td="비밀번호 확인"
               className="tr"
             />
-            <TableRows td="이름" className="tr" name="userFirstAdress" />
+            <TableRows
+              onChange={onChange}
+              td="이름"
+              className="tr"
+              name="userFirstAdress"
+            />
             <tr className="adressTr">
               <td rowSpan="3">주소</td>
               <td rowSpan="3" className="daressTd" colSpan="2">
                 <div className="innerRow innerRowColumn">
-                  <Input className="input" name="userMiddleAdress" />
+                  <Input
+                    onChange={onChange}
+                    className="input"
+                    name="userMiddleAdress"
+                  />
                   <Button content={'우편번호'} className="adressNumber" />
                 </div>
                 <Input
+                  onChange={onChange}
                   name="userSecondAdress"
                   className="input innerRowColumn"
                   placeholder="기본주소"
                 />
-                <Input className="input" name="userthirdAdress" />
+                <Input
+                  onChange={onChange}
+                  className="input"
+                  name="userthirdAdress"
+                />
               </td>
               <td></td>
             </tr>
@@ -93,12 +111,14 @@ class ForeignerUserTable extends React.Component {
                   </select>
                   -&nbsp;
                   <Input
+                    onChange={onChange}
                     type="number"
                     name="userSecondPhoneNumber"
                     className="input phoneNumberInput"
                   />
                   -&nbsp;
                   <Input
+                    onChange={onChange}
                     type="number"
                     name="userThirdPhoneNumber"
                     className="input phoneNumberInput"
@@ -106,7 +126,13 @@ class ForeignerUserTable extends React.Component {
                 </div>
               </td>
             </tr>
-            <TableRows td="이메일" className="tr" name="userEmail" />
+            <TableRows
+              onChange={onChange}
+              td="이메일"
+              className="tr"
+              name="userEmail"
+              type="email"
+            />
           </tbody>
         </table>
       </div>
