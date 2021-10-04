@@ -1,17 +1,23 @@
 @import '../../../../styles//mixins.scss';
 @import '../../../../styles//common.scss';
 
-.AgreePolicyTablex {
+.AgreePolicyTable {
   label {
     margin-left: 10px;
   }
 
   table {
-    .plusColumn > a {
+    .plusColumn > span {
       margin-right: 10px;
       font-size: 30px;
       font-weight: 340;
       color: $gray;
+      cursor: pointer;
+    }
+
+    .docRow,
+    .docRow td {
+      padding: 0;
     }
 
     .flexRow {

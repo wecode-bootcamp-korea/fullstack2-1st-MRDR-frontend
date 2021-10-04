@@ -24,7 +24,10 @@ class SignUp extends React.Component {
       <div className="SignUp">
         <div className="signUpWrapper">
           <h1 className="signUpTitle">회원가입</h1>
-          {joinPageComponentsSwitcher[tableType]({ tableTypeChanger })}
+          {joinPageComponentsSwitcher[tableType]({
+            tableTypeChanger,
+            tableType,
+          })}
           <AdditionalInfoTable />
           <AgreePolicyTable />
         </div>

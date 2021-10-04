@@ -3,9 +3,7 @@ import RadioBtns from '../RadioBtns/RadioBtns';
 
 class TableHeader extends React.Component {
   render() {
-    const {
-      props: { tableTypeChanger },
-    } = this;
+    const { props } = this;
 
     return (
       <thead>
@@ -13,7 +11,7 @@ class TableHeader extends React.Component {
           <td className="signUpSubTitle firstThTd">기본정보</td>
           <td className="secondThTd" colSpan="3">
             <RadioBtns
-              tableTypeChanger={tableTypeChanger}
+              {...props}
               name="userCountry"
               btns={[
                 {

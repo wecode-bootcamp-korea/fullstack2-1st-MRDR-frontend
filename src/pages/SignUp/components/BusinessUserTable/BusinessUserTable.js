@@ -8,14 +8,12 @@ import './BusinessUserTable.scss';
 
 class BusinessUserTable extends React.Component {
   render() {
-    const {
-      props: { tableTypeChanger },
-    } = this;
+    const { props } = this;
 
     return (
       <div className="BusinessUser">
         <table className="basicInfo">
-          <TableHeader tableTypeChanger={tableTypeChanger} />
+          <TableHeader {...props} />
           <tbody>
             <tr>
               <td>사업자 구분</td>

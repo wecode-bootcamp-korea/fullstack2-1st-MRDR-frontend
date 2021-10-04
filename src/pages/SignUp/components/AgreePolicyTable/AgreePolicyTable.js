@@ -1,12 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import ArgeePolicyDoc from '../ArgeePolicyDoc/ArgeePolicyDoc';
 import CheckBoxRow from '../CheckBoxRow/CheckBoxRow';
 import './AgreePolicyTable.scss';
 
 class AgreePolicyTable extends React.Component {
+  state = { useInfoAgree: false, personalInfoAgree: false, emailAgree: false };
+
+  openModal = e => {
+    const {
+      target: {
+        classList: { value },
+      },
+    } = e;
+    const { state } = this;
+    this.setState(() => ({ [value]: !state[value] }));
+  };
+
   render() {
+    const {
+      openModal,
+      state: { useInfoAgree, personalInfoAgree, emailAgree },
+    } = this;
     return (
-      <div className="AgreePolicy">
+      <div className="AgreePolicyTable">
         <table>
           <thead>
             <tr className="signUpSubTitle">
@@ -17,8 +33,7 @@ class AgreePolicyTable extends React.Component {
             <tr className="subSignUpSubTitle">
               <td>
                 <CheckBoxRow
-                  id="agreeBox"
-                  name="agreeBox"
+                  id="allAgreeBox"
                   label="  이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신 선택에 모두
                     동의합니다."
                 />
@@ -28,46 +43,60 @@ class AgreePolicyTable extends React.Component {
           <tbody>
             <tr className="subArgeeColumn">
               <td colSpan="2">
-                <CheckBoxRow
-                  id="personalAgree"
-                  name="personalAgree"
-                  label={'[필수] 이용약관 동의'}
-                />
+                <CheckBoxRow id="useInfoAgree" label={'[필수] 이용약관 동의'} />
               </td>
               <td className="plusColumn">
-                <Link to="#">+</Link>
+                <span className="useInfoAgree" onClick={openModal}>
+                  +
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan="3" className="docRow">
+                <ArgeePolicyDoc className={useInfoAgree ? 'show' : ''} />
               </td>
             </tr>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <CheckBoxRow
-                  id="personalAgree"
-                  name="personalAgree"
+                  id="personalInfoAgree"
                   label={'[필수] 개인정보 수집 및 이용 동의'}
                 />
               </td>
               <td className="plusColumn">
-                <Link to="#">+</Link>
+                <span className="personalInfoAgree" onClick={openModal}>
+                  +
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan="3" className="docRow">
+                <ArgeePolicyDoc className={personalInfoAgree ? 'show' : ''} />
               </td>
             </tr>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <div className="flexRow">
                   <CheckBoxRow
-                    id="personalAgree"
-                    name="personalAgree"
+                    id="SMSAgree"
                     label={'[선택] SMS 수신을 동의하십니까?'}
                   />
 
                   <CheckBoxRow
-                    id="personalAgree"
-                    name="personalAgree"
+                    id="emailAgree"
                     label={'[필수] 이메일 수신을 동의하십니까?'}
                   />
                 </div>
               </td>
               <td className="plusColumn">
-                <Link to="#">+</Link>
+                <span className="emailAgree" onClick={openModal}>
+                  +
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan="3" className="docRow">
+                <ArgeePolicyDoc className={emailAgree ? 'show' : ''} />
               </td>
             </tr>
           </tbody>

@@ -7,14 +7,12 @@ import './PersonalUserTable.scss';
 
 class PersonalUserTable extends React.Component {
   render() {
-    const {
-      props: { tableTypeChanger },
-    } = this;
+    const { props } = this;
 
     return (
       <div className="PersonalUserTable">
         <table className="basicInfo">
-          <TableHeader tableTypeChanger={tableTypeChanger} />
+          <TableHeader {...props} />
           <tbody>
             <tr className="idTr">
               <td>아이디</td>

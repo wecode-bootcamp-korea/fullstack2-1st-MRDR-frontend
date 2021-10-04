@@ -1,16 +1,12 @@
 import React from 'react';
-import Input from '../Input/Input';
-import './CheckBoxRow.scss';
+import CheckBox from '../CheckBox/CheckBox';
 
 class CheckBoxRow extends React.Component {
   render() {
-    const {
-      props: { label, id, name },
-    } = this;
+    const { props } = this;
     return (
       <div className="CheckBoxRow">
-        <Input type="checkBox" id={id} name={name} readOnly={true} />
-        <label htmlFor={name}>{label}</label>
+        <CheckBox {...props} />
       </div>
     );
   }
