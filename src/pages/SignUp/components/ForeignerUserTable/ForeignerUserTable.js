@@ -8,34 +8,14 @@ import './ForeignerUserTable.scss';
 
 class ForeignerUserTable extends React.Component {
   render() {
-    const { props } = this;
-
+    const {
+      props: { onClick, usertype },
+    } = this;
     return (
       <div className="ForeignerUserTable">
         <table className="basicInfo">
-          <TableHeader {...props} />
+          <TableHeader onClick={onClick} usertype={usertype} />
           <tbody>
-            <tr>
-              <td>사업자 구분</td>
-              <td className="businessInfo" colSpan="2">
-                <RadioBtns
-                  name="userBusiness"
-                  btns={[
-                    {
-                      id: 'companyBusiness',
-                      value: 'companyBusiness',
-                      label: '법인사업자',
-                    },
-                    {
-                      id: 'personalBusiness',
-                      value: 'personalBusiness',
-                      label: '개인사업자',
-                    },
-                  ]}
-                />
-              </td>
-            </tr>
-
             <TableRows
               td="외국인 등록번호"
               className="foreignerNumber"
@@ -113,11 +93,13 @@ class ForeignerUserTable extends React.Component {
                   </select>
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userSecondPhoneNumber"
                     className="input phoneNumberInput"
                   />
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userThirdPhoneNumber"
                     className="input phoneNumberInput"
                   />

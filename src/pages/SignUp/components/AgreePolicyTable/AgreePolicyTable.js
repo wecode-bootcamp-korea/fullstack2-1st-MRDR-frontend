@@ -30,17 +30,14 @@ class AgreePolicyTable extends React.Component {
 
     const { state } = this;
     if (id === 'allAgreeBox') {
+      const temp = {};
       for (let key in policyAgreements) {
-        this.setState(() => ({
-          [policyAgreements[key]]: [
-            state[policyAgreements[key]][0],
-            !state[policyAgreements[key]][1],
-          ],
-        }));
+        const item = policyAgreements[key];
+        temp[item] = [state[item][0], !state[item][1]];
       }
+      this.setState(() => ({ ...temp }));
       return;
     }
-
     this.setState(() => ({ [id]: [state[id][0], !state[id][1]] }));
   };
 
@@ -69,7 +66,7 @@ class AgreePolicyTable extends React.Component {
               <td>
                 <CheckBoxRow
                   onClick={checkBoxController}
-                  isChecked={allAgreeBox[1]}
+                  ischecked={allAgreeBox[1]}
                   id="allAgreeBox"
                   label="  이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신 선택에 모두
                     동의합니다."
@@ -83,7 +80,7 @@ class AgreePolicyTable extends React.Component {
                 <CheckBoxRow
                   id="useInfoAgree"
                   onClick={checkBoxController}
-                  isChecked={useInfoAgree[1]}
+                  ischecked={useInfoAgree[1]}
                   label={'[필수] 이용약관 동의'}
                 />
               </td>
@@ -102,7 +99,7 @@ class AgreePolicyTable extends React.Component {
               <td colSpan="2">
                 <CheckBoxRow
                   onClick={checkBoxController}
-                  isChecked={personalInfoAgree[1]}
+                  ischecked={personalInfoAgree[1]}
                   id="personalInfoAgree"
                   label={'[필수] 개인정보 수집 및 이용 동의'}
                 />
@@ -125,16 +122,16 @@ class AgreePolicyTable extends React.Component {
                 <div className="flexRow">
                   <CheckBoxRow
                     onClick={checkBoxController}
-                    isChecked={SNSAgree[1]}
+                    ischecked={SNSAgree[1]}
                     id={'SNSAgree'}
                     label={'[선택] SMS 수신을 동의하십니까?'}
                   />
 
                   <CheckBoxRow
                     onClick={checkBoxController}
-                    isChecked={emailAgree[1]}
+                    ischecked={emailAgree[1]}
                     id={'emailAgree'}
-                    label={'[필수] 이메일 수신을 동의하십니까?'}
+                    label={'[선택] 이메일 수신을 동의하십니까?'}
                   />
                 </div>
               </td>

@@ -8,17 +8,20 @@ import './BusinessUserTable.scss';
 
 class BusinessUserTable extends React.Component {
   render() {
-    const { props } = this;
-
+    const {
+      props: { onClick, usertype, userBusiness },
+    } = this;
     return (
       <div className="BusinessUser">
         <table className="basicInfo">
-          <TableHeader {...props} />
+          <TableHeader onClick={onClick} usertype={usertype} />
           <tbody>
             <tr>
               <td>사업자 구분</td>
               <td className="businessInfo" colSpan="2">
                 <RadioBtns
+                  onClick={onClick}
+                  userBusiness={userBusiness}
                   name="userBusiness"
                   btns={[
                     {
@@ -112,11 +115,13 @@ class BusinessUserTable extends React.Component {
                   </select>
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userSecondPhoneNumber"
                     className="input phoneNumberInput"
                   />
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userThirdPhoneNumber"
                     className="input phoneNumberInput"
                   />

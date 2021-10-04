@@ -1,36 +1,71 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { joinPageComponentsSwitcher } from '../../util';
 import AdditionalInfoTable from './components/AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './components/AgreePolicyTable/AgreePolicyTable';
+import Button from './components/Button/Button';
 import './SignUp.scss';
 
 class SignUp extends React.Component {
-  state = { tableType: 0 };
+  state = { usertype: 'personalUser' };
 
   onClick = e => {
     const {
-      target: { value },
+      target: { value, name },
     } = e;
-    this.setState(() => ({ tableType: Number(value) }));
+
+    const { state } = this;
+
+    if (name === 'userType') {
+      this.setState(() => ({ ...state, [name]: value }));
+      return;
+    }
+
+    if (name === 'userBusiness') {
+      this.setState(() => ({ [name]: value }));
+      return;
+    }
+
+    this.setState(() => ({ [name]: value }));
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+  };
+
+  onChange = e => {
+    const {
+      target: { value, name },
+    } = e;
+
+    this.setState(() => ({ [name]: value }));
   };
 
   render() {
     const {
+      onChange,
+      onSubmit,
       onClick,
-      state: { tableType },
+      state: { usertype, userBusiness },
     } = this;
-
     return (
       <div className="SignUp">
-        <div className="signUpWrapper">
+        <form onSubmit={onSubmit} className="signUpWrapper">
           <h1 className="signUpTitle">회원가입</h1>
-          {joinPageComponentsSwitcher[tableType]({
+          {joinPageComponentsSwitcher[usertype]({
+            usertype,
+            userBusiness,
             onClick,
-            tableType,
           })}
-          <AdditionalInfoTable />
-          <AgreePolicyTable />
-        </div>
+          <AdditionalInfoTable onChange={onChange} />
+          <AgreePolicyTable onChange={onChange} />
+          <div className="signUpButtons">
+            <Link to={'main'} className={'signUpCancel'}>
+              취소
+            </Link>
+            <Button className={'signUpStart'} message={'회원가입'} />
+          </div>
+        </form>
       </div>
     );
   }

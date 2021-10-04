@@ -6,12 +6,45 @@
   padding-top: 15%;
   min-width: 800px;
 
+  .signUpButtons {
+    @include flex();
+    margin-bottom: 50px;
+
+    .signUpCancel,
+    .signUpStart {
+      width: 170px;
+      height: 50px;
+    }
+
+    .signUpCancel {
+      @include flex();
+      font-size: $secondMiddleFontSize;
+      cursor: pointer;
+      @include button(
+        $radius: 1px,
+        $bgColor: white,
+        $border: 1px solid $black,
+        $padding: 0
+      );
+    }
+    .signUpStart {
+      margin-left: 10px;
+      @include button(
+        $radius: 0,
+        $bgColor: $black,
+        $border: 1px solid $black,
+        $padding: 0
+      );
+      color: white;
+    }
+  }
+
   .show {
     display: block;
   }
 
   table {
-    margin-bottom: 85px;
+    margin-bottom: 70px;
     width: 800px;
     font-size: $smallFontSize;
     border-collapse: collapse;

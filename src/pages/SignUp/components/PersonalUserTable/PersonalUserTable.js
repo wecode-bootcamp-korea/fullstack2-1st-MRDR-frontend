@@ -7,12 +7,13 @@ import './PersonalUserTable.scss';
 
 class PersonalUserTable extends React.Component {
   render() {
-    const { props } = this;
-
+    const {
+      props: { onClick, usertype },
+    } = this;
     return (
       <div className="PersonalUserTable">
         <table className="basicInfo">
-          <TableHeader {...props} />
+          <TableHeader onClick={onClick} usertype={usertype} />
           <tbody>
             <tr className="idTr">
               <td>아이디</td>
@@ -39,6 +40,7 @@ class PersonalUserTable extends React.Component {
               td="비밀번호 확인"
               className="tr"
             />
+
             <TableRows td="이름" className="tr" name="userFirstAdress" />
             <tr className="adressTr">
               <td rowSpan="3">주소</td>
@@ -80,11 +82,13 @@ class PersonalUserTable extends React.Component {
                   </select>
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userSecondPhoneNumber"
                     className="input phoneNumberInput"
                   />
                   -&nbsp;
                   <Input
+                    type="number"
                     name="userThirdPhoneNumber"
                     className="input phoneNumberInput"
                   />

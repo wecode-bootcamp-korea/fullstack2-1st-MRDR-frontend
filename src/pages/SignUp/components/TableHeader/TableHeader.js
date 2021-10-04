@@ -4,7 +4,6 @@ import RadioBtns from '../RadioBtns/RadioBtns';
 class TableHeader extends React.Component {
   render() {
     const { props } = this;
-
     return (
       <thead>
         <tr>
@@ -12,21 +11,21 @@ class TableHeader extends React.Component {
           <td className="secondThTd" colSpan="3">
             <RadioBtns
               {...props}
-              name="userCountry"
+              name={'usertype'}
               btns={[
                 {
-                  id: 'personal',
-                  value: '0',
+                  value: 'personalUser',
+                  id: 'personalUser',
                   label: '개인정보',
                 },
                 {
-                  id: 'buiness',
-                  value: '1',
+                  id: 'businessUser',
+                  value: 'businessUser',
                   label: '사업자회원',
                 },
                 {
-                  id: 'foreigner',
-                  value: '2',
+                  id: 'foreignerUser',
+                  value: 'foreignerUser',
                   label: '외국인 회원(foreigner)',
                 },
               ]}

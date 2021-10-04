@@ -3,9 +3,13 @@ import ForeignerUserTable from './pages/SignUp/components/ForeignerUserTable/For
 import PersonalUserTable from './pages/SignUp/components/PersonalUserTable/PersonalUserTable';
 
 export const joinPageComponentsSwitcher = {
-  0: props => <PersonalUserTable {...props} />,
-  1: props => <BusinessUserTable {...props} />,
-  2: props => <ForeignerUserTable {...props} />,
+  personalUser: props => <PersonalUserTable {...props} />,
+  businessUser: props => <BusinessUserTable {...props} />,
+  foreignerUser: props => <ForeignerUserTable {...props} />,
+};
+
+export const booleanToNumber = boolean => {
+  return boolean ? 1 : 0;
 };
 
 export const policyAgreements = [

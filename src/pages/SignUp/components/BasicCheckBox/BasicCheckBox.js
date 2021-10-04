@@ -1,31 +1,52 @@
 import React from 'react';
+import { booleanToNumber } from '../../../../util';
 import Input from '../Input/Input';
 
 class BasicCheckBox extends React.Component {
   render() {
     const {
       props: {
+        onClick,
         className,
-        type,
         label,
         id,
+        usertype,
         value,
+        ischecked,
+        type,
         name,
-        onClick,
-        tableType,
-        isChecked,
+        userBusiness,
       },
     } = this;
+    let checked;
+
+    switch (type) {
+      case 'radio':
+        if (name === 'usertype') {
+          checked = booleanToNumber(usertype === value);
+        } else {
+          checked = booleanToNumber(userBusiness === value);
+        }
+        break;
+
+      case 'checkBox':
+        checked = booleanToNumber(ischecked);
+        break;
+
+      default:
+        break;
+    }
+
     return (
       <div className={className}>
         <Input
-          readOnly={true}
-          checked={type === 'radio' ? tableType === Number(value) : isChecked}
-          name={name || id}
+          name={name}
+          value={value}
+          onClick={onClick}
           type={type}
+          readOnly={true}
+          checked={checked}
           id={id}
-          value={value || id}
-          onChange={onClick}
         />
         <label htmlFor={id}>{label}</label>
       </div>
