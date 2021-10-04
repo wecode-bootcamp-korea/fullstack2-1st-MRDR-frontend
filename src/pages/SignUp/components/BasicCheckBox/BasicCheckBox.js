@@ -11,20 +11,21 @@ class BasicCheckBox extends React.Component {
         id,
         value,
         name,
-        tableTypeChanger,
+        onClick,
         tableType,
+        isChecked,
       },
     } = this;
     return (
       <div className={className}>
         <Input
           readOnly={true}
-          // checked={tableType === Number(value)}
+          checked={type === 'radio' ? tableType === Number(value) : isChecked}
           name={name || id}
           type={type}
           id={id}
           value={value || id}
-          onChange={tableTypeChanger}
+          onChange={onClick}
         />
         <label htmlFor={id}>{label}</label>
       </div>

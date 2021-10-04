@@ -37,7 +37,8 @@
     border: 1px solid $black;
     color: white;
     text-align: center;
-    content: '✓';
+    font-size: $smallFontSize;
+    content: '✔︎';
   }
 
   input[type='checkBox']:not(:checked) + label:after {

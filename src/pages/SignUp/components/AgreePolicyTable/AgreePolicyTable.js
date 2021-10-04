@@ -1,10 +1,17 @@
 import React from 'react';
+import { policyAgreements } from '../../../../util';
 import ArgeePolicyDoc from '../ArgeePolicyDoc/ArgeePolicyDoc';
 import CheckBoxRow from '../CheckBoxRow/CheckBoxRow';
 import './AgreePolicyTable.scss';
 
 class AgreePolicyTable extends React.Component {
-  state = { useInfoAgree: false, personalInfoAgree: false, emailAgree: false };
+  state = {
+    allAgreeBox: ['', false],
+    useInfoAgree: ['', false],
+    personalInfoAgree: ['', false],
+    emailAgree: ['', false],
+    SNSAgree: ['', false],
+  };
 
   openModal = e => {
     const {
@@ -13,13 +20,41 @@ class AgreePolicyTable extends React.Component {
       },
     } = e;
     const { state } = this;
-    this.setState(() => ({ [value]: !state[value] }));
+    this.setState(() => ({ [value]: [!state[value][0], state[value][1]] }));
+  };
+
+  checkBoxController = e => {
+    const {
+      target: { id },
+    } = e;
+
+    const { state } = this;
+    if (id === 'allAgreeBox') {
+      for (let key in policyAgreements) {
+        this.setState(() => ({
+          [policyAgreements[key]]: [
+            state[policyAgreements[key]][0],
+            !state[policyAgreements[key]][1],
+          ],
+        }));
+      }
+      return;
+    }
+
+    this.setState(() => ({ [id]: [state[id][0], !state[id][1]] }));
   };
 
   render() {
     const {
+      checkBoxController,
       openModal,
-      state: { useInfoAgree, personalInfoAgree, emailAgree },
+      state: {
+        allAgreeBox,
+        useInfoAgree,
+        personalInfoAgree,
+        emailAgree,
+        SNSAgree,
+      },
     } = this;
     return (
       <div className="AgreePolicyTable">
@@ -33,6 +68,8 @@ class AgreePolicyTable extends React.Component {
             <tr className="subSignUpSubTitle">
               <td>
                 <CheckBoxRow
+                  onClick={checkBoxController}
+                  isChecked={allAgreeBox[1]}
                   id="allAgreeBox"
                   label="  이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신 선택에 모두
                     동의합니다."
@@ -43,7 +80,12 @@ class AgreePolicyTable extends React.Component {
           <tbody>
             <tr className="subArgeeColumn">
               <td colSpan="2">
-                <CheckBoxRow id="useInfoAgree" label={'[필수] 이용약관 동의'} />
+                <CheckBoxRow
+                  id="useInfoAgree"
+                  onClick={checkBoxController}
+                  isChecked={useInfoAgree[1]}
+                  label={'[필수] 이용약관 동의'}
+                />
               </td>
               <td className="plusColumn">
                 <span className="useInfoAgree" onClick={openModal}>
@@ -53,12 +95,14 @@ class AgreePolicyTable extends React.Component {
             </tr>
             <tr>
               <td colSpan="3" className="docRow">
-                <ArgeePolicyDoc className={useInfoAgree ? 'show' : ''} />
+                <ArgeePolicyDoc className={useInfoAgree[0] ? 'show' : ''} />
               </td>
             </tr>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <CheckBoxRow
+                  onClick={checkBoxController}
+                  isChecked={personalInfoAgree[1]}
                   id="personalInfoAgree"
                   label={'[필수] 개인정보 수집 및 이용 동의'}
                 />
@@ -71,19 +115,25 @@ class AgreePolicyTable extends React.Component {
             </tr>
             <tr>
               <td colSpan="3" className="docRow">
-                <ArgeePolicyDoc className={personalInfoAgree ? 'show' : ''} />
+                <ArgeePolicyDoc
+                  className={personalInfoAgree[0] ? 'show' : ''}
+                />
               </td>
             </tr>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <div className="flexRow">
                   <CheckBoxRow
-                    id="SMSAgree"
+                    onClick={checkBoxController}
+                    isChecked={SNSAgree[1]}
+                    id={'SNSAgree'}
                     label={'[선택] SMS 수신을 동의하십니까?'}
                   />
 
                   <CheckBoxRow
-                    id="emailAgree"
+                    onClick={checkBoxController}
+                    isChecked={emailAgree[1]}
+                    id={'emailAgree'}
                     label={'[필수] 이메일 수신을 동의하십니까?'}
                   />
                 </div>
@@ -96,7 +146,7 @@ class AgreePolicyTable extends React.Component {
             </tr>
             <tr>
               <td colSpan="3" className="docRow">
-                <ArgeePolicyDoc className={emailAgree ? 'show' : ''} />
+                <ArgeePolicyDoc className={emailAgree[0] ? 'show' : ''} />
               </td>
             </tr>
           </tbody>

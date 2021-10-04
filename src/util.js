@@ -7,3 +7,11 @@ export const joinPageComponentsSwitcher = {
   1: props => <BusinessUserTable {...props} />,
   2: props => <ForeignerUserTable {...props} />,
 };
+
+export const policyAgreements = [
+  'allAgreeBox',
+  'useInfoAgree',
+  'personalInfoAgree',
+  'emailAgree',
+  'SNSAgree',
+];

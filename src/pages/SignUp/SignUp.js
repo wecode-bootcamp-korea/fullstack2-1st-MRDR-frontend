@@ -7,7 +7,7 @@ import './SignUp.scss';
 class SignUp extends React.Component {
   state = { tableType: 0 };
 
-  tableTypeChanger = e => {
+  onClick = e => {
     const {
       target: { value },
     } = e;
@@ -16,7 +16,7 @@ class SignUp extends React.Component {
 
   render() {
     const {
-      tableTypeChanger,
+      onClick,
       state: { tableType },
     } = this;
 
@@ -25,7 +25,7 @@ class SignUp extends React.Component {
         <div className="signUpWrapper">
           <h1 className="signUpTitle">회원가입</h1>
           {joinPageComponentsSwitcher[tableType]({
-            tableTypeChanger,
+            onClick,
             tableType,
           })}
           <AdditionalInfoTable />
