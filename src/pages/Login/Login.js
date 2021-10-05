@@ -8,14 +8,14 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { checkEmailValid, checkPasswordValid } from '../../utils';
+import { checkIdValid, checkPasswordValid } from '../../utils';
 import Border from './components/Border/Border';
 import Button from './components/Button/Button';
 import Input from './components/Input/Input';
 import './Login.scss';
 
 class Login extends React.Component {
-  state = { email: '', password: '' };
+  state = { id: '', password: '' };
 
   onChange = e => {
     const {
@@ -26,15 +26,15 @@ class Login extends React.Component {
 
   onSubmit = e => {
     const {
-      state: { email, password },
+      state: { id, password },
     } = this;
     e.preventDefault();
-    const isValid = this.checkIsValid(email, password);
+    const isValid = this.checkIsValid(id, password);
     if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
   };
 
-  checkIsValid = (email, password) => {
-    return checkEmailValid(email) && checkPasswordValid(password);
+  checkIsValid = (id, password) => {
+    return checkIdValid(id) && checkPasswordValid(password);
   };
 
   render() {
@@ -59,14 +59,14 @@ class Login extends React.Component {
           <Border />
           <form onSubmit={this.onSubmit}>
             <Input
-              name="email"
-              placeholder="아이디"
+              name="id"
+              placeholder="아이디, 영소문자와 숫자의 조합 4~12자"
               className="loginInput"
               onChange={this.onChange}
             />
             <Input
               name="password"
-              placeholder="비밀번호"
+              placeholder="비밀번호, 영대소문자,숫자, 특수문자 조합 8~16자"
               className="loginInput"
               type="password"
               onChange={this.onChange}
