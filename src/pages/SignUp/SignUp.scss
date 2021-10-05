@@ -6,6 +6,54 @@
   padding-top: 15%;
   min-width: 800px;
 
+  small {
+    font-size: $smallFontSize;
+    color: $middleGray;
+  }
+
+  .signUpWrapper {
+    @include flex($flexDirection: column);
+
+    .signUpTitle {
+      @include title($size: $secondBigFontSize, $weight: 770);
+      margin-bottom: 84px;
+    }
+
+    .BasicUserInfoTable,
+    .AdditionalInfoTable {
+      th tr,
+      td {
+        padding: 13px;
+      }
+
+      tbody {
+        td:first-child {
+          background-color: $lighterGray;
+        }
+      }
+    }
+
+    table {
+      margin-bottom: 70px;
+      width: 800px;
+      font-size: $smallFontSize;
+      border-collapse: collapse;
+
+      thead {
+        border-bottom: 3px solid black;
+
+        .signUpSubTitle {
+          @include title($size: $thirdMiddleFontSize, $weight: 700);
+        }
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid $borderGray;
+      }
+    }
+  }
+
   .signUpButtons {
     @include flex();
     margin-bottom: 50px;
@@ -27,8 +75,10 @@
         $padding: 0
       );
     }
+
     .signUpStart {
       margin-left: 10px;
+
       @include button(
         $radius: 0,
         $bgColor: $black,
@@ -36,51 +86,6 @@
         $padding: 0
       );
       color: white;
-    }
-  }
-
-  .show {
-    display: block;
-  }
-
-  table {
-    margin-bottom: 70px;
-    width: 800px;
-    font-size: $smallFontSize;
-    border-collapse: collapse;
-
-    thead {
-      border-bottom: 3px solid black;
-    }
-
-    th,
-    td {
-      padding: 13px;
-      border-bottom: 1px solid $borderGray;
-    }
-  }
-
-  small {
-    font-size: $smallFontSize;
-    color: $middleGray;
-  }
-
-  .signUpWrapper {
-    @include flex($flexDirection: column);
-
-    .signUpTitle {
-      @include title($size: $secondBigFontSize, $weight: 770);
-      margin-bottom: 84px;
-    }
-
-    .signUpSubTitle {
-      @include title($size: $thirdMiddleFontSize, $weight: 700);
-    }
-  }
-
-  .adressTr {
-    .innerRowColumn {
-      margin-bottom: 10px;
     }
   }
 
@@ -92,5 +97,9 @@
 
   input[type='number'] {
     -moz-appearance: textfield;
+  }
+
+  .show {
+    display: block;
   }
 }

@@ -25,8 +25,11 @@ class AgreePolicyTable extends React.Component {
                 <h1>전체동의</h1>
               </td>
             </tr>
+          </thead>
+
+          <tbody>
             <tr className="subSignUpSubTitle">
-              <td>
+              <td colSpan="3">
                 <CheckBoxRow
                   onClick={checkBoxController}
                   ischecked={allAgreeBox[1]}
@@ -36,8 +39,6 @@ class AgreePolicyTable extends React.Component {
                 />
               </td>
             </tr>
-          </thead>
-          <tbody>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <CheckBoxRow

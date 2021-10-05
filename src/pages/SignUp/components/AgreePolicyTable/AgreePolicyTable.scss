@@ -7,17 +7,22 @@
   }
 
   table {
+    th tr,
+    td {
+      padding: 13px;
+    }
+
+    .docRow,
+    .docRow td {
+      padding: 0;
+    }
+
     .plusColumn > span {
       margin-right: 10px;
       font-size: 30px;
       font-weight: 340;
       color: $gray;
       cursor: pointer;
-    }
-
-    .docRow,
-    .docRow td {
-      padding: 0;
     }
 
     .flexRow {

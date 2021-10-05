@@ -1,18 +1,18 @@
 @import '../../../../styles/common.scss';
 @import '../../../../styles/mixins.scss';
 
-.ForeignerUserTable {
+.BasicUserInfoTable {
   table {
-    .idTr {
-      .idTdContainer {
-        @include flex($flexDirection: column, $align: flex-start);
-        small {
-          margin: 15px 0 0 5px;
+    tbody {
+      .idTr {
+        .idTdContainer {
+          @include flex($flexDirection: column, $align: flex-start);
+          small {
+            margin: 15px 0 0 5px;
+          }
         }
       }
-    }
 
-    tbody {
       .input {
         @include input($width: 80%, $padding: 10px, $radius: 1px);
         font-size: $smallFontSize;
@@ -56,16 +56,6 @@
             color: white;
             font-size: $smallFontSize;
           }
-        }
-
-        .businessInfo {
-          .RadioBtns {
-            @include flex($justify: flex-start);
-          }
-        }
-
-        td:first-child {
-          background-color: $lighterGray;
         }
       }
     }

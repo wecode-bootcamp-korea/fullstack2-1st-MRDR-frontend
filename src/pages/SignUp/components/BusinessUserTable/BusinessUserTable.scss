@@ -1,91 +1,10 @@
 @import '../../../../styles/common.scss';
 @import '../../../../styles/mixins.scss';
 
-.BusinessUser {
-  table {
-    .idTr {
-      .idTdContainer {
-        @include flex($flexDirection: column, $align: flex-start);
-        small {
-          margin: 15px 0 0 5px;
-        }
-      }
+tr {
+  .businessInfo {
+    .RadioBtns {
+      @include flex($justify: flex-start);
     }
-
-    tbody {
-      .input {
-        @include input($width: 80%, $padding: 10px, $radius: 1px);
-        font-size: $smallFontSize;
-
-        &::placeholder {
-          color: $middleGray;
-        }
-      }
-
-      tr {
-        .innerRow {
-          .input {
-            margin-right: 5px;
-            width: 30%;
-          }
-
-          .phoneNumberInput {
-            & {
-              height: 37px;
-              width: 122px;
-              margin-right: 5px;
-            }
-
-            &:first-child {
-              border: 1px solid $lightGray;
-              padding-left: 10px;
-              &:focus {
-                outline: none;
-              }
-            }
-          }
-
-          @include flex($justify: flex-start);
-          .adressNumber {
-            @include button(
-              $bgColor: $black,
-              $radius: 1px,
-              $padding: 10px 17px,
-              $border: 1px solid black
-            );
-            color: white;
-            font-size: $smallFontSize;
-          }
-        }
-
-        .businessInfo {
-          .RadioBtns {
-            @include flex($justify: flex-start);
-          }
-        }
-
-        td:first-child {
-          background-color: $lighterGray;
-        }
-      }
-    }
-
-    .firstThTd {
-      text-align: left;
-    }
-    .secondThTd {
-      text-align: right;
-      padding-right: 0;
-
-      .RadioBtns {
-        @include flex($justify: flex-end);
-      }
-    }
-  }
-}
-
-.adressTr {
-  .innerRowColumn {
-    margin-bottom: 10px;
   }
 }

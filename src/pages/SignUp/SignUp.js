@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { joinPageComponentsSwitcher, policyAgreements } from '../../util';
+import { policyAgreements } from '../../util';
 import AdditionalInfoTable from './components/AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './components/AgreePolicyTable/AgreePolicyTable';
+import BasicUserInfoTable from './components/BasicUserInfoTable/BasicUserInfoTable';
 import Button from './components/Button/Button';
 import './SignUp.scss';
 
@@ -51,7 +52,7 @@ class SignUp extends React.Component {
 
     const { state } = this;
 
-    if (name === 'userType') {
+    if (name === 'usertype') {
       this.setState(() => ({ ...state, [name]: value }));
       return;
     }
@@ -96,12 +97,12 @@ class SignUp extends React.Component {
       <div className="SignUp">
         <form onSubmit={onSubmit} className="signUpWrapper">
           <h1 className="signUpTitle">회원가입</h1>
-          {joinPageComponentsSwitcher[usertype]({
-            usertype,
-            userBusiness,
-            onClick,
-            onChange,
-          })}
+          <BasicUserInfoTable
+            onClick={onClick}
+            usertype={usertype}
+            userBusiness={userBusiness}
+            onChange={onChange}
+          />
           <AdditionalInfoTable onChange={onChange} />
           <AgreePolicyTable
             allAgreeBox={allAgreeBox}

@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioBtns from '../RadioBtns/RadioBtns';
+import './TableHeader.scss';
 
 class TableHeader extends React.Component {
   render() {

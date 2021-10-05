@@ -1,20 +1,28 @@
 import React from 'react';
+import { joinPageComponentsSwitcher } from '../../../../util';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import TableHeader from '../TableHeader/TableHeader';
 import TableRows from '../TableRows/TableRows';
-import './PersonalUserTable.scss';
+import './BasicUserInfoTable.scss';
 
-class PersonalUserTable extends React.Component {
+class BasicUserInfoTable extends React.Component {
   render() {
     const {
-      props: { onClick, usertype, onChange },
+      props: { onClick, usertype, userBusiness, onChange },
     } = this;
     return (
-      <div className="PersonalUserTable">
+      <div className="BasicUserInfoTable">
         <table className="basicInfo">
           <TableHeader onClick={onClick} usertype={usertype} />
           <tbody>
+            {usertype &&
+              joinPageComponentsSwitcher[usertype]({
+                usertype,
+                userBusiness,
+                onClick,
+                onChange,
+              })}
             <tr className="idTr">
               <td>아이디</td>
               <td colSpan="2" className="idTd">
@@ -36,14 +44,12 @@ class PersonalUserTable extends React.Component {
               td="비밀번호"
               className="tr"
             />
-
             <TableRows
               onChange={onChange}
               name="userPasswordConfirm"
               td="비밀번호 확인"
               className="tr"
             />
-
             <TableRows
               onChange={onChange}
               td="이름"
@@ -128,4 +134,4 @@ class PersonalUserTable extends React.Component {
   }
 }
 
-export default PersonalUserTable;
+export default BasicUserInfoTable;
