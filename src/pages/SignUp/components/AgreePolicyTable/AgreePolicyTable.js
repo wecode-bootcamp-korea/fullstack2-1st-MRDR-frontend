@@ -1,51 +1,14 @@
 import React from 'react';
-import { policyAgreements } from '../../../../util';
 import ArgeePolicyDoc from '../ArgeePolicyDoc/ArgeePolicyDoc';
 import CheckBoxRow from '../CheckBoxRow/CheckBoxRow';
 import './AgreePolicyTable.scss';
 
 class AgreePolicyTable extends React.Component {
-  state = {
-    allAgreeBox: ['', false],
-    useInfoAgree: ['', false],
-    personalInfoAgree: ['', false],
-    emailAgree: ['', false],
-    SNSAgree: ['', false],
-  };
-
-  openModal = e => {
-    const {
-      target: {
-        classList: { value },
-      },
-    } = e;
-    const { state } = this;
-    this.setState(() => ({ [value]: [!state[value][0], state[value][1]] }));
-  };
-
-  checkBoxController = e => {
-    const {
-      target: { id },
-    } = e;
-
-    const { state } = this;
-    if (id === 'allAgreeBox') {
-      const temp = {};
-      for (let key in policyAgreements) {
-        const item = policyAgreements[key];
-        temp[item] = [state[item][0], !state[item][1]];
-      }
-      this.setState(() => ({ ...temp }));
-      return;
-    }
-    this.setState(() => ({ [id]: [state[id][0], !state[id][1]] }));
-  };
-
   render() {
     const {
-      checkBoxController,
-      openModal,
-      state: {
+      props: {
+        checkBoxController,
+        openModal,
         allAgreeBox,
         useInfoAgree,
         personalInfoAgree,

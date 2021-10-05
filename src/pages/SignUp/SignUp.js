@@ -1,13 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { joinPageComponentsSwitcher } from '../../util';
+import { joinPageComponentsSwitcher, policyAgreements } from '../../util';
 import AdditionalInfoTable from './components/AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './components/AgreePolicyTable/AgreePolicyTable';
 import Button from './components/Button/Button';
 import './SignUp.scss';
 
 class SignUp extends React.Component {
-  state = { usertype: 'personalUser' };
+  state = {
+    usertype: 'personalUser',
+    allAgreeBox: ['', false],
+    useInfoAgree: ['', false],
+    personalInfoAgree: ['', false],
+    emailAgree: ['', false],
+    SNSAgree: ['', false],
+  };
+
+  openModal = e => {
+    const {
+      target: {
+        classList: { value },
+      },
+    } = e;
+    const { state } = this;
+    this.setState(() => ({ [value]: [!state[value][0], state[value][1]] }));
+  };
+
+  checkBoxController = e => {
+    const {
+      target: { id },
+    } = e;
+
+    const { state } = this;
+    if (id === 'allAgreeBox') {
+      const temp = {};
+      for (let key in policyAgreements) {
+        const item = policyAgreements[key];
+        temp[item] = [state[item][0], !state[item][1]];
+      }
+      this.setState(() => ({ ...temp }));
+      return;
+    }
+    this.setState(() => ({ [id]: [state[id][0], !state[id][1]] }));
+  };
 
   onClick = e => {
     const {
@@ -45,7 +80,17 @@ class SignUp extends React.Component {
       onChange,
       onSubmit,
       onClick,
-      state: { usertype, userBusiness },
+      openModal,
+      checkBoxController,
+      state: {
+        usertype,
+        userBusiness,
+        allAgreeBox,
+        useInfoAgree,
+        personalInfoAgree,
+        emailAgree,
+        SNSAgree,
+      },
     } = this;
     return (
       <div className="SignUp">
@@ -58,7 +103,16 @@ class SignUp extends React.Component {
             onChange,
           })}
           <AdditionalInfoTable onChange={onChange} />
-          <AgreePolicyTable onChange={onChange} />
+          <AgreePolicyTable
+            allAgreeBox={allAgreeBox}
+            useInfoAgree={useInfoAgree}
+            personalInfoAgree={personalInfoAgree}
+            emailAgree={emailAgree}
+            SNSAgree={SNSAgree}
+            openModal={openModal}
+            checkBoxController={checkBoxController}
+            onChange={onChange}
+          />
           <div className="signUpButtons">
             <Link to={'main'} className={'signUpCancel'}>
               취소
