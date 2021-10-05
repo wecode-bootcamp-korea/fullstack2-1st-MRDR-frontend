@@ -24,12 +24,15 @@ class Cart extends React.Component {
             label="전체선택(0/2)"
           />
           <main>
-            <ul className="cartItems">
-              <ProductItem />
-            </ul>
-            <div className="sideMenus">
-              <PricesBox />
-            </div>
+            <article>
+              <ul className="cartItems">
+                <ProductItem />
+              </ul>
+              <div className="sideMenus">
+                <PricesBox />
+              </div>
+            </article>
+            <article></article>
           </main>
         </div>
       </div>

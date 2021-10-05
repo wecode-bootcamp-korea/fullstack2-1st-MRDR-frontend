@@ -1,0 +1,8 @@
+@import '../../../../styles//mixins.scss';
+
+.ImageSlideItem {
+  background-color: yellow;
+  @include flex($flexDirection: column, $justify: space-between);
+  width: 288px;
+  height: 506px;
+}

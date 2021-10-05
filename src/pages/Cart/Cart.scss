@@ -5,10 +5,14 @@
   padding-top: 15%;
 
   .cartWrapper {
-    width: 1400px;
+    width: 1300px;
     header {
       @include flex($justify: space-between);
-
+      h1 {
+        @include title($size: $secondBigFontSize);
+        margin-bottom: 57px;
+        color: $black;
+      }
       .menuCate {
         margin-right: 5px;
         @include flex();
@@ -25,21 +29,16 @@
     }
 
     main {
-      display: grid;
-      grid-template-columns: 905px 340px;
-      gap: 60px;
+      article {
+        display: grid;
+        grid-template-columns: 905px 340px;
+        gap: 60px;
+        margin-bottom: 125px;
+      }
+
+      .cartItems {
+        border-top: 2px solid black;
+      }
     }
-  }
-
-  h1 {
-    @include title($size: $secondBigFontSize);
-    margin-bottom: 57px;
-    color: $black;
-  }
-
-  .cartItems {
-    border-top: 2px solid black;
-  }
-  .sideMenus {
   }
 }
