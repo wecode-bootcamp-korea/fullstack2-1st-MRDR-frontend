@@ -1,0 +1,12 @@
+{
+  "MESSAGE": "SUCCESS",
+  "PRODUCT_INFO_DATA": [
+    {
+      "id": 1,
+      "name": "에어코튼 시리 시그니처 블랙 레깅스",
+      "price": 78000,
+      "type": [],
+      "discountRate": 0.5
+    }
+  ]
+}

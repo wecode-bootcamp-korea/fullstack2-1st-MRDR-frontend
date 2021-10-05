@@ -1,0 +1,19 @@
+.ColorImagesContainer {
+  display: flex;
+  background-color: grey;
+  // position: absolute;
+  margin-left: 108px;
+
+  .colorOptionWrapper {
+    margin-left: 10px;
+    font-size: 12px;
+
+    p {
+      padding-top: 10px;
+    }
+  }
+
+  .colorOptionWrapper:first-child {
+    margin: 0;
+  }
+}
