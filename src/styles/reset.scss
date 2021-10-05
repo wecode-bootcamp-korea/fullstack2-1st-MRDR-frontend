@@ -138,18 +138,16 @@ q {
   }
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 input {
-  all: unset;
+  &:focus {
+    outline: none;
+  }
   box-sizing: border-box;
 }
 
 a {
-  all: unset;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
