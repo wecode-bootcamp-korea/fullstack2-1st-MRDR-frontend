@@ -1,0 +1,62 @@
+@import '../../../../styles/common.scss';
+@import '../../../../styles/mixins.scss';
+
+.PricesBox {
+  .priceDetail,
+  .totalPrice {
+    padding: 30px 25px;
+  }
+
+  .TwoColumnRow {
+    @include flex($justify: space-between);
+    font-size: $middleFontSize;
+    font-weight: 600;
+  }
+
+  .priceInfo {
+    border: 1px solid $black;
+
+    .totalPrice {
+      font-size: $secondMiddleFontSize;
+      font-weight: 700;
+    }
+    .priceDetail {
+      border-bottom: 1px solid $lightGray;
+
+      li:not(:last-child) {
+        margin-bottom: 25px;
+        width: 100%;
+      }
+    }
+  }
+  .priceBtns {
+    @include flex($flexDirection: column);
+    margin: 10px 0;
+    .orderBtn,
+    a {
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      cursor: pointer;
+      @include button(
+        $radius: 1px,
+        $bgColor: $black,
+        $border: 1px solid $lightGray,
+        $cursor: none
+      );
+      color: white;
+    }
+
+    a {
+      margin: 10px 0;
+      background-color: white;
+      color: $black;
+    }
+
+    small {
+      margin-top: 12px;
+      align-self: flex-end;
+      font-size: $additionalSmallerFontSize;
+    }
+  }
+}

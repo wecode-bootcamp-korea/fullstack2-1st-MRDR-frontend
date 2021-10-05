@@ -1,0 +1,51 @@
+@import '../../../../styles//mixins.scss';
+@import '../../../../styles//common.scss';
+
+.ProductItem {
+  @include flex($justify: space-around);
+  padding: 27px 20px 27px 0;
+  border-bottom: 2px solid $borderGray;
+
+  .CheckBox {
+    margin-bottom: 20px;
+  }
+
+  .itemInfos {
+    @include flex(
+      $flexDirection: column,
+      $align: flex-start,
+      $justify: space-between
+    );
+    height: 100%;
+
+    span {
+      font-size: $smallFontSize;
+      color: $gray;
+    }
+
+    .itemName {
+      margin-bottom: 23px;
+      color: $black;
+      font-size: $middleFontSize;
+      font-weight: 700;
+    }
+
+    a {
+      padding: 10px 13px;
+      margin-left: 2px;
+      border: 1px solid $lightGray;
+      border-radius: 3px;
+      font-size: $smallerFontSize;
+      font-weight: 645;
+      color: $gray;
+    }
+
+    span {
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+}
