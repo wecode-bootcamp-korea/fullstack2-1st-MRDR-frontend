@@ -188,4 +188,6 @@ class ImagesContainer extends React.Component {
   }
 }
 
+// merge 충돌 해결
+
 export default ImagesContainer;
