@@ -18,16 +18,12 @@ class Login extends React.Component {
   state = { id: '', password: '' };
 
   onChange = e => {
-    const {
-      target: { name, value },
-    } = e;
+    const { name, value } = e.target;
     this.setState(() => ({ [name]: value }));
   };
 
   onSubmit = e => {
-    const {
-      state: { id, password },
-    } = this;
+    const { id, password } = this.state;
     e.preventDefault();
     const isValid = this.checkIsValid(id, password);
     if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
