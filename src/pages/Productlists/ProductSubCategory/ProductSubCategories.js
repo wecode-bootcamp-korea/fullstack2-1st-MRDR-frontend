@@ -4,11 +4,12 @@ import './ProductSubCategories.scss';
 
 class ProductSubCategory extends React.Component {
   render() {
+    const { id, name } = this.props;
     return (
-      <ul className="categoryUnorderedList">
+      <ul className="headerCategoryList">
         <li className="categoryList">
-          <Link to="/productlists" key={this.props.id}>
-            {this.props.name}
+          <Link to="/productlist" key={id}>
+            {name}
           </Link>
         </li>
       </ul>
