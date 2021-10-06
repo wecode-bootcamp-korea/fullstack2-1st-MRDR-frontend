@@ -13,11 +13,11 @@ class ImagesContainer extends React.Component {
     this.state = {
       productImageSlides: [],
       mainImageUrl: '',
-      currentSlideId: 1,
+      currentSlideIndex: 0,
       isMouseDown: false,
-      startX: 0,
-      initialScrollLeft: 0,
-      scrollLeft: 0,
+      slideStartX: 0,
+      slideInitScrollLeft: 0,
+      slideScrollLeft: 0,
     };
     this.slideRef = React.createRef();
   }
@@ -32,50 +32,50 @@ class ImagesContainer extends React.Component {
       .catch(err => console.error(err));
   }
 
-  handleImageHoverEvent = (id, imageUrl) => {
-    this.setState({ hoveredImgId: id, mainImageUrl: imageUrl });
+  handleImageHoverEvent = imageUrl => {
+    this.setState({ mainImageUrl: imageUrl });
   };
 
   handleBtnPrevSlide = () => {
-    let { currentSlideId } = this.state;
-    currentSlideId--;
-    if (currentSlideId < 1) {
-      currentSlideId = 1;
+    const { currentSlideIndex } = this.state;
+    let prevSlideIndex = currentSlideIndex - 1;
+    if (prevSlideIndex < 0) {
+      prevSlideIndex = 0;
     }
-    this.setState({ currentSlideId });
+    this.setState({ currentSlideIndex: prevSlideIndex });
   };
 
   handleBtnNextSlide = () => {
-    let { productImageSlides, currentSlideId } = this.state;
-    currentSlideId++;
+    const { productImageSlides, currentSlideIndex } = this.state;
+    let nextSlideIndex = currentSlideIndex + 1;
     const lastId = productImageSlides.length;
-    if (currentSlideId > lastId) {
-      currentSlideId = lastId;
+    if (nextSlideIndex > lastId) {
+      nextSlideIndex = lastId;
     }
-    this.setState({ currentSlideId });
+    this.setState({ currentSlideIndex: nextSlideIndex });
   };
 
   handleMouseDown = e => {
     const { slideRef } = this;
     const { isMouseDown } = this.state;
-    const startX = e.pageX - slideRef.current.offsetLeft;
-    const scrollLeft = slideRef.current.scrollLeft;
+    const slideStartX = e.pageX - slideRef.current.offsetLeft;
+    const slideScrollLeft = slideRef.current.slideScrollLeft;
     this.setState({
       isMouseDown: !isMouseDown,
-      startX,
-      initialScrollLeft: scrollLeft,
-      scrollLeft,
+      slideStartX,
+      slideInitScrollLeft: slideScrollLeft,
+      slideScrollLeft,
     });
   };
 
   handleMouseMove = e => {
     const { slideRef } = this;
-    const { isMouseDown, startX, scrollLeft } = this.state;
+    const { isMouseDown, slideStartX, slideScrollLeft } = this.state;
     if (!isMouseDown) return;
     e.preventDefault();
     const x = e.pageX - slideRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    slideRef.current.scrollLeft = scrollLeft - walk;
+    const walk = (x - slideStartX) * 1.5;
+    slideRef.current.slideScrollLeft = slideScrollLeft - walk;
   };
 
   handleMouseUp = e => {
@@ -89,7 +89,7 @@ class ImagesContainer extends React.Component {
   };
 
   render() {
-    const { productImageSlides, mainImageUrl, currentSlideId, isMouseDown } =
+    const { productImageSlides, mainImageUrl, currentSlideIndex, isMouseDown } =
       this.state;
     const {
       slideRef,
@@ -102,7 +102,7 @@ class ImagesContainer extends React.Component {
       handleMouseLeave,
     } = this;
     const slideCss = {
-      transform: `translateX(-${660 * (currentSlideId - 1)}px)`,
+      transform: `translateX(-${660 * currentSlideIndex}px)`,
       transition: 'all 0.5s ease-in-out',
     };
     return (
@@ -146,7 +146,7 @@ class ImagesContainer extends React.Component {
         </div>
         <div className="slideNavBar">
           <button
-            className={currentSlideId > 1 ? 'prevBtn' : 'prevBtn hidden'}
+            className={currentSlideIndex > 0 ? 'prevBtn' : 'prevBtn hidden'}
             onClick={handleBtnPrevSlide}
           >
             <FontAwesomeIcon icon={faChevronCircleLeft} />
@@ -154,7 +154,7 @@ class ImagesContainer extends React.Component {
           <ul className="slideNav">
             {productImageSlides.map((imageSlide, index) => {
               const slideId = index + 1;
-              if (currentSlideId === slideId) {
+              if (currentSlideIndex === slideId - 1) {
                 return (
                   <li key={slideId} className="slideIconWrapper">
                     <button className="slideIcon">
@@ -174,7 +174,7 @@ class ImagesContainer extends React.Component {
           </ul>
           <button
             className={
-              productImageSlides.length > currentSlideId
+              productImageSlides.length - 1 > currentSlideIndex
                 ? 'nextBtn'
                 : 'nextBtn hidden'
             }
