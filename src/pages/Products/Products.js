@@ -1,6 +1,6 @@
 import React from 'react';
 import ImagesContainer from './ImagesContainer';
-import InfoContainer from './InfoContainer';
+import BasicInfoAndOptionsContainer from './BasicInfoAndOptionsContainer/BasicInfoAndOptionsContainer';
 import AdditionalInfoContainer from './AdditionalInfoContainer';
 import './Products.scss';
 
@@ -10,7 +10,7 @@ class Products extends React.Component {
       <div className="Products">
         <div className="mainInfoWrapper">
           <ImagesContainer />
-          <InfoContainer />
+          <BasicInfoAndOptionsContainer />
         </div>
         <AdditionalInfoContainer />
       </div>
