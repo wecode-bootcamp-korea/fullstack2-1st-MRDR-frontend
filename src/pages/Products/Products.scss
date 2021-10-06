@@ -1,4 +1,25 @@
+/*
+ src/styles 에 mixins.scss 를 만들 경우, merge 할 때 conflict 가 발생할 수 있어
+ 우선 Products.scss 안에서 mixin을 정의하였습니다.
+ */
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .Products {
-  background-color: red;
+  width: 1300px;
+  margin: 0 auto;
   font-size: 50px;
+
+  .mainInfoWrapper {
+    @include flexRow();
+  }
 }
