@@ -13,6 +13,7 @@
         margin-bottom: 57px;
         color: $black;
       }
+
       .menuCate {
         margin-right: 5px;
         @include flex();
@@ -29,11 +30,18 @@
     }
 
     main {
-      article {
+      .cartList {
         display: grid;
         grid-template-columns: 905px 340px;
         gap: 60px;
         margin-bottom: 125px;
+      }
+
+      .imageSliderContainer {
+        position: relative;
+        height: 509px;
+        background-color: blue;
+        overflow: hidden;
       }
 
       .cartItems {

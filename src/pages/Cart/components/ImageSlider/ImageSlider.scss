@@ -1,2 +1,10 @@
+@import '../../../../styles//mixins.scss';
+
 .ImageSlider {
+  @include flex();
+  position: absolute;
+
+  .ImageSlideItem:nth-child(odd) {
+    background-color: red;
+  }
 }

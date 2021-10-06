@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImageSlider.scss';
+import './ImageSlideItem.scss';
 
 class ImageSlideItem extends React.Component {
   render() {

@@ -2,6 +2,7 @@ import React from 'react';
 import BasicCheckBox from './components/BasicCheckBox/BasicCheckBox';
 import PricesBox from './components/PricesBox/PricesBox';
 import ProductItem from './components/ProductItem/ProductItem';
+import ImageSlider from './components/ImageSlider/ImageSlider';
 import './Cart.scss';
 
 class Cart extends React.Component {
@@ -24,7 +25,7 @@ class Cart extends React.Component {
             label="전체선택(0/2)"
           />
           <main>
-            <article>
+            <article className="cartList">
               <ul className="cartItems">
                 <ProductItem />
               </ul>
@@ -32,7 +33,9 @@ class Cart extends React.Component {
                 <PricesBox />
               </div>
             </article>
-            <article></article>
+            <article className="imageSliderContainer">
+              <ImageSlider />
+            </article>
           </main>
         </div>
       </div>
