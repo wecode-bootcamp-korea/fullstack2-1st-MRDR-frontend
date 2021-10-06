@@ -19,6 +19,7 @@
 
   .loginWrapper {
     @include flex($flexDirection: column);
+
     .loginMessages {
       margin: 39px;
       color: $gray;
@@ -45,12 +46,15 @@
   form {
     width: 100%;
     @include flex($flexDirection: column);
+
     .loginInput {
       margin-bottom: 15px;
       @include input();
+
       &:focus {
         border: 1px solid black;
       }
+
       &::placeholder {
         color: $lightGray;
       }
@@ -80,6 +84,7 @@
   .loginLinks {
     @include flex();
     margin-bottom: 29px;
+
     li {
       margin: 0 5px;
       font-size: $smallFontSize;
@@ -128,6 +133,7 @@
 
     .msgContainer {
       @include flex();
+
       .icon {
         margin-top: 1px;
         align-self: flex-start;
