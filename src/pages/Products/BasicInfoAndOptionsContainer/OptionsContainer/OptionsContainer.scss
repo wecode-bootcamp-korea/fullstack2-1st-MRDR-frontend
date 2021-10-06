@@ -8,9 +8,13 @@
     flex-grow: 1;
     font-size: 13px;
 
-    .topLineLeft span {
-      margin-right: 10px;
-      color: #999;
+    .topLineLeft {
+      color: #555;
+
+      span {
+        margin-right: 10px;
+        color: #999;
+      }
     }
 
     .topLineRight {

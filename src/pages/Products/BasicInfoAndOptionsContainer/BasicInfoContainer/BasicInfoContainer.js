@@ -23,7 +23,10 @@ class BasicInfoContainer extends Component {
           )}
         </div>
         <div className="shipMileageWrapper">
-          <Line title="배송정보" margin="marginBottom18">
+          <Line
+            title="배송정보"
+            //  margin="marginBottom18"
+          >
             <span>2500원 CJ대한통운 5만원 이상 구매시 무료배송</span>
           </Line>
           <Line title="카드혜택">

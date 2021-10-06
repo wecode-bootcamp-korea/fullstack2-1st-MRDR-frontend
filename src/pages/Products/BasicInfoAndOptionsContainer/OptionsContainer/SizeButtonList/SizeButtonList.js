@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import SizeButton from './SizeButton/SizeButton';
-import './SizeButtonsContainer.scss';
+import './SizeButtonList.scss';
 
-class SizeButtonsContainer extends Component {
+class SizeButtonList extends Component {
   render() {
-    const {
-      colors,
-      selectedColor,
-      selectedSize,
-      selectColor,
-      selectSize,
-      incrementSelectedAmount,
-    } = this.props;
+    const { colors, selectedColor, selectedSize, selectSize, selectAmount } =
+      this.props;
 
     const index = selectedColor
       ? colors.findIndex(color => color.name === selectedColor)
       : 0; //temp
 
     return (
-      <div className="SizeButtonsContainer">
+      <ul className="SizeButtonList">
         {colors[index].sizes.map(size => {
           return (
             <SizeButton
@@ -26,15 +20,14 @@ class SizeButtonsContainer extends Component {
               size={size.value}
               selectedColor={selectedColor}
               selectedSize={selectedSize}
-              selectColor={selectColor}
               selectSize={selectSize}
-              incrementSelectedAmount={incrementSelectedAmount}
+              selectAmount={selectAmount}
             />
           );
         })}
-      </div>
+      </ul>
     );
   }
 }
 
-export default SizeButtonsContainer;
+export default SizeButtonList;
