@@ -1,0 +1,50 @@
+@import '../../../../styles//mixins.scss';
+@import '../../../../styles//common.scss';
+
+.AgreePolicyTable {
+  label {
+    margin-left: 10px;
+  }
+
+  table {
+    th tr,
+    td {
+      padding: 13px;
+    }
+
+    .docRow,
+    .docRow td {
+      padding: 0;
+    }
+
+    .plusColumn > span {
+      margin-right: 10px;
+      font-size: 30px;
+      font-weight: 340;
+      color: $gray;
+      cursor: pointer;
+    }
+
+    .flexRow {
+      @include flex($justify: flex-start);
+      .CheckBoxRow:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .subSignUpSubTitle,
+  .subSignUpSubTitle > label {
+    @include title($size: $secondMiddleFontSize, $weight: 700);
+    cursor: pointer;
+  }
+
+  .subSignUpSubTitle > td {
+    padding: 27px 15px;
+  }
+
+  .subArgeeColumn {
+    font-size: $smallFontSize;
+    color: $middleGray;
+  }
+}
