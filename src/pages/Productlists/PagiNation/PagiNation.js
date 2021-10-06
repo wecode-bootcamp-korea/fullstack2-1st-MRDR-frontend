@@ -9,19 +9,25 @@ class PagiNation extends React.Component {
       <ul className="pagiNation">
         <li>
           <Link to="/productlist">
-            <img src="https://andar.co.kr/_wisa/img/common/paging_prev.png" />
+            <img
+              src="https://andar.co.kr/_wisa/img/common/paging_prev.png"
+              alt="화살표"
+            />
           </Link>
         </li>
         {pageNumber.map(page => {
           return (
-            <li>
+            <li key={page.toString()}>
               <Link to="/productlist">{page}</Link>
             </li>
           );
         })}
         <li>
           <Link to="/productlists">
-            <img src="https://andar.co.kr/_wisa/img/common/paging_next.png" />
+            <img
+              src="https://andar.co.kr/_wisa/img/common/paging_next.png"
+              alt="화살표"
+            />
           </Link>
         </li>
       </ul>

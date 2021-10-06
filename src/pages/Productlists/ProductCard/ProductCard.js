@@ -32,22 +32,22 @@ class ProductCard extends React.Component {
     return (
       <div className="productCards">
         <ul className="productUnorderedList">
-          <Link
-            to="/productlist"
-            onMouseOver={this.handleMouseHover}
-            onMouseOut={this.handleMouseHover}
-          >
-            <img
-              className={isMouseOver ? 'mouseUp' : 'mouseDown'}
-              src={img1}
-              key={id}
-            />
-            <img
-              className={isMouseOver ? 'mouseDown' : 'mouseUp'}
-              src={img2}
-              key={id}
-            />
-          </Link>
+          <li key={id}>
+            <Link
+              to="/productlist"
+              onMouseOver={this.handleMouseHover}
+              onMouseOut={this.handleMouseHover}
+            >
+              <img
+                className={isMouseOver ? 'mouseUp' : 'mouseDown'}
+                src={img1}
+              />
+              <img
+                className={isMouseOver ? 'mouseDown' : 'mouseUp'}
+                src={img2}
+              />
+            </Link>
+          </li>
           <li className="productReview">리뷰 {review}</li>
           <li className="productName">
             <span>{name}</span>

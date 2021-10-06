@@ -31,7 +31,7 @@ class ProductList extends React.Component {
           <h1 className="productHeaderTitle">베스트</h1>
           <div className="productHeaderCategory">
             {categoryList.map(category => {
-              return <ProductSubCategory {...category} />;
+              return <ProductSubCategory key={category.id} {...category} />;
             })}
           </div>
         </header>
@@ -52,7 +52,7 @@ class ProductList extends React.Component {
           </div>
           <div className="productMainList">
             {productList.map(products => {
-              return <ProductCard {...products} />;
+              return <ProductCard key={products.id} {...products} />;
             })}
           </div>
         </main>
