@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './ProductCard.scss';
 
-class ProductsCard extends React.Component {
+class ProductCard extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -14,28 +16,40 @@ class ProductsCard extends React.Component {
   };
 
   render() {
-    const { id, img1, img2, review, name, price, colorAmount, textBox } =
-      this.props;
+    const {
+      id,
+      img1,
+      img2,
+      alt1,
+      alt2,
+      review,
+      name,
+      price,
+      colorAmount,
+      textBox,
+    } = this.props;
     const { isMouseOver } = this.state;
     return (
-      <div className="productLists">
+      <div className="productCards">
         <ul className="productUnorderedList">
-          <a
-            href="#"
+          <Link
+            to="/productlists"
             onMouseOver={this.handleMouseHover}
             onMouseOut={this.handleMouseHover}
           >
             <img
               className={isMouseOver ? 'mouseUp' : 'mouseDown'}
               src={img1}
+              alt={alt1}
               key={id}
             />
             <img
               className={isMouseOver ? 'mouseDown' : 'mouseUp'}
               src={img2}
+              alt={alt2}
               key={id}
             />
-          </a>
+          </Link>
           <li className="productReview">{review}</li>
           <li className="productName">
             <span>{name}</span>
@@ -50,4 +64,4 @@ class ProductsCard extends React.Component {
     );
   }
 }
-export default ProductsCard;
+export default ProductCard;

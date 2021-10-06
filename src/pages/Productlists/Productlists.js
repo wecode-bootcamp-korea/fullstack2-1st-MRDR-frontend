@@ -1,10 +1,11 @@
 import React from 'react';
-import ProductsCard from './ProductsCard';
-import './Productlists.scss';
-import Footer from './Footer/Footer';
+import { Link } from 'react-router-dom';
+import ProductsCard from './ProductCard/ProductCard';
+import ProductListsFooter from './ProductListsFooter/ProductListsFooter';
 import ProductSubCategory from './ProductSubCategory/ProductSubCategories';
+import './ProductLists.scss';
 
-class Products extends React.Component {
+class ProductLists extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -25,7 +26,7 @@ class Products extends React.Component {
   render() {
     const { categoryList, productsList } = this.state;
     return (
-      <div className="productContainer">
+      <div className="productLists">
         <section className="productHeader">
           <h1 className="productHeaderTitle">베스트</h1>
           <div className="productHeaderCategory">
@@ -42,10 +43,10 @@ class Products extends React.Component {
               <div className="dropDown">
                 상품정렬
                 <div className="dropDownCategory">
-                  <a href="#">낮은가격</a>
-                  <a href="#">높은가격</a>
-                  <a href="#">인기상품</a>
-                  <a href="#">조회수</a>
+                  <Link to="/productlists">낮은가격</Link>
+                  <Link to="/productlists">높은가격</Link>
+                  <Link to="/productlists">인기상품</Link>
+                  <Link to="/productlists">조회수</Link>
                 </div>
               </div>
             </article>
@@ -56,6 +57,8 @@ class Products extends React.Component {
                 id,
                 img1,
                 img2,
+                alt1,
+                alt2,
                 review,
                 name,
                 price,
@@ -67,6 +70,8 @@ class Products extends React.Component {
                   key={id}
                   img1={img1}
                   img2={img2}
+                  alt1={alt1}
+                  alt2={alt2}
                   review={review}
                   name={name}
                   price={price}
@@ -77,10 +82,10 @@ class Products extends React.Component {
             })}
           </div>
         </section>
-        <Footer />
+        <ProductListsFooter />
       </div>
     );
   }
 }
 
-export default Products;
+export default ProductLists;

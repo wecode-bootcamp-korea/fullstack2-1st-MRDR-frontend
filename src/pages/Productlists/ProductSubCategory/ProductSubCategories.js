@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './ProductSubCategories.scss';
 
 class ProductSubCategory extends React.Component {
   render() {
     return (
       <ul className="categoryUnorderedList">
         <li className="categoryList">
-          <a href="#" key={this.props.id}>
+          <Link to="/productlists" key={this.props.id}>
             {this.props.name}
-          </a>
+          </Link>
         </li>
       </ul>
     );
