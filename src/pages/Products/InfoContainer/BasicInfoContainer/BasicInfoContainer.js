@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import './BasicInfo.scss';
+import Line from '../Line';
+import './BasicInfoContainer.scss';
 
-class BasicInfo extends Component {
+class BasicInfoContainer extends Component {
   render() {
-    const { product } = this.props;
-    const { name, salePrice, price } = product;
-
-    console.log('product', product);
+    const { productName, price, salePrice } = this.props;
 
     return (
-      <div className="BasicInfo">
-        <h1 className="productName">{name}</h1>
+      <div className="BasicInfoContainer">
+        <h1 className="productName">{productName}</h1>
         <div className="priceWrapper">
           <p className="currentPrice">
             {salePrice ? salePrice.toLocaleString() : price.toLocaleString()}원
@@ -25,19 +23,19 @@ class BasicInfo extends Component {
           )}
         </div>
         <div className="shipMileageWrapper">
-          <div className="lineWrapper">
-            <span className="lineTitle">배송정보</span>
+          <Line title="배송정보" margin="marginBottom18">
             <span>2500원 CJ대한통운 5만원 이상 구매시 무료배송</span>
-          </div>
-          <div className="lineWrapper">
-            <span className="lineTitle">카드혜택</span>
+          </Line>
+          <Line title="카드혜택">
             <span>5만원 이상 결제시 무이자 할부</span>
-            <button>카드보기</button>
-          </div>
+            <div className="cardInfoButton">
+              <button>카드보기</button>˅
+            </div>
+          </Line>
         </div>
       </div>
     );
   }
 }
 
-export default BasicInfo;
+export default BasicInfoContainer;

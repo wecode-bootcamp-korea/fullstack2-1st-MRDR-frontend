@@ -4,19 +4,21 @@ import './ColorImagesContainer.scss';
 
 class ColorImagesContainer extends Component {
   render() {
-    const { product, selectColor } = this.props;
+    const { colors, selectedColor, selectColor } = this.props;
 
     return (
       <div className="ColorImagesContainer">
-        {product.colors.map(color => {
+        {colors.map(color => {
+          const { id, img, name } = color;
           return (
-            <div key={color.id} className="colorOptionWrapper">
+            <div key={id} className="colorOptionWrapper">
               <Image
-                imgUrl={color.img}
-                color={color.name}
+                imgUrl={img}
+                color={name}
+                selectedColor={selectedColor}
                 selectColor={selectColor}
               />
-              <p>{color.name}</p>
+              <p>{name}</p>
             </div>
           );
         })}

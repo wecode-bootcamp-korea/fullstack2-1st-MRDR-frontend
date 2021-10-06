@@ -17,9 +17,6 @@
 .Products {
   width: 1300px;
   margin: 0 auto;
-  // font-size: 50px; //temp
-  border: 1px solid black; //temp
-  // background-color: grey; //temp - testing CSS layout
 
   .mainInfoWrapper {
     @include flexRow();

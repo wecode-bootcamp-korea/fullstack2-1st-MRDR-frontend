@@ -3,10 +3,13 @@ import './Image.scss';
 
 class Image extends Component {
   render() {
-    const { imgUrl, color, selectColor } = this.props;
+    const { imgUrl, color, selectedColor, selectColor } = this.props;
 
     return (
-      <div className="Image" onClick={() => selectColor(color)}>
+      <div
+        className={color === selectedColor ? 'Image selected' : 'Image'}
+        onClick={() => selectColor(color)}
+      >
         <img src={imgUrl} alt={color} />
       </div>
     );
