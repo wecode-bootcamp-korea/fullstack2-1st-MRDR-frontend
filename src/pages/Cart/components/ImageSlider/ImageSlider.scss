@@ -3,6 +3,7 @@
 .ImageSlider {
   @include flex();
   position: absolute;
+  transition: 0.5s linear all;
 
   .ImageSlideItem:nth-child(odd) {
     background-color: red;

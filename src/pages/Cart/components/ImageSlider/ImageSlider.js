@@ -5,14 +5,22 @@ import './ImageSlider.scss';
 class ImageSlider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curIndex: 10 };
+    this.state = { curIndex: 0 };
+    this.virtualProps = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
 
   onClick = () => {
     const {
+      virtualProps,
       state: { curIndex },
     } = this;
-    this.setState(() => ({ curIndex: curIndex + 25 }));
+
+    if (virtualProps.length - 1 === curIndex) {
+      this.setState(() => ({ curIndex: -(curIndex += 1) * 288 }));
+      return;
+    }
+
+    this.setState(() => ({ curIndex: -(curIndex += 1) * 288 }));
   };
 
   render() {
@@ -20,6 +28,7 @@ class ImageSlider extends React.Component {
       onClick,
       state: { curIndex },
     } = this;
+
     return (
       <ul
         onClick={onClick}
