@@ -1,0 +1,14 @@
+.SubImage {
+  width: 120px;
+  height: 120px;
+  margin-right: 12px;
+
+  .image {
+    width: 100%;
+    -webkit-user-drag: none;
+  }
+
+  .image:hover {
+    border: 1px solid black;
+  }
+}
