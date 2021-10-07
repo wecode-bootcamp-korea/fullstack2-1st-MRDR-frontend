@@ -135,7 +135,11 @@ class ImagesContainer extends React.Component {
     return (
       <div className="ImagesContainer">
         <div className="mainImageWrapper">
-          <img className="mainImage" src={mainImageUrl} alt="" />
+          <img
+            className="mainImage"
+            src={mainImageUrl}
+            alt="상품 메인 이미지"
+          />
         </div>
         <div
           className={

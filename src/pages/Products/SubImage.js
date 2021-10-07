@@ -9,7 +9,7 @@ class SubImage extends React.Component {
         className="SubImage"
         onMouseEnter={() => handleImageHoverEvent(imageUrl)}
       >
-        <img className="image" src={imageUrl} alt="" />
+        <img className="image" src={imageUrl} alt="상품 이미지" />
       </div>
     );
   }
