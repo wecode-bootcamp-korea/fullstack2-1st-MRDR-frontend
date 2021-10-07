@@ -1,0 +1,51 @@
+.BasicInfoContainer {
+  font-size: 24px;
+
+  .productName {
+    margin-bottom: 24px;
+    color: #333;
+  }
+
+  .priceWrapper {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8e8e8;
+
+    .currentPrice {
+      color: #333;
+    }
+
+    .originalPrice {
+      padding: 0 5px;
+      color: #ccc;
+      font-size: 15px;
+      text-decoration: line-through;
+    }
+
+    .discountRate {
+      color: #8e1f29;
+      font-size: 18px;
+    }
+  }
+
+  .shipMileageWrapper {
+    margin-bottom: 28px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e8e8e8;
+
+    .cardInfoButton {
+      margin-left: 20px;
+      cursor: pointer;
+
+      button {
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        font-size: 13px; //repetitive
+        font-family: sans-serif; //repetitive
+        cursor: pointer;
+      }
+    }
+  }
+}
