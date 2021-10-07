@@ -23,7 +23,7 @@ class ImagesContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/productImagesData.json')
+    fetch('/data/productImagesData.json')
       .then(res => res.json())
       .then(data => {
         const mainImageUrl = data[0][0].imageUrl;
