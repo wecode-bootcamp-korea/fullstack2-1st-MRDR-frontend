@@ -1,0 +1,16 @@
+@import '../../../styles//mixins.scss';
+
+.ImageSliderContainer {
+  margin-left: 5px;
+  position: relative;
+  width: 308 * 4px;
+  height: 509px;
+  overflow: hidden;
+
+  .imageSlider {
+    @include flex();
+    position: absolute;
+    left: 10px;
+    transition: 0.5s linear all;
+  }
+}

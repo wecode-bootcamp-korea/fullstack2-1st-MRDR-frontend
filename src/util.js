@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-export const booleanToNumber = boolean => {
-  return boolean ? 1 : 0;
-};
-=======
 import BusinessUserTable from './pages/SignUp/components/BusinessUserTable/BusinessUserTable';
 import ForeignerUserTable from './pages/SignUp/components/ForeignerUserTable/ForeignerUserTable';
 
@@ -23,4 +18,3 @@ export const policyAgreements = [
   'emailAgree',
   'SNSAgree',
 ];
->>>>>>> main

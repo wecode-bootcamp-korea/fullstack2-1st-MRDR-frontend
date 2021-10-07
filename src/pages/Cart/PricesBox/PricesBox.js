@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TwoColumnRow from '../TwoColumnRow/TwoColumnRow';
+import TwoColumnRow from '../components/TwoColumnRow/TwoColumnRow';
 import './PricesBox.scss';
 
 class PricesBox extends React.Component {

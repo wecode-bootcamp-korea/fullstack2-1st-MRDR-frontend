@@ -1,5 +1,5 @@
-@import '../../../../styles/common.scss';
-@import '../../../../styles/mixins.scss';
+@import '../../../styles/common.scss';
+@import '../../../styles/mixins.scss';
 
 .PricesBox {
   .priceDetail,
@@ -56,7 +56,7 @@
     small {
       margin-top: 12px;
       align-self: flex-end;
-      font-size: $additionalSmallerFontSize;
+      font-size: $smallerFontSize;
     }
   }
 }

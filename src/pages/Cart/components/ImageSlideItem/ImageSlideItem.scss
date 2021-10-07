@@ -1,12 +1,27 @@
-@import '../../../../styles//mixins.scss';
+@import '../../../../styles/mixins.scss';
 
 .ImageSlideItem {
   @include flex($flexDirection: column, $justify: space-between);
+  margin-right: 20px;
   width: 288px;
   height: 506px;
-  background-color: yellow;
+
+  img {
+    width: 100%;
+  }
 
   .itemInfo {
-    @include flex($flexDirection: column);
+    @include flex($flexDirection: column, $align: flex-start);
+    width: 100%;
+    margin-left: 8px;
+
+    span:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    span:last-child {
+      font-size: 15px;
+      font-weight: 600;
+    }
   }
 }

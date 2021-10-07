@@ -6,46 +6,35 @@
 
   .cartWrapper {
     width: 1300px;
-    header {
-      @include flex($justify: space-between);
-      h1 {
-        @include title($size: $secondBigFontSize);
-        margin-bottom: 57px;
-        color: $black;
-      }
-
-      .menuCate {
-        margin-right: 5px;
-        @include flex();
-        font-size: $smallFontSize;
-        letter-spacing: -0.5px;
-        font-weight: 600;
-        color: $gray;
-        li:not(:first-child)::before {
-          margin: 0 10px;
-          font-weight: 300;
-          content: '>';
-        }
-      }
-    }
 
     main {
-      .cartList {
-        display: grid;
-        grid-template-columns: 905px 340px;
-        gap: 60px;
-        margin-bottom: 125px;
+      .recommendTitle {
+        @include title();
+        margin-bottom: 45px;
       }
 
-      .imageSliderContainer {
+      .sliderArticleWrapper {
+        @include flex();
         position: relative;
-        height: 509px;
-        background-color: blue;
-        overflow: hidden;
-      }
 
-      .cartItems {
-        border-top: 2px solid black;
+        .leftSliderBtn,
+        .rightSliderBtn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-12.5px);
+          z-index: 1;
+          background-color: transparent;
+          border: none;
+          font-size: 29px;
+        }
+
+        .leftSliderBtn {
+          left: 3px;
+        }
+
+        .rightSliderBtn {
+          right: 3px;
+        }
       }
     }
   }
