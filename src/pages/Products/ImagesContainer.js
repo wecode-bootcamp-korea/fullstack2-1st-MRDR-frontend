@@ -23,7 +23,7 @@ class ImagesContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/productImagesData.json')
+    fetch('/productImagesData.json')
       .then(res => res.json())
       .then(data => {
         const mainImageUrl = data[0][0].imageUrl;
@@ -48,22 +48,32 @@ class ImagesContainer extends React.Component {
   handleBtnNextSlide = () => {
     const { productImageSlides, currentSlideIndex } = this.state;
     let nextSlideIndex = currentSlideIndex + 1;
-    const lastId = productImageSlides.length;
-    if (nextSlideIndex > lastId) {
-      nextSlideIndex = lastId;
+    const lastIndex = productImageSlides.length - 1;
+    if (nextSlideIndex > lastIndex) {
+      nextSlideIndex = lastIndex;
     }
     this.setState({ currentSlideIndex: nextSlideIndex });
   };
 
   handleMouseDown = e => {
     const { slideRef } = this;
-    const { isMouseDown } = this.state;
+    const { currentSlideIndex, isMouseDown } = this.state;
     const slideStartX = e.pageX - slideRef.current.offsetLeft;
-    const slideScrollLeft = slideRef.current.slideScrollLeft;
+    const slideScrollLeft = slideRef.current.scrollLeft;
+    console.log(
+      'startX: ',
+      slideStartX,
+      'slideScrollLeft: ',
+      slideScrollLeft,
+      'currentSlideIndex: ',
+      currentSlideIndex,
+      'offsetLeft: ',
+      slideRef.current.offsetLeft
+    );
     this.setState({
       isMouseDown: !isMouseDown,
       slideStartX,
-      slideInitScrollLeft: slideScrollLeft,
+      // slideInitScrollLeft: slideScrollLeft,
       slideScrollLeft,
     });
   };
@@ -75,17 +85,47 @@ class ImagesContainer extends React.Component {
     e.preventDefault();
     const x = e.pageX - slideRef.current.offsetLeft;
     const walk = (x - slideStartX) * 1.5;
-    slideRef.current.slideScrollLeft = slideScrollLeft - walk;
+    console.log('X: ', x, 'walk: ', walk);
+    slideRef.current.scrollLeft = slideScrollLeft - walk;
   };
 
-  handleMouseUp = e => {
-    const { isMouseDown } = this.state;
-    this.setState({ isMouseDown: !isMouseDown });
-  };
+  handleMoveEnd = e => {
+    const { slideRef } = this;
+    const {
+      productImageSlides,
+      currentSlideIndex,
+      isMouseDown,
+      slideStartX,
+      slideInitScrollLeft,
+    } = this.state;
+    if (!isMouseDown) return;
+    let nextSlideIndex, prevSlideIndex;
+    const x = e.pageX - slideRef.current.offsetLeft;
+    const walk = (x - slideStartX) * 1.5;
+    slideRef.current.scrollLeft = slideInitScrollLeft;
 
-  handleMouseLeave = e => {
-    const { isMouseDown } = this.state;
-    this.setState({ isMouseDown: !isMouseDown });
+    if (walk < -450) {
+      nextSlideIndex = currentSlideIndex + 1;
+      const lastIndex = productImageSlides.length - 1;
+      if (nextSlideIndex > lastIndex) {
+        nextSlideIndex = lastIndex;
+      }
+      this.setState({
+        isMouseDown: false,
+        currentSlideIndex: nextSlideIndex,
+      });
+    } else if (walk > 450) {
+      prevSlideIndex = currentSlideIndex - 1;
+      if (prevSlideIndex < 0) {
+        prevSlideIndex = 0;
+      }
+      this.setState({
+        isMouseDown: false,
+        currentSlideIndex: prevSlideIndex,
+      });
+    } else {
+      this.setState({ isMouseDown: false });
+    }
   };
 
   render() {
@@ -98,12 +138,10 @@ class ImagesContainer extends React.Component {
       handleBtnNextSlide,
       handleMouseDown,
       handleMouseMove,
-      handleMouseUp,
-      handleMouseLeave,
+      handleMoveEnd,
     } = this;
     const slideCss = {
       transform: `translateX(-${660 * currentSlideIndex}px)`,
-      transition: 'all 0.5s ease-in-out',
     };
     return (
       <div className="ImagesContainer">
@@ -117,8 +155,8 @@ class ImagesContainer extends React.Component {
           ref={slideRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMoveEnd}
+          onMouseLeave={handleMoveEnd}
         >
           {productImageSlides.map((imageSlide, index) => {
             const slideId = index + 1;
@@ -187,7 +225,5 @@ class ImagesContainer extends React.Component {
     );
   }
 }
-
-// merge conflict 해결
 
 export default ImagesContainer;
