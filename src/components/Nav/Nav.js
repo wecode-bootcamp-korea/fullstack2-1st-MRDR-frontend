@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+// import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -8,9 +9,35 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 class Nav extends React.Component {
+  state = { status: false };
+  constructor() {
+    super();
+    this.state = {
+      menuList: [],
+      menuListSub: [],
+      menuListHide: false,
+    };
+  }
+
+  menuListHide = () => {
+    this.setState({
+      menuListHide: !this.state.menuListHide,
+    });
+  };
+
+  componentDidMount() {
+    fetch('/data/menuList.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ menuList: res.menuListData1 });
+        this.setState({ menuListSub: res.menuListData2 });
+      });
+  }
+
   render() {
+    const { menuList, menuListSub } = this.state;
     return (
-      <div className="nav">
+      <nav>
         <div className="navTop">
           <a href="./signup" className="topLogin">
             로그인
@@ -23,35 +50,15 @@ class Nav extends React.Component {
           </a>
         </div>
         <div className="navMenu">
-          <img src="/image/logo.png" alt="logo" id="logo" />
+          <img src="/image/logo.png" alt="logo" className="logo" />
           <div className="menu">
-            <a href="#!" className="menuName">
-              베스트
-            </a>
-            <a href="#!" className="menuName">
-              신상
-            </a>
-            <a href="#!" className="menuName">
-              아울렛
-            </a>
-            <a href="#!" className="menuName">
-              세트
-            </a>
-            <a href="#!" className="menuName">
-              하의
-            </a>
-            <a href="#!" className="menuName">
-              상의
-            </a>
-            <a href="#!" className="menuName">
-              맨즈
-            </a>
-            <a href="#!" className="menuName">
-              용품
-            </a>
-            <a href="#!" className="menuName">
-              서스테이너블
-            </a>
+            {menuList.map((element, index) => {
+              return (
+                <a href="#!" className="menuName" id={index}>
+                  {element.title}
+                </a>
+              );
+            })}
           </div>
           <div className="menuSide">
             <div className="searchBox">
@@ -63,42 +70,42 @@ class Nav extends React.Component {
               <FontAwesomeIcon icon={faSearch} id="searchIcon" />
             </div>
             <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
-            <FontAwesomeIcon icon={faBars} id="barIcon" />
+            <button onClick={this.menuListHide} className="barIcon">
+              <FontAwesomeIcon icon={faBars} id="barIcon" />
+            </button>
           </div>
         </div>
-        {/* <div className="sideMenu">
-          <div className="wrapInner">
-            <div className="sideMenuRight">
-              <ul>
-                <li>
-                  <a href="#!" className="sideMenuTitle">
-                    베스트
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">전체</a>
-                </li>
-                <li>
-                  <a href="#!">하의</a>
-                </li>
-                <li>
-                  <a href="#!">상의</a>
-                </li>
-                <li>
-                  <a href="#!">아우터</a>
-                </li>
-                <li>
-                  <a href="#!">맨즈</a>
-                </li>
-                <li>
-                  <a href="#!">용품</a>
-                </li>
-              </ul>
-            </div>
-            <div className="sideMenuLeft"></div>
-          </div> */}
-        {/* </div> */}
-      </div>
+        <div className={this.state.menuListHide ? 'menuList' : 'menuListHide'}>
+          <div className="menuBox">
+            {menuList.map(menu => {
+              return (
+                <ul className="menuListLeft" key={menu.id}>
+                  <li className="menuListTitle">{menu.title}</li>
+                  <li className="menuListSub">{menu.total}</li>
+                  <li className="menuListSub">{menu.list_1}</li>
+                  <li className="menuListSub">{menu.list_2}</li>
+                  <li className="menuListSub">{menu.list_3}</li>
+                  <li className="menuListSub">{menu.list_4}</li>
+                  <li className="menuListSub">{menu.list_5}</li>
+                </ul>
+              );
+            })}
+          </div>
+          <div className="menuBoxRight">
+            {menuListSub.map(menu => {
+              return (
+                <ul className="menuListRight" key={menu.id}>
+                  <li className="menuListTitle">{menu.title}</li>
+                  <li className="menuListSub">{menu.list_1}</li>
+                  <li className="menuListSub">{menu.list_2}</li>
+                  <li className="menuListSub">{menu.list_3}</li>
+                </ul>
+              );
+            })}
+            <div className="salePic">salepic</div>
+          </div>
+        </div>
+      </nav>
     );
   }
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 import './Main.scss';
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class Main extends React.Component {
   render() {
     return (
-      <>
-        <Nav />
-        <Footer />
-      </>
+      <Router>
+        <Switch>
+          <Route path="/" />
+        </Switch>
+      </Router>
     );
   }
 }
