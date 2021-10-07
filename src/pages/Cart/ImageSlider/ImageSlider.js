@@ -1,10 +1,22 @@
 import React from 'react';
+import CartFuncContext from '../CartFuncContext';
 import ImageSlideItem from '../components/ImageSlideItem/ImageSlideItem';
+import { failAlert } from '../../../util/cart';
+import { ROUTES } from '../../../util/constants';
+import { getFetch } from '../../../util/fetch';
 import './ImageSlider.scss';
 
 class ImageSlider extends React.Component {
+  static contextType = CartFuncContext;
+
+  componentDidMount = async () => {
+    const actionFunc = this.context('fillRecommendState');
+    const failFunc = failAlert;
+    await getFetch(ROUTES.CART_RECOMMENT, { actionFunc, failFunc });
+  };
+
   render() {
-    const { curIndex } = this.props;
+    const { curIndex, cartRecomment } = this.props;
     return (
       <article className="ImageSliderContainer">
         <ul
@@ -13,18 +25,10 @@ class ImageSlider extends React.Component {
             transform: `translateX(${-curIndex * 308 * 4}px)`,
           }}
         >
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
-          <ImageSlideItem src={''} name={'티셔츠'} price={'4,050원'} />
+          {!!cartRecomment.length &&
+            cartRecomment.map(item => (
+              <ImageSlideItem item={item} key={item.id} />
+            ))}
         </ul>
       </article>
     );

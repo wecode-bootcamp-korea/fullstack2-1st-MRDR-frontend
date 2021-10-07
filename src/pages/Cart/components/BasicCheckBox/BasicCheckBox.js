@@ -10,7 +10,7 @@ class BasicCheckBox extends React.Component {
       <div className={className || id}>
         <Input
           readOnly={true}
-          onClick={id => onClick(id)}
+          onClick={onClick}
           type="checkBox"
           checked={isChecked}
           id={id}

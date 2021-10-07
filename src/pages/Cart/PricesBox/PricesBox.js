@@ -1,28 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TwoColumnRow from '../components/TwoColumnRow/TwoColumnRow';
+import { priceChanger } from '../utils';
 import './PricesBox.scss';
 
 class PricesBox extends React.Component {
   render() {
+    const { originPrice, discountPrice } = this.props.prices;
     return (
       <div className="PricesBox">
         <div className="priceInfo">
           <ul className="priceDetail">
             <li>
-              <TwoColumnRow description="상품금액" price={'5,000'} />
+              <TwoColumnRow
+                description="상품금액"
+                price={priceChanger(originPrice)}
+              />
             </li>
             <li>
-              <TwoColumnRow description="할인금액" price={'5,000'} />
+              <TwoColumnRow
+                description="할인금액"
+                price={priceChanger(discountPrice)}
+              />
             </li>
             <li>
-              <TwoColumnRow description="배송비" price={'5,000'} />
+              <TwoColumnRow
+                description="배송비"
+                price={originPrice ? '5,000' : 0}
+              />
             </li>
           </ul>
           <TwoColumnRow
             className="totalPrice"
             description="총 금액"
-            price={'15,000'}
+            price={originPrice ? priceChanger(discountPrice + 5000) : 0}
           />
         </div>
         <div className="priceBtns">

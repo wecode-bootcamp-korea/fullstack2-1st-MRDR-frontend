@@ -4,11 +4,11 @@ import './CartItems.scss';
 
 class CartItems extends React.Component {
   render() {
-    const { onClick, items } = this.props;
+    const { items } = this.props;
     return (
       <ul className="CartItems">
         {items.map(item => (
-          <CartItem onClick={onClick} item={item} key={item.id} />
+          <CartItem item={item} key={item.id} />
         ))}
       </ul>
     );

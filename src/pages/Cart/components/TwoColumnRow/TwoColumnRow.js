@@ -3,9 +3,7 @@ import './TwoColumnRow.scss';
 
 class TwoColumnRow extends React.Component {
   render() {
-    const {
-      props: { className, description, price },
-    } = this;
+    const { className, description, price } = this.props;
     return (
       <div className={`${className ? className : ''} TwoColumnRow`}>
         <span>{description}</span>

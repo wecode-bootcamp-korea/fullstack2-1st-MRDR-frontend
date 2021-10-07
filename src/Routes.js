@@ -4,7 +4,7 @@ import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Products from './pages/Products/Products';
 import SignUp from './pages/SignUp/SignUp';
-import Cart from './pages/Cart/Cart';
+import Cart from './pages/Cart';
 
 class Routes extends React.Component {
   render() {

@@ -6,13 +6,27 @@ export const ERRORS = {
 export const ROUTES = {
   CART: '/data/cart.json',
   CART_OPTION_CHANGE: id => `/product/${id}`,
+  CART_RECOMMENT: '/data/cartRecomment.json',
 };
 
 export const BTNAME = {
   RIGHT: 'rightSliderBtn',
   LEFT: 'leftSliderBtn',
+  PLUS: 'plusBtn',
+  MINUS: 'minusBtn',
 };
 
 export const CHECKBOX = {
   CHECKALL: 'checkAll',
+};
+
+export const CARTFUNCS = {
+  fillRecommendState: 'fillRecommendState',
+  imgSliderOnClick: 'imgSliderOnClick',
+  addCartNumber: 'addCartNumber',
+  deleteCheckedItem: 'deleteCheckedItem',
+  checkBoxOnClick: 'checkBoxOnClick',
+  checkAllBoxOnClick: 'checkAllBoxOnClick',
+  getCartCount: 'getCartCount',
+  deleteCartById: 'deleteCartById',
 };

@@ -3,12 +3,10 @@ import './ImageSlideItem.scss';
 
 class ImageSlideItem extends React.Component {
   render() {
-    const {
-      props: { price, src, name },
-    } = this;
+    const { price, image, name } = this.props.item;
     return (
       <li className="ImageSlideItem">
-        <img alt={name} className="itemImg" src={src} />
+        <img alt={name} className="itemImg" src={image} />
         <div className="itemInfo">
           <span>{name}</span>
           <span>{price}</span>

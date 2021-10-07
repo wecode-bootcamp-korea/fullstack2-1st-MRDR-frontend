@@ -2,12 +2,13 @@
 
 .ImageSlideItem {
   @include flex($flexDirection: column, $justify: space-between);
-  margin-right: 20px;
   width: 288px;
   height: 506px;
+  margin-right: 20px;
 
   img {
     width: 100%;
+    height: 456px;
   }
 
   .itemInfo {

@@ -8,7 +8,8 @@
         { "id": 1, "size": 8, "color": "red" },
         { "id": 2, "size": 6, "color": "yellow" }
       ],
-      "price": 5000
+      "price": 5000,
+      "sale": 0.5
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
         { "id": 1, "size": 8, "color": "red" },
         { "id": 2, "size": 16, "color": "yellow" }
       ],
-      "price": 1000
+      "price": 1000,
+      "sale": 0.5
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
         { "id": 1, "size": 8, "color": "red" },
         { "id": 2, "size": 26, "color": "yellow" }
       ],
-      "price": 3000
+      "price": 3000,
+      "sale": 0.5
     }
   ]
 }

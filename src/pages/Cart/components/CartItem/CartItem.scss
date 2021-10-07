@@ -26,8 +26,8 @@
       $align: flex-start,
       $justify: space-between
     );
-    margin: 0 35px;
     height: 100%;
+    margin: 0 35px;
 
     span {
       font-size: $smallFontSize;
@@ -47,8 +47,8 @@
       border: 1px solid $lightGray;
       border-radius: 3px;
       font-size: $smallerFontSize;
-      font-weight: 645;
       color: $gray;
+      font-weight: 645;
     }
 
     span {

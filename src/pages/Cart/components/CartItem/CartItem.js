@@ -4,19 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import BasicCheckBox from '../BasicCheckBox/BasicCheckBox';
 import NumberControlButton from '../../NumberControlButton/NumberControlButton';
-import { ROUTES } from '../../../../util/constances';
+import { ROUTES } from '../../../../util/constants';
+import CartFuncContext from '../../CartFuncContext';
+import { priceChanger } from '../../utils';
 import './CartItem.scss';
 
 class CartItem extends React.Component {
+  static contextType = CartFuncContext;
   render() {
-    const {
-      onClick,
-      item: { id, image, options, price, name, isChecked },
-    } = this.props;
+    const { id, image, options, price, name, isChecked, count } =
+      this.props.item;
+    const checkBoxOnClick = this.context('checkBoxOnClick');
+    const deleteCartById = this.context('deleteCartById');
+
     return (
       <li className="CartItem">
         <BasicCheckBox
-          onClick={onClick}
+          onClick={() => checkBoxOnClick(id)}
           className="CheckBox"
           id={id}
           isChecked={isChecked}
@@ -32,9 +36,13 @@ class CartItem extends React.Component {
             </React.Fragment>
           ))}
         </div>
-        <NumberControlButton id={id} />
-        <h2 className="itemPrice">{`${price}원`}</h2>
-        <FontAwesomeIcon className="icon" icon={faLiraSign} />
+        <NumberControlButton id={id} count={count} />
+        <h2 className="itemPrice">{`${priceChanger(price)}원`}</h2>
+        <FontAwesomeIcon
+          onClick={() => deleteCartById(id)}
+          className="icon"
+          icon={faLiraSign}
+        />
       </li>
     );
   }

@@ -1,7 +1,7 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/common.scss';
 
-.Cart {
+.CartPresenter {
   padding-top: 15%;
 
   .cartWrapper {
@@ -14,18 +14,18 @@
       }
 
       .sliderArticleWrapper {
-        @include flex();
         position: relative;
+        @include flex();
 
         .leftSliderBtn,
         .rightSliderBtn {
           position: absolute;
           top: 50%;
-          transform: translateY(-12.5px);
-          z-index: 1;
           background-color: transparent;
           border: none;
           font-size: 29px;
+          z-index: 1;
+          transform: translateY(-12.5px);
         }
 
         .leftSliderBtn {

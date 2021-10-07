@@ -20,6 +20,7 @@
       font-size: $secondMiddleFontSize;
       font-weight: 700;
     }
+
     .priceDetail {
       border-bottom: 1px solid $lightGray;
 
@@ -29,9 +30,11 @@
       }
     }
   }
+
   .priceBtns {
     @include flex($flexDirection: column);
     margin: 10px 0;
+
     .orderBtn,
     a {
       width: 100%;
@@ -54,8 +57,8 @@
     }
 
     small {
-      margin-top: 12px;
       align-self: flex-end;
+      margin-top: 12px;
       font-size: $smallerFontSize;
     }
   }
