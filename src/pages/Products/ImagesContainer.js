@@ -57,7 +57,7 @@ class ImagesContainer extends React.Component {
 
   handleMouseDown = e => {
     const { slideRef } = this;
-    const { currentSlideIndex, isMouseDown } = this.state;
+    const { isMouseDown } = this.state;
     const slideStartX = e.pageX - slideRef.current.offsetLeft;
     const slideScrollLeft = slideRef.current.scrollLeft;
     this.setState({
@@ -143,7 +143,7 @@ class ImagesContainer extends React.Component {
         </div>
         <div
           className={
-            isMouseDown ? 'subImagesContainer active' : 'subImagesContainer'
+            isMouseDown ? 'subImagesCarousel active' : 'subImagesCarousel'
           }
           ref={slideRef}
           onMouseDown={handleMouseDown}
