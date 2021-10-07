@@ -4,16 +4,13 @@ import './Footer.scss';
 class Footer extends React.Component {
   render() {
     return (
-      <div className="footer">
+      <Footer>
         <div className="footerwrap">
           <div className="footerLeft">
             <img src="/image/logo.png" alt="logo" id="footerLogo" />
             <h5>고객센터</h5>
             <p className="number">1566-4044</p>
-            <p className="time">
-              {' '}
-              평일 AM 09:00 ~ PM 05:30 / 주말, 공휴일 휴무
-            </p>
+            <p className="time">평일 AM 09:00 ~ PM 05:30 / 주말, 공휴일 휴무</p>
             <p className="time">점심 PM 12:00 ~ PM 09:00</p>
           </div>
           <div className="footerRight">
@@ -46,7 +43,7 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Footer>
     );
   }
 }
