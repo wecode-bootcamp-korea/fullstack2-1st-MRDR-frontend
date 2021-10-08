@@ -20,17 +20,6 @@ export const CHECKBOX = {
   CHECKALL: 'checkAll',
 };
 
-export const CARTFUNCS = {
-  fillRecommendState: 'fillRecommendState',
-  imgSliderOnClick: 'imgSliderOnClick',
-  addCartNumber: 'addCartNumber',
-  deleteCheckedItem: 'deleteCheckedItem',
-  checkBoxOnClick: 'checkBoxOnClick',
-  checkAllBoxOnClick: 'checkAllBoxOnClick',
-  getCartCount: 'getCartCount',
-  deleteCartById: 'deleteCartById',
-};
-
 export const SCREEN_MOVEMENT = {
   COLOR_IMAGE: 780,
   PRODUCT_IMAGE: 660,

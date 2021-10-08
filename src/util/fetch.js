@@ -1,3 +1,7 @@
+import { ERRORS } from './constants';
+
+export const failAlert = code => alert(ERRORS[code]);
+
 export const getFetch = async (url, { actionFunc, failFunc }) => {
   try {
     const authorization = localStorage.getItem('token');

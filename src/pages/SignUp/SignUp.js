@@ -1,8 +1,7 @@
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { policyAgreements } from '../../util';
+import { policyAgreements } from '../../util/signUp';
 import Title from '../Cart/components/Title/Title';
 import AdditionalInfoTable from './AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './AgreePolicyTable/AgreePolicyTable';

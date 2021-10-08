@@ -1,5 +1,4 @@
 import React from 'react';
-import Input from '../Input/Input';
 import './BasicCheckBox.scss';
 
 class BasicCheckBox extends React.Component {
@@ -8,7 +7,7 @@ class BasicCheckBox extends React.Component {
 
     return (
       <div className={className || id}>
-        <Input
+        <input
           readOnly={true}
           onClick={onClick}
           type="checkBox"

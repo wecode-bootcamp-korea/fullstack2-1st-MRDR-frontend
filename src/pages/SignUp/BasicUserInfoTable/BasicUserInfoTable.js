@@ -1,9 +1,9 @@
 import React from 'react';
 import TableHeader from '../components/TableHeader/TableHeader';
 import TableRows from '../components/TableRows/TableRows';
-import { joinPageComponentsSwitcher } from '../../../util';
 import Button from '../../../components/Button/Button';
 import './BasicUserInfoTable.scss';
+import { joinPageComponentsSwitcher } from '../../../util/signUp';
 
 class BasicUserInfoTable extends React.Component {
   render() {

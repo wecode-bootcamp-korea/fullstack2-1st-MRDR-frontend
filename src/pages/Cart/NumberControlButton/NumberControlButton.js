@@ -1,7 +1,8 @@
 import React from 'react';
+import { BTNAME } from '../../../util/constants';
 import CartFuncContext from '../CartFuncContext';
 import Button from '../components/Button/Button';
-import { BTNAME, CARTFUNCS } from '../../../util/constants';
+import { CARTFUNCS } from '../constants';
 import './NumberControlButton.scss';
 
 class NumberControlButton extends React.Component {
