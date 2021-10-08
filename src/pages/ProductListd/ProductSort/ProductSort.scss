@@ -1,0 +1,22 @@
+.productSort {
+  padding-right: 20px;
+  line-height: 18px;
+  font-size: 20px;
+  text-align: center;
+  color: #777777;
+
+  img {
+    position: absolute;
+    top: 241px;
+  }
+  .dropDown {
+    display: none;
+    position: absolute;
+    width: 130px;
+    right: 0px;
+  }
+
+  &:hover .dropDown {
+    display: block;
+  }
+}
