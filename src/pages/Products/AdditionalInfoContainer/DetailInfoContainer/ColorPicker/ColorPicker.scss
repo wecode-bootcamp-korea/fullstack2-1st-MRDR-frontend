@@ -1,0 +1,27 @@
+@import '../../../../../styles/mixins.scss';
+
+.ColorPicker {
+  @include flex(column, center, flex-start);
+  width: 100%;
+
+  .colorList {
+    @include flex(column, center, flex-start);
+    margin-bottom: 50px;
+
+    .colorSet {
+      @include flex(row, flex-start, space-around);
+    }
+  }
+
+  .pickedColorWrapper {
+    margin-bottom: 50px;
+
+    .pickedColor {
+      font-size: 30px;
+    }
+
+    .pickedColorText {
+      font-size: 30px;
+    }
+  }
+}

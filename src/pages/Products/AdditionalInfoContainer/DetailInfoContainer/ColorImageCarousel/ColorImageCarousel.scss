@@ -1,0 +1,49 @@
+@import '../../../../../styles/mixins.scss';
+
+.ColorImageCarousel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 120px;
+  overflow: hidden;
+
+  .carouselBtn {
+    all: unset;
+    position: absolute;
+    top: 250px;
+    z-index: 1;
+    font-size: 35px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .prevBtn {
+    left: 20px;
+  }
+
+  .nextBtn {
+    right: 20px;
+  }
+
+  .colorImagesTrack {
+    @include flex(row, flex-start, flex-start);
+    width: 7524px;
+    margin-bottom: 5px;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .carouselNav {
+    width: 12%;
+    margin: 0 auto;
+
+    .navList {
+      @include flex(row, center, space-around);
+      line-height: 10px;
+
+      .navCircle {
+        font-size: 12px;
+      }
+    }
+  }
+}
