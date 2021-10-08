@@ -1,0 +1,30 @@
+@import '../../../styles/mixins.scss';
+
+.CartHeader {
+  @include flex($justify: space-between);
+
+  h1 {
+    @include title($size: $secondBigFontSize);
+    margin-bottom: 57px;
+    color: $black;
+  }
+
+  .menuCate {
+    margin-right: 5px;
+    @include flex();
+    font-size: $smallFontSize;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    color: $gray;
+
+    li:first-child {
+      color: $black;
+    }
+
+    li:not(:first-child)::before {
+      margin: 0 10px;
+      font-weight: 300;
+      content: '>';
+    }
+  }
+}

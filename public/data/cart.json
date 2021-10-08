@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "왕눈이티셔츠",
+      "image": "https://images.unsplash.com/photo-1565153149760-49d028a7f657?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60",
+      "options": [
+        { "id": 1, "size": 8, "color": "red" },
+        { "id": 2, "size": 6, "color": "yellow" }
+      ],
+      "price": 5000,
+      "sale": 0.5
+    },
+    {
+      "id": 2,
+      "name": "왕눈이티셔츠",
+      "image": "https://images.unsplash.com/photo-1565153149760-49d028a7f657?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60",
+      "options": [
+        { "id": 1, "size": 8, "color": "red" },
+        { "id": 2, "size": 16, "color": "yellow" }
+      ],
+      "price": 1000,
+      "sale": 0.5
+    },
+    {
+      "id": 3,
+      "name": "왕눈이티셔츠",
+      "image": "https://images.unsplash.com/photo-1565153149760-49d028a7f657?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60",
+      "options": [
+        { "id": 1, "size": 8, "color": "red" },
+        { "id": 2, "size": 26, "color": "yellow" }
+      ],
+      "price": 3000,
+      "sale": 0.5
+    }
+  ]
+}
