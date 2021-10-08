@@ -1,6 +1,5 @@
 import React from 'react';
 import './Nav.scss';
-// import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -29,8 +28,10 @@ class Nav extends React.Component {
     fetch('/data/menuList.json')
       .then(res => res.json())
       .then(res => {
-        this.setState({ menuList: res.menuListData1 });
-        this.setState({ menuListSub: res.menuListData2 });
+        this.setState({
+          menuList: res.menuListData1,
+          menuListSub: res.menuListData2,
+        });
       });
   }
 

@@ -1,14 +1,15 @@
-.footer {
-  position: absolute;
-  left: 0;
+.Footer {
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 373px;
-  background-color: #fafafa;
+  margin: 120px auto 0;
+  background-color: #fafafafa;
 
   .footerwrap {
     display: flex;
-    margin: 60px auto 0 auto;
+    margin: 0 auto;
+    padding-top: 60px;
     height: 250px;
     width: 1300px;
 
@@ -17,7 +18,7 @@
       height: 250px;
       padding-left: 40px;
 
-      #footerLogo {
+      .footerLogo {
         padding-bottom: 40px;
       }
 
@@ -39,6 +40,11 @@
         padding-bottom: 5px;
         color: #555555;
         font-size: 13px;
+      }
+
+      .snsLogo {
+        width: 30px;
+        margin: 40px 15px 0 0;
       }
     }
 
@@ -62,12 +68,15 @@
 
     .adress {
       margin-top: 20px;
-    }
-
-    p {
       margin-bottom: 15px;
       font-size: 13px;
       color: #777777;
+
+      p {
+        margin-bottom: 15px;
+        font-size: 13px;
+        color: #777777;
+      }
     }
   }
 }

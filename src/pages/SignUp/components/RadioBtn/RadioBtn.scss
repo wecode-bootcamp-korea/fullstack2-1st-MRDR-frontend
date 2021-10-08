@@ -1,0 +1,48 @@
+@import '../../../../styles//common.scss';
+.RadioBtn {
+  input[type='radio']:checked,
+  input[type='radio']:not(:checked) {
+    display: none;
+  }
+
+  input[type='radio']:checked + label,
+  input[type='radio']:not(:checked) + label {
+    position: relative;
+    padding: 0 28px 0;
+    display: inline-block;
+    line-height: 22px;
+    cursor: pointer;
+  }
+
+  input[type='radio']:checked + label::before,
+  input[type='radio']:not(:checked) + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $lightGray;
+    border-radius: 100%;
+  }
+
+  input[type='radio']:checked + label::after,
+  input[type='radio']:not(:checked) + label::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: $black;
+    position: absolute;
+    top: 6.75px;
+    left: 6.75px;
+    border-radius: 100%;
+  }
+
+  input[type='radio']:not(:checked) + label:after {
+    opacity: 0;
+  }
+
+  input[type='radio']:checked + label:after {
+    opacity: 1;
+  }
+}

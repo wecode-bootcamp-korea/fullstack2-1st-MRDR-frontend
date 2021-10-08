@@ -4,15 +4,11 @@ import './Footer.scss';
 class Footer extends React.Component {
   render() {
     return (
-      <footer>
+      <div className="Footer">
         <div className="footerwrap">
           <div className="footerLeft">
             <a href="/">
-              <img
-                src="/image/footerlogo.png"
-                alt="logo"
-                className="footerLogo"
-              />
+              <img src="/image/logo.png" alt="logo" className="footerLogo" />
             </a>
             <h5>고객센터</h5>
             <p className="number">1566-4044</p>
@@ -52,7 +48,7 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     );
   }
 }

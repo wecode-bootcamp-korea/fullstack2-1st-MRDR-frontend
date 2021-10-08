@@ -6,6 +6,6 @@
     "source.fixAll.eslint": true
   },
   "javascript.format.enable": false,
-  "eslint.alwaysShowStatus": true,
-  "files.autoSave": "onFocusChange"
+  "eslint.alwaysShowStatus": true
+  // "files.autoSave": "onFocusChange"
 }
