@@ -1,5 +1,5 @@
 import React from 'react';
-import ImagesContainer from './ImagesContainer';
+import ImagesContainer from './ImagesContainer/ImagesContainer';
 import BasicInfoAndOptionsContainer from './BasicInfoAndOptionsContainer/BasicInfoAndOptionsContainer';
 import AdditionalInfoContainer from './AdditionalInfoContainer/AdditionalInfoContainer';
 import './Products.scss';
