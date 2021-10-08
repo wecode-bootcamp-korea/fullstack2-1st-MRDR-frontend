@@ -1,4 +1,211 @@
-.Login {
-  background-color: red;
-  font-size: 50px;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 115px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  z-index: 1;
+
+  .navTop {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px auto;
+    width: 1300px;
+    height: 24px;
+
+    a {
+      height: 14px;
+      line-height: 16px;
+      font-size: 12px;
+      text-decoration: none solid;
+      cursor: pointer;
+    }
+
+    .topLogin {
+      text-align: left;
+      padding-right: 15px;
+      color: rgb(51, 51, 51);
+    }
+
+    .topSignup {
+      padding: 0px 15px;
+      border-right: 1px solid lightgray;
+      border-left: 1px solid lightgray;
+      color: #c86733;
+    }
+
+    .topService {
+      padding-left: 15px;
+      color: rgb(51, 51, 51);
+    }
+  }
+
+  .navMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 15px;
+    width: 1300px;
+    height: 80px;
+    margin: 0 auto;
+
+    .logo {
+      height: 26px;
+      margin-left: 40px;
+    }
+
+    .menu {
+      margin-right: 200px;
+    }
+
+    .menuName {
+      padding: 0 17px 25px 17px;
+      width: 100px;
+      font-size: 16px;
+      text-decoration: none solid;
+      color: rgb(51, 51, 51);
+    }
+  }
+
+  .menuSide {
+    display: flex;
+
+    .searchBox {
+      height: 29px;
+      width: 200px;
+      border-bottom: 1px solid #9c9c9c;
+
+      .serchEnter {
+        border-style: none;
+        color: #979797;
+        font-size: 13px;
+      }
+
+      .serchEnter:focus {
+        outline: none;
+        color: #9c9c9c;
+      }
+
+      #searchIcon {
+        height: 20px;
+        width: 20px;
+        margin-left: 30px;
+        color: #454545;
+        cursor: pointer;
+      }
+    }
+    .barIcon {
+      border: none;
+      outline: none;
+      background-color: white;
+    }
+
+    #bagIcon,
+    #barIcon {
+      margin-left: 20px;
+      height: 23px;
+      width: 23px;
+      cursor: pointer;
+      color: rgb(32, 32, 32);
+    }
+  }
+
+  .sideMenu {
+    height: 543px;
+    width: 1440px;
+    background-color: red;
+
+    .wrapInner {
+      display: flex;
+      flex-wrap: nowrap;
+      margin: 0 auto;
+      width: 1300px;
+      background-color: blue;
+
+      .sideMenuRight {
+        height: 531px;
+        width: 675px;
+        padding-left: 40px;
+        background-color: yellow;
+      }
+
+      .sideMenuLeft {
+        height: 543px;
+        width: 585px;
+        padding-right: 80px;
+        background-color: green;
+      }
+    }
+  }
+
+  .menuList {
+    position: absolute;
+    display: flex;
+    height: 550px;
+    width: 1440px;
+    background-color: #ffffff;
+
+    .menuBox {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 50px 0 0 100px;
+      margin-bottom: 20px;
+      border-right: lightgray solid 1px;
+      width: 750px;
+
+      .menuListLeft {
+        width: 135px;
+        margin-right: 20px;
+        color: #333333;
+
+        .menuListTitle {
+          padding-bottom: 14px;
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        .menuListSub {
+          padding: 6px 0px;
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .menuBoxRight {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin-bottom: 20px;
+    padding: 50px 0 0 100px;
+
+    .menuListRight {
+      height: 240px;
+      width: 135px;
+      margin-right: 30px;
+      color: #333333;
+
+      .menuListTitle {
+        padding-bottom: 14px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .menuListSub {
+        padding: 6px 0px;
+        font-size: 14px;
+        text-align: left;
+      }
+    }
+    .salePic {
+      height: 250px;
+      width: 280px;
+      border: rgb(32, 32, 32) solid 1px;
+    }
+  }
+  .menuListHide {
+    display: none;
+  }
 }
