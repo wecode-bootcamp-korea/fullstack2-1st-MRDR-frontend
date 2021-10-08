@@ -2,8 +2,8 @@ import React from 'react';
 import CartFuncContext from '../CartFuncContext';
 import ImageSlideItem from '../components/ImageSlideItem/ImageSlideItem';
 import { failAlert } from '../../../util/cart';
-import { ROUTES } from '../../../util/constants';
 import { getFetch } from '../../../util/fetch';
+import { ROUTES } from '../../../util/constants';
 import './ImageSlider.scss';
 
 class ImageSlider extends React.Component {
