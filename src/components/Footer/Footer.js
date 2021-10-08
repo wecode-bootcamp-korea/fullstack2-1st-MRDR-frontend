@@ -4,7 +4,7 @@ import './Footer.scss';
 class Footer extends React.Component {
   render() {
     return (
-      <div className="Footer">
+      <footer>
         <div className="footerwrap">
           <div className="footerLeft">
             <a href="/">
@@ -48,7 +48,7 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     );
   }
 }
