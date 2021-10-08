@@ -1,23 +1,20 @@
 import React from 'react';
 import { booleanToNumber } from '../../../../util';
-import Input from '../Input/Input';
 
 class BasicCheckBox extends React.Component {
   render() {
     const {
-      props: {
-        onClick,
-        className,
-        label,
-        id,
-        usertype,
-        value,
-        ischecked,
-        type,
-        name,
-        userBusiness,
-      },
-    } = this;
+      onClick,
+      className,
+      label,
+      id,
+      usertype,
+      value,
+      ischecked,
+      type,
+      name,
+      userBusiness,
+    } = this.props;
     let checked;
 
     switch (type) {
@@ -39,7 +36,7 @@ class BasicCheckBox extends React.Component {
 
     return (
       <div className={className}>
-        <Input
+        <input
           name={name}
           value={value}
           onClick={onClick}

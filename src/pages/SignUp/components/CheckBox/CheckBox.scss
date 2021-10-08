@@ -8,21 +8,21 @@
   input[type='checkBox']:checked + label,
   input[type='checkBox']:not(:checked) + label {
     position: relative;
-    padding: 0 28px 0;
     display: inline-block;
     line-height: 19px;
+    padding: 0 28px 0;
     cursor: pointer;
   }
 
   input[type='checkBox']:checked + label::before,
   input[type='checkBox']:not(:checked) + label::before {
-    content: '';
     position: absolute;
     left: 0;
     top: 0;
     width: 15px;
     height: 14px;
     border: 1px solid $lightGray;
+    content: '';
   }
 
   input[type='checkBox']:checked + label::after,
@@ -30,13 +30,13 @@
     position: absolute;
     left: 0;
     top: 0;
-    padding-bottom: 4.1px;
     width: 15px;
     height: 14px;
+    padding-bottom: 4.1px;
     background-color: $black;
+    text-align: center;
     border: 1px solid $black;
     color: white;
-    text-align: center;
     font-size: $smallFontSize;
     content: '✔︎';
   }

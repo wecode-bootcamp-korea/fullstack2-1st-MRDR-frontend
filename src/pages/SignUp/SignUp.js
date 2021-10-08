@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../../components/Button/Button';
 import { policyAgreements } from '../../util';
-import AdditionalInfoTable from './components/AdditionalInfoTable/AdditionalInfoTable';
-import AgreePolicyTable from './components/AgreePolicyTable/AgreePolicyTable';
-import BasicUserInfoTable from './components/BasicUserInfoTable/BasicUserInfoTable';
-import Button from './components/Button/Button';
+import Title from '../Cart/components/Title/Title';
+import AdditionalInfoTable from './AdditionalInfoTable/AdditionalInfoTable';
+import AgreePolicyTable from './AgreePolicyTable/AgreePolicyTable';
+import BasicUserInfoTable from './BasicUserInfoTable/BasicUserInfoTable';
 import './SignUp.scss';
 
 class SignUp extends React.Component {
@@ -23,8 +24,9 @@ class SignUp extends React.Component {
         classList: { value },
       },
     } = e;
+
     const { state } = this;
-    this.setState(() => ({ [value]: [!state[value][0], state[value][1]] }));
+    this.setState({ [value]: [!state[value][0], state[value][1]] });
   };
 
   checkBoxController = e => {
@@ -39,30 +41,27 @@ class SignUp extends React.Component {
         const item = policyAgreements[key];
         temp[item] = [state[item][0], !state[item][1]];
       }
-      this.setState(() => ({ ...temp }));
+      this.setState({ ...temp });
       return;
     }
-    this.setState(() => ({ [id]: [state[id][0], !state[id][1]] }));
+    this.setState({ [id]: [state[id][0], !state[id][1]] });
   };
 
   onClick = e => {
-    const {
-      target: { value, name },
-    } = e;
-
+    const { value, name } = e.target;
     const { state } = this;
 
     if (name === 'usertype') {
-      this.setState(() => ({ ...state, [name]: value }));
+      this.setState({ ...state, [name]: value });
       return;
     }
 
     if (name === 'userBusiness') {
-      this.setState(() => ({ [name]: value }));
+      this.setState({ [name]: value });
       return;
     }
 
-    this.setState(() => ({ [name]: value }));
+    this.setState({ [name]: value });
   };
 
   onSubmit = e => {
@@ -70,10 +69,8 @@ class SignUp extends React.Component {
   };
 
   onChange = e => {
-    const {
-      target: { value, name },
-    } = e;
-    this.setState(() => ({ [name]: value }));
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -96,7 +93,7 @@ class SignUp extends React.Component {
     return (
       <div className="SignUp">
         <form onSubmit={onSubmit} className="signUpWrapper">
-          <h1 className="signUpTitle">회원가입</h1>
+          <Title className="signUpTitle" title="회원가입" />
           <BasicUserInfoTable
             onClick={onClick}
             usertype={usertype}

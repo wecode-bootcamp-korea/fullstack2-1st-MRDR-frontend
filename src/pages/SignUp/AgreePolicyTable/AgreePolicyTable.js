@@ -1,28 +1,27 @@
 import React from 'react';
-import ArgeePolicyDoc from '../ArgeePolicyDoc/ArgeePolicyDoc';
-import CheckBoxRow from '../CheckBoxRow/CheckBoxRow';
+import Title from '../../Cart/components/Title/Title';
+import CheckBoxRow from '../components/CheckBoxRow/CheckBoxRow';
+import ArgeePolicyDoc from '../signModals/ArgeePolicyDoc/ArgeePolicyDoc';
 import './AgreePolicyTable.scss';
 
 class AgreePolicyTable extends React.Component {
   render() {
     const {
-      props: {
-        checkBoxController,
-        openModal,
-        allAgreeBox,
-        useInfoAgree,
-        personalInfoAgree,
-        emailAgree,
-        SNSAgree,
-      },
-    } = this;
+      checkBoxController,
+      openModal,
+      allAgreeBox,
+      useInfoAgree,
+      personalInfoAgree,
+      emailAgree,
+      SNSAgree,
+    } = this.props;
     return (
       <div className="AgreePolicyTable">
         <table>
           <thead>
             <tr className="signUpSubTitle">
               <td>
-                <h1>전체동의</h1>
+                <Title title="전체동의" />
               </td>
             </tr>
           </thead>

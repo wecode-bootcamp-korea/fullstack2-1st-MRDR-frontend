@@ -1,16 +1,13 @@
 import React from 'react';
-import { joinPageComponentsSwitcher } from '../../../../util';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
-import TableHeader from '../TableHeader/TableHeader';
-import TableRows from '../TableRows/TableRows';
+import TableHeader from '../components/TableHeader/TableHeader';
+import TableRows from '../components/TableRows/TableRows';
+import { joinPageComponentsSwitcher } from '../../../util';
+import Button from '../../../components/Button/Button';
 import './BasicUserInfoTable.scss';
 
 class BasicUserInfoTable extends React.Component {
   render() {
-    const {
-      props: { onClick, usertype, userBusiness, onChange },
-    } = this;
+    const { onClick, usertype, userBusiness, onChange } = this.props;
     return (
       <div className="BasicUserInfoTable">
         <table className="basicInfo">
@@ -27,7 +24,7 @@ class BasicUserInfoTable extends React.Component {
               <td>아이디</td>
               <td colSpan="2" className="idTd">
                 <div className="idTdContainer">
-                  <Input
+                  <input
                     onChange={onChange}
                     name="userId"
                     placeholder={'영소문자/숫자,4~16자'}
@@ -60,20 +57,20 @@ class BasicUserInfoTable extends React.Component {
               <td rowSpan="3">주소</td>
               <td rowSpan="3" className="daressTd" colSpan="2">
                 <div className="innerRow innerRowColumn">
-                  <Input
+                  <input
                     onChange={onChange}
                     className="input"
                     name="userMiddleAdress"
                   />
                   <Button content={'우편번호'} className="adressNumber" />
                 </div>
-                <Input
+                <input
                   onChange={onChange}
                   name="userSecondAdress"
                   className="input innerRowColumn"
                   placeholder="기본주소"
                 />
-                <Input
+                <input
                   onChange={onChange}
                   className="input"
                   name="userthirdAdress"
@@ -104,14 +101,14 @@ class BasicUserInfoTable extends React.Component {
                     <option value="019">019</option>
                   </select>
                   -&nbsp;
-                  <Input
+                  <input
                     onChange={onChange}
                     type="number"
                     name="userSecondPhoneNumber"
                     className="input phoneNumberInput"
                   />
                   -&nbsp;
-                  <Input
+                  <input
                     onChange={onChange}
                     type="number"
                     name="userThirdPhoneNumber"

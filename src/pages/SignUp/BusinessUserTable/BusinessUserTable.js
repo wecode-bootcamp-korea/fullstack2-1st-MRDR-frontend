@@ -1,6 +1,6 @@
 import React from 'react';
-import RadioBtns from '../RadioBtns/RadioBtns';
-import TableRows from '../TableRows/TableRows';
+import RadioBtns from '../components/RadioBtns/RadioBtns';
+import TableRows from '../components/TableRows/TableRows';
 import './BusinessUserTable.scss';
 
 class BusinessUserTable extends React.Component {

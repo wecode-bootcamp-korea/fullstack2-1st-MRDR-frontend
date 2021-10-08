@@ -2,13 +2,11 @@ import React from 'react';
 
 class Button extends React.Component {
   render() {
-    const {
-      props: { className, content, message },
-    } = this;
+    const { className, content, message } = this.props;
 
     return (
       <button className={className}>
-        {content ? content : null} {message}
+        {content || ''} {message}
       </button>
     );
   }

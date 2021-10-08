@@ -3,8 +3,8 @@
 
 .SignUp {
   @include flex();
-  padding-top: 15%;
   min-width: 800px;
+  padding-top: 15%;
 
   small {
     font-size: $smallFontSize;
@@ -15,8 +15,8 @@
     @include flex($flexDirection: column);
 
     .signUpTitle {
-      @include title($size: $secondBigFontSize, $weight: 770);
       margin-bottom: 84px;
+      @include title($size: $secondBigFontSize, $weight: 770);
     }
 
     .BasicUserInfoTable,
@@ -34,8 +34,8 @@
     }
 
     table {
-      margin-bottom: 70px;
       width: 800px;
+      margin-bottom: 70px;
       font-size: $smallFontSize;
       border-collapse: collapse;
 
@@ -69,10 +69,10 @@
       font-size: $secondMiddleFontSize;
       cursor: pointer;
       @include button(
-        $radius: 1px,
+        $padding: 0,
         $bgColor: white,
         $border: 1px solid $black,
-        $padding: 0
+        $radius: 1px
       );
     }
 
@@ -80,10 +80,10 @@
       margin-left: 10px;
 
       @include button(
-        $radius: 0,
+        $padding: 0,
         $bgColor: $black,
         $border: 1px solid $black,
-        $padding: 0
+        $radius: 0
       );
       color: white;
     }

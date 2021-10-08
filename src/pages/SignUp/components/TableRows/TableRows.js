@@ -1,16 +1,13 @@
 import React from 'react';
-import Input from '../Input/Input';
 
 class TableRows extends React.Component {
   render() {
-    const {
-      props: { placeholder, td, className, name, onChange },
-    } = this;
+    const { placeholder, td, className, name, onChange } = this.props;
     return (
       <tr className={className}>
         <td>{td}</td>
         <td colSpan="2">
-          <Input
+          <input
             onChange={onChange}
             placeholder={placeholder}
             name={name}
