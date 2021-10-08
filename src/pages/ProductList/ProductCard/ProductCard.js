@@ -53,11 +53,11 @@ class ProductCard extends React.Component {
             <span>{name}</span>
           </li>
           <li className="productPrice">
-            <span className="originPrice">
-              {originPrice.toLocaleString()}원
-            </span>
             <span className="discountedPrice">
               {discountedPrice.toLocaleString()}원
+            </span>
+            <span className="originPrice">
+              {originPrice.toLocaleString()}원
             </span>
           </li>
           <li className="productColorAmount">{colorAmount} 컬러</li>

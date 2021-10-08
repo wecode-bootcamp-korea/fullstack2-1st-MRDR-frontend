@@ -1,14 +1,17 @@
+@import '../../../styles/common.scss';
+
 .productSort {
   padding-right: 20px;
   line-height: 18px;
   font-size: 20px;
   text-align: center;
-  color: #777777;
+  color: $gray;
 
   img {
     position: absolute;
-    top: 241px;
+    top: 227px;
   }
+
   .dropDown {
     display: none;
     position: absolute;
