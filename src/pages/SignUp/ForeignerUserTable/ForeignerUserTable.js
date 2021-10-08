@@ -1,11 +1,9 @@
 import React from 'react';
-import TableRows from '../TableRows/TableRows';
+import TableRows from '../components/TableRows/TableRows';
 
 class ForeignerUserTable extends React.Component {
   render() {
-    const {
-      props: { onChange },
-    } = this;
+    const { onChange } = this.props;
     return (
       <>
         <TableRows

@@ -1,5 +1,5 @@
-import BusinessUserTable from './pages/SignUp/components/BusinessUserTable/BusinessUserTable';
-import ForeignerUserTable from './pages/SignUp/components/ForeignerUserTable/ForeignerUserTable';
+import BusinessUserTable from './pages/SignUp/BusinessUserTable/BusinessUserTable';
+import ForeignerUserTable from './pages/SignUp/ForeignerUserTable/ForeignerUserTable';
 
 export const joinPageComponentsSwitcher = {
   personalUser: () => null,

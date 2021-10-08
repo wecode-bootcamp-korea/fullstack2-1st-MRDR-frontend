@@ -3,10 +3,9 @@ import CheckBox from '../CheckBox/CheckBox';
 
 class CheckBoxRow extends React.Component {
   render() {
-    const { props } = this;
     return (
       <div className="CheckBoxRow">
-        <CheckBox {...props} />
+        <CheckBox {...this.props} />
       </div>
     );
   }
