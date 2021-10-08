@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -40,22 +41,22 @@ class Nav extends React.Component {
     return (
       <nav>
         <div className="navTop">
-          <a href="./signup" className="topLogin">
+          <Link to="./login" className="topLogin">
             로그인
-          </a>
-          <a href="./login" className="topSignup">
+          </Link>
+          <Link to="./signup" className="topSignup">
             회원가입
-          </a>
-          <a href="#!" className="topService">
+          </Link>
+          <Link to="#!" className="topService">
             고객센터
-          </a>
+          </Link>
         </div>
         <div className="navMenu">
           <img src="/image/logo.png" alt="logo" className="logo" />
           <div className="menu">
             {menuList.map((element, index) => {
               return (
-                <a href="#!" className="menuName" id={index}>
+                <a href="#!" className="menuName" key={index}>
                   {element.title}
                 </a>
               );
