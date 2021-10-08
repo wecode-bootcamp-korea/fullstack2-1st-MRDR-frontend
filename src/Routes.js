@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Products from './pages/Products/Products';
-import ProductList from './pages/ProductListd/ProductList';
+import ProductList from './pages/ProductList/ProductList';
 import SignUp from './pages/SignUp/SignUp';
 
 class Routes extends React.Component {
