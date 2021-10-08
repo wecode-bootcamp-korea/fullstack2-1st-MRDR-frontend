@@ -26,36 +26,5 @@
       line-height: 25px;
       font-size: 17px;
     }
-
-    .dropDown {
-      padding-right: 20px;
-      line-height: 18px;
-      font-size: 20px;
-      text-align: center;
-      color: #777777;
-
-      &Category {
-        display: none;
-        position: absolute;
-        width: 130px;
-        right: 0px;
-
-        a {
-          display: block;
-          position: relative;
-          top: 10px;
-          height: 45px;
-          border: 1px solid;
-          line-height: 40px;
-          background-color: #ffffff;
-          color: #353535;
-          text-decoration: none;
-        }
-      }
-
-      &:hover .dropDownCategory {
-        display: block;
-      }
-    }
   }
 }
