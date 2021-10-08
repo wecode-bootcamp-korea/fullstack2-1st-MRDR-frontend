@@ -16,7 +16,6 @@ class CartItem extends React.Component {
       this.props.item;
     const checkBoxOnClick = this.context('checkBoxOnClick');
     const deleteCartById = this.context('deleteCartById');
-
     return (
       <li className="CartItem">
         <BasicCheckBox
@@ -48,4 +47,4 @@ class CartItem extends React.Component {
   }
 }
 
-export default React.memo(CartItem);
+export default CartItem;

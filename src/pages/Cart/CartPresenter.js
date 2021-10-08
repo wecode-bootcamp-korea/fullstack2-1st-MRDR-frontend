@@ -19,9 +19,7 @@ class CartPresenter extends React.Component {
           <div className="cartWrapper">
             <CartHeader />
             <main>
-              <CartMainTitle
-                counts={getCartCount() || { curCount: 0, totalCount: 0 }}
-              />
+              <CartMainTitle counts={getCartCount()} />
               <CartListArticle items={items} />
               <Title title="이 상품 어때요?" className="recommendTitle" />
               <div className="sliderArticleWrapper">

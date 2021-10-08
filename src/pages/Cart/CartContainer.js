@@ -22,11 +22,11 @@ class CartContainer extends React.Component {
         if (item.id === id) {
           switch (btnId) {
             case BTNAME.PLUS:
-              item.count = item.count !== undefined ? ++item.count : 1;
+              ++item.count;
               break;
 
             case BTNAME.MINUS:
-              item.count = item.count && --item.count;
+              item.count = item.count - 1 <= 0 ? 0 : --item.count;
               break;
 
             default:

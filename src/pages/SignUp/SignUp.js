@@ -65,7 +65,6 @@ class SignUp extends React.Component {
         SNSAgree,
       },
     } = this;
-
     return (
       <div className="SignUp">
         <form onSubmit={onSubmit} className="signUpWrapper">

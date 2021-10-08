@@ -6,7 +6,7 @@ import './BusinessUserTable.scss';
 class BusinessUserTable extends React.Component {
   render() {
     const {
-      props: { onClick, userBusiness, onChange },
+      props: { userBusiness, onChange, radioBtnOnClick },
     } = this;
     return (
       <>
@@ -14,7 +14,7 @@ class BusinessUserTable extends React.Component {
           <td>사업자 구분</td>
           <td className="businessInfo" colSpan="2">
             <RadioBtns
-              onClick={onClick}
+              onClick={radioBtnOnClick}
               userBusiness={userBusiness}
               name="userBusiness"
               btns={[

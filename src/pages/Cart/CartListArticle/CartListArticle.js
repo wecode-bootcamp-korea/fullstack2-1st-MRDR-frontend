@@ -13,7 +13,7 @@ class CartListArticle extends React.Component {
     };
     return (
       <article className="CartListArticle">
-        <CartItems {...this.props} />
+        <CartItems items={items} />
         <div className="sideMenus">
           <PricesBox prices={prices} />
         </div>

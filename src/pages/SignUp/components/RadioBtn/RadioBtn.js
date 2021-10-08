@@ -14,7 +14,7 @@ class RadioBtn extends React.Component {
         value={value}
         name={name}
         label={label}
-        onClick={() => onClick(name, id)}
+        onClick={() => onClick(name, value)}
       />
     );
   }

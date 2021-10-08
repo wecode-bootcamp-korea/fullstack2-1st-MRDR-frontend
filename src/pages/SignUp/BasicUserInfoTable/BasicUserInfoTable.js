@@ -7,8 +7,8 @@ import { joinPageComponentsSwitcher } from '../../../util/signUp';
 
 class BasicUserInfoTable extends React.Component {
   render() {
-    const { onClick, usertype, userBusiness, onChange, radioBtnOnClick } =
-      this.props;
+    const { usertype, userBusiness, onChange, radioBtnOnClick } = this.props;
+
     return (
       <div className="BasicUserInfoTable">
         <table className="basicInfo">
@@ -16,9 +16,9 @@ class BasicUserInfoTable extends React.Component {
           <tbody>
             {usertype &&
               joinPageComponentsSwitcher[usertype]({
+                radioBtnOnClick,
                 usertype,
                 userBusiness,
-                onClick,
                 onChange,
               })}
             <tr className="idTr">

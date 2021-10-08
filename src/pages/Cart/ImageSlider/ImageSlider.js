@@ -41,7 +41,7 @@ class ImageSlider extends React.Component {
       <article className="ImageSliderContainer">
         <Button
           id={BTNAME.LEFT}
-          name="〈"
+          message="〈"
           onClick={() => this.imgSliderOnClick(BTNAME.LEFT)}
         />
 
@@ -58,7 +58,7 @@ class ImageSlider extends React.Component {
         </ul>
         <Button
           id={BTNAME.RIGHT}
-          name="〉"
+          message="〉"
           onClick={() => this.imgSliderOnClick(BTNAME.RIGHT)}
         />
       </article>

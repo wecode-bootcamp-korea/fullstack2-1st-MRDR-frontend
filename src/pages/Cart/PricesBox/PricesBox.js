@@ -33,7 +33,7 @@ class PricesBox extends React.Component {
           <TwoColumnRow
             className="totalPrice"
             description="총 금액"
-            price={originPrice ? priceChanger(discountPrice + 5000) : 0}
+            price={priceChanger(originPrice - discountPrice + 5000)}
           />
         </div>
         <div className="priceBtns">

@@ -17,7 +17,7 @@ class NumberControlButton extends React.Component {
           message="-"
           onClick={() => onClick(id, BTNAME.MINUS)}
         />
-        <span>{count || 0}</span>
+        <span>{count}</span>
         <Button
           id={BTNAME.PLUS}
           message="+"
