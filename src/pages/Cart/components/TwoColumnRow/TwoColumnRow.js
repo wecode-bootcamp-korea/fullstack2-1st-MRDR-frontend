@@ -13,4 +13,4 @@ class TwoColumnRow extends React.Component {
   }
 }
 
-export default TwoColumnRow;
+export default React.memo(TwoColumnRow);

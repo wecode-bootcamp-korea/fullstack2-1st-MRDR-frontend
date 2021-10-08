@@ -19,4 +19,4 @@ class TableRows extends React.Component {
   }
 }
 
-export default TableRows;
+export default React.memo(TableRows);

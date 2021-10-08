@@ -2,10 +2,10 @@ import React from 'react';
 import ImageSlider from './ImageSlider/ImageSlider';
 import CartHeader from './CartHeader/CartHeader';
 import CartMainTitle from './CartMainTitle/CartMainTitle';
-import Title from './components/Title/Title';
 import CartListArticle from './CartListArticle/CartListArticle';
 import CartFuncContext from './CartFuncContext';
 import { CARTFUNCS } from './constants';
+import Title from '../../components/Title/Title';
 import './CartPresenter.scss';
 
 class CartPresenter extends React.Component {

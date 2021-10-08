@@ -1,10 +1,10 @@
 import React from 'react';
 import { faAddressCard, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Title from '../Cart/components/Title/Title';
-import './Login.scss';
 import Button from '../../components/Button/Button';
 import { checkIdValid, checkPasswordValid } from '../../util/auth';
+import './Login.scss';
+import Title from '../../components/Title/Title';
 
 class Login extends React.Component {
   state = { id: '', password: '' };

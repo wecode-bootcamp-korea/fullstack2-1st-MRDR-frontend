@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../components/Title/Title';
+import Title from '../../../components/Title/Title';
 import './CartHeader.scss';
 
 class CartHeader extends React.Component {

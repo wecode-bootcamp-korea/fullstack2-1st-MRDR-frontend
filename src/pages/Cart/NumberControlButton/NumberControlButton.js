@@ -1,7 +1,7 @@
 import React from 'react';
+import Button from '../../../components/Button/Button';
 import { BTNAME } from '../../../util/constants';
 import CartFuncContext from '../CartFuncContext';
-import Button from '../components/Button/Button';
 import { CARTFUNCS } from '../constants';
 import './NumberControlButton.scss';
 
@@ -14,13 +14,13 @@ class NumberControlButton extends React.Component {
       <div className="NumberControlButton">
         <Button
           id={BTNAME.MINUS}
-          name="-"
+          message="-"
           onClick={() => onClick(id, BTNAME.MINUS)}
         />
         <span>{count || 0}</span>
         <Button
           id={BTNAME.PLUS}
-          name="+"
+          message="+"
           onClick={() => onClick(id, BTNAME.PLUS)}
         />
       </div>

@@ -7,13 +7,13 @@ class CartContainer extends React.Component {
   state = { items: [], cartRecomment: [] };
 
   componentDidMount = async () => {
-    const actionFunc = items => this.setState(() => ({ items }));
+    const actionFunc = items => this.setState({ items });
     const failFunc = failAlert;
     await getFetch(ROUTES.CART, { actionFunc, failFunc });
   };
 
   fillRecommendState = cartRecomment => {
-    this.setState(() => ({ cartRecomment }));
+    this.setState({ cartRecomment });
   };
 
   addCartNumber = (id, btnId) => {
@@ -24,9 +24,11 @@ class CartContainer extends React.Component {
             case BTNAME.PLUS:
               item.count = item.count !== undefined ? ++item.count : 1;
               break;
+
             case BTNAME.MINUS:
               item.count = item.count && --item.count;
               break;
+
             default:
               break;
           }

@@ -11,4 +11,4 @@ class CheckBoxRow extends React.Component {
   }
 }
 
-export default CheckBoxRow;
+export default React.memo(CheckBoxRow);

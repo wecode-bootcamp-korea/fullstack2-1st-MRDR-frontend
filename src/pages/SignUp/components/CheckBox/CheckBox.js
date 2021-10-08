@@ -10,4 +10,4 @@ class CheckBox extends React.Component {
   }
 }
 
-export default CheckBox;
+export default React.memo(CheckBox);

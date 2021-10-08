@@ -1,8 +1,8 @@
 import React from 'react';
 import PricesBox from '../PricesBox/PricesBox';
 import CartItems from '../CartItems/CartItems';
-import './CartListArticle.scss';
 import { priceCaculator } from '../utils';
+import './CartListArticle.scss';
 
 class CartListArticle extends React.Component {
   render() {

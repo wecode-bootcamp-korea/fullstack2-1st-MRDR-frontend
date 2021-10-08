@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../Cart/components/Title/Title';
+import Title from '../../../components/Title/Title';
 import './AdditionalInfoTable.scss';
 
 class AdditionalInfoTable extends React.Component {

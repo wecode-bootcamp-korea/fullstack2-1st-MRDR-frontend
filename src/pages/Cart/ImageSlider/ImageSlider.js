@@ -2,8 +2,8 @@ import React from 'react';
 import ImageSlideItem from '../components/ImageSlideItem/ImageSlideItem';
 import { failAlert, getFetch } from '../../../util/fetch';
 import { BTNAME, ROUTES } from '../../../util/constants';
+import Button from '../../../components/Button/Button';
 import './ImageSlider.scss';
-import Button from '../components/Button/Button';
 
 class ImageSlider extends React.Component {
   state = { curIndex: 0, cartRecomment: [] };

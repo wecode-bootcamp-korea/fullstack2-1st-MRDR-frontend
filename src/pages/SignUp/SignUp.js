@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
+import Title from '../../components/Title/Title';
 import { policyAgreements } from '../../util/signUp';
-import Title from '../Cart/components/Title/Title';
 import AdditionalInfoTable from './AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './AgreePolicyTable/AgreePolicyTable';
 import BasicUserInfoTable from './BasicUserInfoTable/BasicUserInfoTable';

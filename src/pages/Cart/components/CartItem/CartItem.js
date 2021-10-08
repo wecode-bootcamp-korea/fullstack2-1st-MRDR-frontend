@@ -48,4 +48,4 @@ class CartItem extends React.Component {
   }
 }
 
-export default CartItem;
+export default React.memo(CartItem);
