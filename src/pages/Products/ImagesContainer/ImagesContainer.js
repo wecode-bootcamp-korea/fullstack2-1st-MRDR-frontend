@@ -61,7 +61,6 @@ class ImagesContainer extends React.Component {
     const { isMouseDown } = this.state;
     const slideStartX = e.pageX - slideRef.current.offsetLeft;
     const slideScrollLeft = slideRef.current.scrollLeft;
-    console.log(slideRef.current.offsetLeft, slideScrollLeft);
     this.setState({
       isMouseDown: !isMouseDown,
       slideStartX,
@@ -84,7 +83,6 @@ class ImagesContainer extends React.Component {
     e.preventDefault();
     let nextSlideIndex, prevSlideIndex;
     const x = e.pageX - slideRef.current.offsetLeft;
-    console.log(slideRef.current.offsetLeft);
     const walk = (x - slideStartX) * 1.5;
     slideRef.current.scrollLeft = slideScrollLeft - walk;
 
@@ -135,7 +133,6 @@ class ImagesContainer extends React.Component {
       handleMouseMove,
       handleMoveEnd,
     } = this;
-    console.log(slideRef);
     const slideCss = {
       transform: `translateX(-${
         SCREEN_MOVEMENT.PRODUCT_IMAGE * currentSlideIndex
