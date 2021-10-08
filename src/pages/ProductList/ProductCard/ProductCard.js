@@ -48,15 +48,19 @@ class ProductCard extends React.Component {
               />
             </Link>
           </li>
-          <li className="productReview">리뷰 {review}</li>
+          <li className="productReview">리뷰 {review.toLocaleString()}</li>
           <li className="productName">
             <span>{name}</span>
           </li>
           <li className="productPrice">
-            <span className="originPrice">{originPrice}원</span>
-            <span className="discountedPrice">{discountedPrice}원</span>
+            <span className="discountedPrice">
+              {discountedPrice.toLocaleString()}원
+            </span>
+            <span className="originPrice">
+              {originPrice.toLocaleString()}원
+            </span>
           </li>
-          <li className="productColorAmount">{colorAmount}</li>
+          <li className="productColorAmount">{colorAmount} 컬러</li>
           <li className="productTextBox">
             <span>{textBox}</span>
           </li>

@@ -30,3 +30,8 @@ export const CARTFUNCS = {
   getCartCount: 'getCartCount',
   deleteCartById: 'deleteCartById',
 };
+
+export const SCREEN_MOVEMENT = {
+  COLOR_IMAGE: 780,
+  PRODUCT_IMAGE: 660,
+};

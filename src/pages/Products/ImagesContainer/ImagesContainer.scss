@@ -1,9 +1,4 @@
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import '../../../styles/mixins.scss';
 
 .ImagesContainer {
   @include flex(column, flex-start, flex-start);
@@ -17,7 +12,7 @@
     }
   }
 
-  .subImagesContainer {
+  .subImagesCarousel {
     @include flex(row, flex-start, flex-start);
     width: 100%;
     margin-top: 28px;
@@ -32,11 +27,11 @@
   .imageSlide {
     @include flex(row, flex-start, flex-start);
     width: 660px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.8s ease-in-out;
   }
 
   .slideNavBar {
-    @include flex(row, space-around, center);
+    @include flex(row, center, space-around);
     align-self: center;
     width: 35%;
     height: 50px;
@@ -55,10 +50,10 @@
     }
 
     .slideNav {
-      @include flex(row, space-around, center);
+      @include flex(row, center, space-around);
 
       .slideIconWrapper {
-        @include flex(column, flex-start, center);
+        @include flex(column, center, flex-start);
         margin: 3px;
       }
 

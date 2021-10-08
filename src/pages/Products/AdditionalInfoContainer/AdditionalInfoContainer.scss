@@ -1,0 +1,6 @@
+@import '../../../styles/mixins.scss';
+
+.AdditionalInfoContainer {
+  @include flex(column, center, flex-start);
+  margin-top: 30px;
+}

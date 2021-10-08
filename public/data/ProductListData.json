@@ -31,7 +31,7 @@
       "name": "스트링 피치라이닝 윈드자켓",
       "originPrice": 45000,
       "discountedPrice": 39000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -42,7 +42,7 @@
       "name": "[1+1] 에어코튼 시리 시그니처 9부&8.2부",
       "originPrice": 65000,
       "discountedPrice": 29000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -53,7 +53,7 @@
       "name": "[SET] 브라프리 티셔츠 & 레깅스 (컴포트 브라프리 & 에어쿨링)",
       "originPrice": 12000,
       "discountedPrice": 10000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -64,7 +64,7 @@
       "name": "읏차읏차 상태좋은 레깅스",
       "originPrice": 40000,
       "discountedPrice": 15000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -75,7 +75,7 @@
       "name": "에어코튼 판매",
       "originPrice": 42000,
       "discountedPrice": 19000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -86,7 +86,7 @@
       "name": "에어코튼 판매",
       "originPrice": 99000,
       "discountedPrice": 90000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -97,7 +97,7 @@
       "name": "에어코튼 판매",
       "originPrice": 85000,
       "discountedPrice": 54000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -108,7 +108,7 @@
       "name": "에어코튼 판매",
       "originPrice": 51000,
       "discountedPrice": 48000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -119,7 +119,7 @@
       "name": "에어코튼 판매",
       "originPrice": 54000,
       "discountedPrice": 52000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -130,7 +130,7 @@
       "name": "에어코튼 판매",
       "originPrice": 66000,
       "discountedPrice": 62000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -141,7 +141,7 @@
       "name": "에어코튼 판매",
       "originPrice": 77000,
       "discountedPrice": 33000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     },
     {
@@ -152,7 +152,7 @@
       "name": "에어코튼 판매",
       "originPrice": 99000,
       "discountedPrice": 89000,
-      "colorAmount": "16 컬러",
+      "colorAmount": 16,
       "textBox": "한정수량 재입고"
     }
   ]
