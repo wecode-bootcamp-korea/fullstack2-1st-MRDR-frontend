@@ -1,9 +1,5 @@
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import '../../../../styles/common.scss';
+@import '../../../..//styles/mixins.scss';
 
 .AdditionalInfoTap {
   width: 100%;
@@ -13,11 +9,11 @@
 
   .infoTapList {
     @include flex(row, flex-start, flex-start);
-    width: 1300px;
+    width: $pageWidth;
     margin: 0 auto;
 
     li {
-      @include flex(column, center, flex-start);
+      @include flex(column, flex-start, center);
       width: 200px;
       height: 50px;
       padding: 0;

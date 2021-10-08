@@ -1,9 +1,4 @@
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import '../../../../../styles/mixins.scss';
 
 .ColorImageCarousel {
   position: relative;
@@ -49,7 +44,7 @@
     margin: 0 auto;
 
     .navList {
-      @include flex(row, space-around, center);
+      @include flex(row, center, space-around);
       line-height: 10px;
 
       .navCircle {

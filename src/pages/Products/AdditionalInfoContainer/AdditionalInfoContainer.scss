@@ -1,11 +1,6 @@
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import '../../../styles/mixins.scss';
 
 .AdditionalInfoContainer {
-  @include flex(column, flex-start, center);
+  @include flex(column, center, flex-start);
   margin-top: 30px;
 }

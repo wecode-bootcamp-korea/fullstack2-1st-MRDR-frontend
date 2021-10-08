@@ -1,12 +1,7 @@
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import '../../../../styles/mixins.scss';
 
 .DetailInfoContainer {
-  @include flex(column, flex-start, center);
+  @include flex(column, center, flex-start);
   width: 100%;
 
   .infoImageWrapper {
