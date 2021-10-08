@@ -6,6 +6,7 @@ import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import SubImage from './SubImage';
 import './ImagesContainer.scss';
+import { SCREEN_MOVEMENT } from '../../../util/constants';
 
 class ImagesContainer extends React.Component {
   constructor() {
@@ -70,51 +71,54 @@ class ImagesContainer extends React.Component {
 
   handleMouseMove = e => {
     const { slideRef } = this;
-    const { isMouseDown, slideStartX, slideScrollLeft } = this.state;
-    if (!isMouseDown) return;
-    e.preventDefault();
-    const x = e.pageX - slideRef.current.offsetLeft;
-    const walk = (x - slideStartX) * 1.5;
-    slideRef.current.scrollLeft = slideScrollLeft - walk;
-  };
-
-  handleMoveEnd = e => {
-    const { slideRef } = this;
     const {
       productImageSlides,
       currentSlideIndex,
       isMouseDown,
       slideStartX,
       slideInitScrollLeft,
+      slideScrollLeft,
     } = this.state;
     if (!isMouseDown) return;
+    e.preventDefault();
     let nextSlideIndex, prevSlideIndex;
     const x = e.pageX - slideRef.current.offsetLeft;
     const walk = (x - slideStartX) * 1.5;
-    slideRef.current.scrollLeft = slideInitScrollLeft;
+    slideRef.current.scrollLeft = slideScrollLeft - walk;
 
-    if (walk < -450) {
+    if (walk < -500) {
       nextSlideIndex = currentSlideIndex + 1;
       const lastIndex = productImageSlides.length - 1;
       if (nextSlideIndex > lastIndex) {
         nextSlideIndex = lastIndex;
       }
+
+      slideRef.current.scrollLeft = slideInitScrollLeft;
       this.setState({
         isMouseDown: false,
         currentSlideIndex: nextSlideIndex,
       });
-    } else if (walk > 450) {
+    } else if (walk > 500) {
       prevSlideIndex = currentSlideIndex - 1;
       if (prevSlideIndex < 0) {
         prevSlideIndex = 0;
       }
+
+      slideRef.current.scrollLeft = slideInitScrollLeft;
       this.setState({
         isMouseDown: false,
         currentSlideIndex: prevSlideIndex,
       });
     } else {
-      this.setState({ isMouseDown: false });
+      this.setState({ isMouseDown: true });
     }
+  };
+
+  handleMoveEnd = () => {
+    const { slideRef } = this;
+    const { slideInitScrollLeft } = this.state;
+    slideRef.current.scrollLeft = slideInitScrollLeft;
+    this.setState({ isMouseDown: false });
   };
 
   render() {
@@ -130,7 +134,9 @@ class ImagesContainer extends React.Component {
       handleMoveEnd,
     } = this;
     const slideCss = {
-      transform: `translateX(-${660 * currentSlideIndex}px)`,
+      transform: `translateX(-${
+        SCREEN_MOVEMENT.PRODUCT_IMAGE * currentSlideIndex
+      }px)`,
     };
     return (
       <div className="ImagesContainer">
