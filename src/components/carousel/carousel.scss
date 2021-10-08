@@ -1,0 +1,50 @@
+.container {
+  height: 650px;
+  width: 100%;
+  background-color: blue;
+  display: absolute;
+
+  .slideBox {
+    position: absolute;
+    height: 120px;
+    width: 630px;
+    left: -125px;
+
+    .cell {
+      color: red;
+      font-size: 30px;
+      text-align: center;
+      width: 1300px;
+      height: 650px;
+      background-color: pink;
+      display: inline-block;
+      padding: 30px auto;
+      z-index: 0;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      transform: scale(0.95);
+      position: absolute;
+    }
+
+    .active {
+      z-index: 1;
+      opacity: 1;
+      transform: none;
+      border: 10px solid red;
+    }
+  }
+
+  .slideBtn {
+    position: relative;
+    top: 50%;
+    left: 80%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+
+    .prevBtn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
