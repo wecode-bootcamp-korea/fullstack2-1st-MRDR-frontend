@@ -11,73 +11,47 @@ import './SignUp.scss';
 class SignUp extends React.Component {
   state = {
     usertype: 'personalUser',
-    allAgreeBox: ['', false],
-    useInfoAgree: ['', false],
-    personalInfoAgree: ['', false],
-    emailAgree: ['', false],
-    SNSAgree: ['', false],
+    allAgreeBox: false,
+    useInfoAgree: false,
+    personalInfoAgree: false,
+    emailAgree: false,
+    SNSAgree: false,
   };
 
-  openModal = e => {
-    const {
-      target: {
-        classList: { value },
-      },
-    } = e;
-
+  openModal = className => {
     const { state } = this;
-    this.setState({ [value]: [!state[value][0], state[value][1]] });
+    this.setState({ [className]: [!state[className][0], state[className][1]] });
   };
 
-  checkBoxController = e => {
-    const {
-      target: { id },
-    } = e;
-
-    const { state } = this;
-    if (id === 'allAgreeBox') {
-      const temp = {};
-      for (let key in policyAgreements) {
-        const item = policyAgreements[key];
-        temp[item] = [state[item][0], !state[item][1]];
+  checkBoxController = id => {
+    this.setState(pre => {
+      if (id === 'allAgreeBox') {
+        for (let agreePolicy of policyAgreements) {
+          pre[agreePolicy] = !pre[agreePolicy];
+        }
+        return { ...pre };
       }
-      this.setState({ ...temp });
-      return;
-    }
-    this.setState({ [id]: [state[id][0], !state[id][1]] });
+    });
+    this.setState(state => ({ [id]: !state[id] }));
   };
 
-  onClick = e => {
-    const { value, name } = e.target;
-    const { state } = this;
-
-    if (name === 'usertype') {
-      this.setState({ ...state, [name]: value });
-      return;
-    }
-
-    if (name === 'userBusiness') {
-      this.setState({ [name]: value });
-      return;
-    }
-
+  radioBtnOnClick = (name, value) => {
     this.setState({ [name]: value });
   };
-
   onSubmit = e => {
     e.preventDefault();
   };
 
   onChange = e => {
-    const { value, name } = e.target;
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
   render() {
     const {
       onChange,
+      radioBtnOnClick,
       onSubmit,
-      onClick,
       openModal,
       checkBoxController,
       state: {
@@ -90,12 +64,14 @@ class SignUp extends React.Component {
         SNSAgree,
       },
     } = this;
+
     return (
       <div className="SignUp">
         <form onSubmit={onSubmit} className="signUpWrapper">
           <Title className="signUpTitle" title="회원가입" />
           <BasicUserInfoTable
-            onClick={onClick}
+            checkBoxController={checkBoxController}
+            radioBtnOnClick={radioBtnOnClick}
             usertype={usertype}
             userBusiness={userBusiness}
             onChange={onChange}
@@ -109,7 +85,6 @@ class SignUp extends React.Component {
             SNSAgree={SNSAgree}
             openModal={openModal}
             checkBoxController={checkBoxController}
-            onChange={onChange}
           />
           <div className="signUpButtons">
             <Link to={'main'} className={'signUpCancel'}>

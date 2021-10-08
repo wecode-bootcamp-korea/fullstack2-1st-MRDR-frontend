@@ -7,11 +7,12 @@ import './BasicUserInfoTable.scss';
 
 class BasicUserInfoTable extends React.Component {
   render() {
-    const { onClick, usertype, userBusiness, onChange } = this.props;
+    const { onClick, usertype, userBusiness, onChange, radioBtnOnClick } =
+      this.props;
     return (
       <div className="BasicUserInfoTable">
         <table className="basicInfo">
-          <TableHeader onClick={onClick} usertype={usertype} />
+          <TableHeader radioBtnOnClick={radioBtnOnClick} usertype={usertype} />
           <tbody>
             {usertype &&
               joinPageComponentsSwitcher[usertype]({
