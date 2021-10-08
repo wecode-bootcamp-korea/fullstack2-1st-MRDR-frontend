@@ -1,4 +1,82 @@
 .Footer {
-  background-color: red;
-  font-size: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 373px;
+  margin: 120px auto 0;
+  background-color: #fafafafa;
+
+  .footerwrap {
+    display: flex;
+    margin: 0 auto;
+    padding-top: 60px;
+    height: 250px;
+    width: 1300px;
+
+    .footerLeft {
+      width: 675px;
+      height: 250px;
+      padding-left: 40px;
+
+      .footerLogo {
+        padding-bottom: 40px;
+      }
+
+      h5 {
+        padding-bottom: 15px;
+        color: #777777;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .number {
+        padding-bottom: 15px;
+        color: #555555;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .time {
+        padding-bottom: 5px;
+        color: #555555;
+        font-size: 13px;
+      }
+
+      .snsLogo {
+        width: 30px;
+        margin: 40px 15px 0 0;
+      }
+    }
+
+    .footerRight {
+      width: 585px;
+      height: 250px;
+      margin-top: 100px;
+      padding-right: 80px;
+
+      a {
+        font-size: 13px;
+        color: #555555;
+        text-decoration: none solid;
+        cursor: pointer;
+      }
+
+      .subBold {
+        font-weight: 700;
+      }
+    }
+
+    .adress {
+      margin-top: 20px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #777777;
+
+      p {
+        margin-bottom: 15px;
+        font-size: 13px;
+        color: #777777;
+      }
+    }
+  }
 }
