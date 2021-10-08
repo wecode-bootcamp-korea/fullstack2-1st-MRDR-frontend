@@ -1,3 +1,76 @@
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 .ImagesContainer {
+  @include flex(column, flex-start, flex-start);
   width: 50%;
+
+  .mainImageWrapper {
+    width: 100%;
+
+    .mainImage {
+      width: 100%;
+    }
+  }
+
+  .subImagesCarousel {
+    @include flex(row, flex-start, flex-start);
+    width: 100%;
+    margin-top: 28px;
+    overflow: hidden;
+  }
+
+  .active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  .imageSlide {
+    @include flex(row, flex-start, flex-start);
+    width: 660px;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .slideNavBar {
+    @include flex(row, space-around, center);
+    align-self: center;
+    width: 35%;
+    height: 50px;
+
+    .prevBtn,
+    .nextBtn {
+      all: unset;
+      font-size: 24px;
+      color: #222222;
+
+      &:hover,
+      &:hover {
+        color: #1f56b8;
+        cursor: pointer;
+      }
+    }
+
+    .slideNav {
+      @include flex(row, space-around, center);
+
+      .slideIconWrapper {
+        @include flex(column, flex-start, center);
+        margin: 3px;
+      }
+
+      .slideIcon {
+        all: unset;
+        font-size: 11px;
+        color: #222222;
+      }
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+  }
 }

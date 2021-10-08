@@ -1,0 +1,44 @@
+.PurchasingGuide {
+  width: 90%;
+
+  .payment,
+  .delivery,
+  .return,
+  .nonReturnable,
+  .returnAddress {
+    dt {
+      padding: 67px 0 11px;
+      color: #000;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    dd {
+      padding-left: 10px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 350;
+      line-height: 28px;
+      letter-spacing: -1px;
+    }
+
+    .addressInfo {
+      dt {
+        padding: 20px 0 7px 0;
+        color: #c86733;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+      }
+
+      dd {
+        padding: 0 0 7px 0;
+        color: #666;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: -1px;
+      }
+    }
+  }
+}

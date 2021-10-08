@@ -1,0 +1,11 @@
+.ColorBox {
+  margin-left: 10px;
+
+  .colorBtn {
+    all: unset;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
