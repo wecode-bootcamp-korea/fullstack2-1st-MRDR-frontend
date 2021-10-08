@@ -11,9 +11,8 @@ class ColorPicker extends React.Component {
       <div className="ColorPicker">
         <ul className="colorList">
           {productColorList.map((productColorSet, index) => {
-            const key = index + 1;
             return (
-              <div className="colorSet" key={key}>
+              <div className="colorSet" key={index}>
                 {productColorSet.map(productColor => {
                   return (
                     <ColorBox

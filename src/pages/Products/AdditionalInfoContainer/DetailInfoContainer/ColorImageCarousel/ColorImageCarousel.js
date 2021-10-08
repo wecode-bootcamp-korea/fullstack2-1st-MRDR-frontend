@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ColorImageBox from './ColorImageBox';
 import './ColorImageCarousel.scss';
+import { SCREEN_MOVEMENT } from '../../../../../util/constants';
 class ColorImageCarousel extends React.Component {
   render() {
     const {
@@ -18,35 +19,35 @@ class ColorImageCarousel extends React.Component {
     } = this.props;
     return (
       <div className="ColorImageCarousel">
-        <button className="prevBtn" onClick={handleSlidePrevBtn}>
+        <button className="carouselBtn prevBtn" onClick={handleSlidePrevBtn}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
         <div
           className="colorImagesTrack"
           style={{
-            transform: `translateX(-${780 * currentSlideIndex}px)`,
+            transform: `translateX(-${
+              SCREEN_MOVEMENT.COLOR_IMAGE * currentSlideIndex
+            }px)`,
           }}
         >
           {clickedColor.imageUrlList.map((imageUrl, index) => {
-            const key = index + 1;
-            return <ColorImageBox key={key} imageUrl={imageUrl} />;
+            return <ColorImageBox key={index} imageUrl={imageUrl} />;
           })}
         </div>
-        <button className="nextBtn" onClick={handleSlideNextBtn}>
+        <button className="carouselBtn nextBtn" onClick={handleSlideNextBtn}>
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
         <div className="carouselNav">
           <ul className="navList">
-            {clickedColor.imageUrlList.map((imageUrl, index) => {
-              const key = index + 1;
-              const slideIndex = parseInt(index / 2);
-              if (index % 2 === 1) {
+            {clickedColor.imageUrlList
+              .filter((imageUrl, index) => index % 2 === 1)
+              .map((imageUrl, index) => {
                 return (
-                  <li key={key}>
+                  <li key={index}>
                     <span className="navCircle">
                       <FontAwesomeIcon
                         icon={
-                          currentSlideIndex === slideIndex
+                          currentSlideIndex === index
                             ? solidCircle
                             : regularCircle
                         }
@@ -54,10 +55,7 @@ class ColorImageCarousel extends React.Component {
                     </span>
                   </li>
                 );
-              } else {
-                return false;
-              }
-            })}
+              })}
           </ul>
         </div>
       </div>

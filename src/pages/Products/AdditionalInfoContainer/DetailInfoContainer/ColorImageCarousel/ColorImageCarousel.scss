@@ -6,11 +6,10 @@
   margin-bottom: 120px;
   overflow: hidden;
 
-  .prevBtn {
+  .carouselBtn {
     all: unset;
     position: absolute;
     top: 250px;
-    left: 20px;
     z-index: 1;
     font-size: 35px;
 
@@ -19,17 +18,12 @@
     }
   }
 
-  .nextBtn {
-    all: unset;
-    position: absolute;
-    top: 250px;
-    right: 20px;
-    z-index: 1;
-    font-size: 35px;
+  .prevBtn {
+    left: 20px;
+  }
 
-    &:hover {
-      cursor: pointer;
-    }
+  .nextBtn {
+    right: 20px;
   }
 
   .colorImagesTrack {
