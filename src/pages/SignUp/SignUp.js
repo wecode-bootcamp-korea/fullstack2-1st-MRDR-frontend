@@ -1,3 +1,4 @@
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
@@ -24,15 +25,16 @@ class SignUp extends React.Component {
   };
 
   checkBoxController = id => {
-    this.setState(pre => {
-      if (id === 'allAgreeBox') {
+    if (id === 'allAgreeBox') {
+      this.setState(state => {
         for (let agreePolicy of policyAgreements) {
-          pre[agreePolicy] = !pre[agreePolicy];
+          state[agreePolicy] = !state[agreePolicy];
         }
-        return { ...pre };
-      }
-    });
-    this.setState(state => ({ [id]: !state[id] }));
+        return state;
+      });
+    } else {
+      this.setState(state => ({ [id]: !state[id] }));
+    }
   };
 
   radioBtnOnClick = (name, value) => {
