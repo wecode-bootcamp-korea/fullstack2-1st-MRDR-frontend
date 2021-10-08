@@ -138,11 +138,45 @@ q {
   }
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }

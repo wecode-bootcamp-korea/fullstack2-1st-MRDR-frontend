@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.scss';
+import './Nav.scss';
 
 class Nav extends React.Component {
   render() {

@@ -1,0 +1,12 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/common.scss';
+
+.RadioBtns {
+  .RadioBtn {
+    label {
+      font-size: $smallFontSize;
+      color: $black;
+      font-weight: 350;
+    }
+  }
+}

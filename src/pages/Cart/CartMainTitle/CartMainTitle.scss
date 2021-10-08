@@ -1,0 +1,15 @@
+@import '../../../styles/mixins.scss';
+
+.mainTitleWrapper {
+  display: grid;
+  grid-template-columns: 905px 340px;
+  gap: 60px;
+
+  .deleteAllCart {
+    font-size: 17px;
+    cursor: pointer;
+  }
+  .mainTitle {
+    @include flex($justify: space-between);
+  }
+}
