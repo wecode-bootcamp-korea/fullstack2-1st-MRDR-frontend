@@ -3,8 +3,8 @@ import { faAddressCard, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../components/Button/Button';
 import { checkIdValid, checkPasswordValid } from '../../util/auth';
-import './Login.scss';
 import Title from '../../components/Title/Title';
+import './Login.scss';
 
 class Login extends React.Component {
   state = { id: '', password: '' };

@@ -2,10 +2,11 @@
 @import '../../styles/common.scss';
 
 .CartPresenter {
-  padding-top: 15%;
+  padding-top: 200px;
 
   .cartWrapper {
     width: 1300px;
+    padding: 0 10px;
 
     main {
       .recommendTitle {
