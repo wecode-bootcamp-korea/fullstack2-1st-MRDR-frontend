@@ -46,4 +46,4 @@ class PricesBox extends React.Component {
   }
 }
 
-export default PricesBox;
+export default React.memo(PricesBox);

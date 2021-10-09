@@ -20,4 +20,4 @@ class RadioBtn extends React.Component {
   }
 }
 
-export default React.memo(RadioBtn);
+export default RadioBtn;

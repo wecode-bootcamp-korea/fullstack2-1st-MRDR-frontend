@@ -21,4 +21,4 @@ class BasicCheckBox extends React.Component {
   }
 }
 
-export default React.memo(BasicCheckBox);
+export default BasicCheckBox;

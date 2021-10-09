@@ -3,6 +3,7 @@ import React from 'react';
 class TableRows extends React.Component {
   render() {
     const { placeholder, td, className, name, onChange } = this.props;
+
     return (
       <tr className={className}>
         <td>{td}</td>
@@ -19,4 +20,4 @@ class TableRows extends React.Component {
   }
 }
 
-export default React.memo(TableRows);
+export default TableRows;

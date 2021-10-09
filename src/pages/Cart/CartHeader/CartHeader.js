@@ -17,4 +17,4 @@ class CartHeader extends React.Component {
   }
 }
 
-export default CartHeader;
+export default React.memo(CartHeader);

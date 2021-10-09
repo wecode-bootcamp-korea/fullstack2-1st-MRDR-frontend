@@ -22,7 +22,7 @@ class Routes extends React.Component {
           <Route path="/signup" component={SignUp} />
           <Route path="/cart" component={Cart} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     );
   }

@@ -39,4 +39,4 @@ class TableHeader extends React.Component {
   }
 }
 
-export default React.memo(TableHeader);
+export default TableHeader;
