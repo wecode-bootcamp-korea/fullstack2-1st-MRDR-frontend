@@ -16,7 +16,6 @@
 
   input[type='radio']:checked + label::before,
   input[type='radio']:not(:checked) + label::before {
-    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -24,18 +23,19 @@
     height: 18px;
     border: 1px solid $lightGray;
     border-radius: 100%;
+    content: '';
   }
 
   input[type='radio']:checked + label::after,
   input[type='radio']:not(:checked) + label::after {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background-color: $black;
     position: absolute;
     top: 6.75px;
     left: 6.75px;
+    width: 6px;
+    height: 6px;
+    background-color: $black;
     border-radius: 100%;
+    content: '';
   }
 
   input[type='radio']:not(:checked) + label:after {

@@ -1,0 +1,159 @@
+{
+  "categoryData": [
+    {
+      "id": 1,
+      "name": "전체"
+    },
+    {
+      "id": 2,
+      "name": "상의"
+    },
+    {
+      "id": 3,
+      "name": "아우터"
+    },
+    {
+      "id": 4,
+      "name": "맨즈"
+    },
+    {
+      "id": 5,
+      "name": "용품"
+    }
+  ],
+
+  "productListData": [
+    {
+      "id": 1,
+      "img1": "https://andar.co.kr/web/product/extra/big/202110/726bc830142ea58bfaeeeb8869cc829d.jpg",
+      "img2": "https://andar.co.kr/web/product/extra/big/202110/b0ad01fe1bb07274a00a9fb749d711c4.jpg",
+      "review": 3123,
+      "name": "스트링 피치라이닝 윈드자켓",
+      "originPrice": 45000,
+      "discountedPrice": 39000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 2,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 3053,
+      "name": "[1+1] 에어코튼 시리 시그니처 9부&8.2부",
+      "originPrice": 65000,
+      "discountedPrice": 29000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 3,
+      "img1": "https://andar.co.kr/web/product/extra/big/202109/adfb4b36a25fc3ed4dab438985ad317c.jpg",
+      "img2": "https://andar.co.kr/web/product/extra/big/202109/0051c6b42d4e9df90e5214d52527ce92.jpg",
+      "review": 3404,
+      "name": "[SET] 브라프리 티셔츠 & 레깅스 (컴포트 브라프리 & 에어쿨링)",
+      "originPrice": 12000,
+      "discountedPrice": 10000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 4,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 1001,
+      "name": "읏차읏차 상태좋은 레깅스",
+      "originPrice": 40000,
+      "discountedPrice": 15000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 5,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 250,
+      "name": "에어코튼 판매",
+      "originPrice": 42000,
+      "discountedPrice": 19000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 6,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 5003,
+      "name": "에어코튼 판매",
+      "originPrice": 99000,
+      "discountedPrice": 90000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 7,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 343,
+      "name": "에어코튼 판매",
+      "originPrice": 85000,
+      "discountedPrice": 54000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 8,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 6060,
+      "name": "에어코튼 판매",
+      "originPrice": 51000,
+      "discountedPrice": 48000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 9,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 1384,
+      "name": "에어코튼 판매",
+      "originPrice": 54000,
+      "discountedPrice": 52000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 10,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 1211,
+      "name": "에어코튼 판매",
+      "originPrice": 66000,
+      "discountedPrice": 62000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 11,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 4572,
+      "name": "에어코튼 판매",
+      "originPrice": 77000,
+      "discountedPrice": 33000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    },
+    {
+      "id": 12,
+      "img1": "https://andar.co.kr/web/product/big/202108/4f4f9eef2981b96ce629fbb479578f5c.jpg",
+      "img2": "https://andar.co.kr/web/product/small/202109/6db7eb508fa89c447f518be2fb11f4ed.jpg",
+      "review": 9789,
+      "name": "에어코튼 판매",
+      "originPrice": 99000,
+      "discountedPrice": 89000,
+      "colorAmount": 16,
+      "textBox": "한정수량 재입고"
+    }
+  ]
+}

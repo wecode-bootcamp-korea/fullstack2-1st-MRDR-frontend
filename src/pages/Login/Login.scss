@@ -3,44 +3,19 @@
 
 .Login {
   @include flex();
-  padding-top: 17%;
+  padding-top: 200px;
 
   .title {
     @include title();
+    margin-bottom: 35px;
   }
 
   .icon {
     margin-right: 5px;
   }
 
-  small {
-    font-size: $smallFontSize;
-  }
-
   .loginWrapper {
     @include flex($flexDirection: column);
-
-    .loginMessages {
-      margin: 39px;
-      color: $gray;
-      font-size: $middleFontSize;
-
-      li {
-        margin: 10px;
-        text-align: center;
-        letter-spacing: -0.5px;
-        word-spacing: -1.5px;
-      }
-    }
-
-    .loginRed {
-      color: $orange;
-      font-weight: 700;
-    }
-  }
-
-  .kakaoLoginBtn {
-    @include button($bgColor: $yellow);
   }
 
   form {
@@ -60,17 +35,6 @@
       }
     }
 
-    .loginSecurity {
-      margin: 0 0 26px 5px;
-      align-self: flex-start;
-      font-size: $smallFontSize;
-      color: $middleGray;
-
-      span {
-        margin-left: 7px;
-      }
-    }
-
     .loginButton {
       @include button($bgColor: $black, $color: white);
       width: 100%;
@@ -81,54 +45,13 @@
     }
   }
 
-  .loginLinks {
-    @include flex();
-    margin-bottom: 29px;
-
-    li {
-      margin: 0 5px;
-      font-size: $smallFontSize;
-    }
-  }
-
-  .loginButtons {
-    width: 100%;
-    @include flex($justify: space-between);
-
-    button {
-      width: 49%;
-      font-weight: 400;
-      @include button(
-        $padding: 18px 20px,
-        $bgColor: white,
-        $size: $secondSmallFontSize,
-        $border: 1px solid $lightGray
-      );
-
-      .loginNaver {
-        color: green;
-      }
-    }
-  }
-
-  .loginSubBtn {
-    width: 100%;
-    margin-bottom: 29px;
-    text-align: center;
-    @include button(
-      $padding: 16px 0,
-      $border: 1px solid $lightGray,
-      $bgColor: white,
-      $size: $secondMiddleFontSize
-    );
-  }
-
   .smallMsgs {
     @include flex($flexDirection: column, $align: flex-start);
     color: $middleGray;
 
     small {
       margin-bottom: 10px;
+      font-size: $smallFontSize;
     }
 
     .msgContainer {

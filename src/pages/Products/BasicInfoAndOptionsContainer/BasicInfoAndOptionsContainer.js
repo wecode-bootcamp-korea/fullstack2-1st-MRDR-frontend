@@ -92,7 +92,7 @@ class BasicInfoAndOptionsContainer extends React.Component {
       product,
       selectedColor,
       selectedSize,
-      selectedAmount,
+      // selectedAmount,
       selectedList,
     } = this.state;
     const { name, price, salePrice, colors } = product;

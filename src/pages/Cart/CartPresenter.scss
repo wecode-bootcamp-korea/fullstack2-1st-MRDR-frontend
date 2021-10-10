@@ -1,0 +1,23 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/common.scss';
+
+.CartPresenter {
+  padding-top: 200px;
+
+  .cartWrapper {
+    width: 1300px;
+    padding: 0 10px;
+
+    main {
+      .recommendTitle {
+        @include title();
+        margin-bottom: 45px;
+      }
+
+      .sliderArticleWrapper {
+        position: relative;
+        @include flex();
+      }
+    }
+  }
+}

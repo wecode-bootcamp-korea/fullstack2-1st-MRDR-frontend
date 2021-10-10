@@ -1,0 +1,35 @@
+@import '../../../styles//mixins.scss';
+
+.ImageSliderContainer {
+  position: relative;
+  width: 308 * 4px;
+  height: 509px;
+  margin-left: 5px;
+  overflow: hidden;
+
+  .leftSliderBtn,
+  .rightSliderBtn {
+    position: absolute;
+    top: 50%;
+    background-color: transparent;
+    border: none;
+    font-size: 29px;
+    z-index: 1;
+    transform: translateY(-12.5px);
+  }
+
+  .leftSliderBtn {
+    left: 3px;
+  }
+
+  .rightSliderBtn {
+    right: 3px;
+  }
+
+  .imageSlider {
+    @include flex();
+    position: absolute;
+    left: 10px;
+    transition: 0.8s linear all;
+  }
+}
