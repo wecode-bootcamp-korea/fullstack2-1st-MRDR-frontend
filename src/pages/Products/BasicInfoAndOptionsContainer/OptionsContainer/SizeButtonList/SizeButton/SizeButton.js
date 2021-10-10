@@ -3,11 +3,34 @@ import './SizeButton.scss';
 
 class SizeButton extends Component {
   clickButton = () => {
-    console.log('SizeButton click');
-    const { size, selectedSize, selectSize, selectAmount } = this.props;
-    selectSize(size);
+    // console.log('SizeButton click');
+    const {
+      size,
+      selectedColor,
+      selectedSize,
+      selectSize,
+      selectAmount,
+      selectedList,
+      addSelectedItem,
+    } = this.props;
+
+    selectSize(size); //selectSize랑 selectAmount 한 함수에다가 합칠 수 있을 듯 ->> don't need these states?
     if (selectedSize !== size) {
       selectAmount('increment');
+    }
+    // console.log('selectedList:', selectedList);
+    if (
+      selectedList.some(selectedItem => {
+        return (
+          selectedItem.color === selectedColor && selectedItem.size === size
+        );
+      })
+    ) {
+      //이미 SelectedItem 중 하나이면
+      alert('아래 리스트에서 이미 선택된 옵션을 삭제 후 다시 선택해 주세요.');
+    } else {
+      //아직 고르지 않은 색상/사이즈 콤보이면
+      addSelectedItem(selectedColor, size);
     }
   };
 
@@ -17,7 +40,7 @@ class SizeButton extends Component {
 
   getClasses = () => {
     const { size, selectedColor, selectedSize } = this.props;
-    console.log('selectedSize:', selectedSize);
+    // console.log('selectedSize:', selectedSize);
     let classes = 'SizeButton ';
     if (!selectedColor) {
       classes += 'disabled ';
@@ -25,7 +48,7 @@ class SizeButton extends Component {
     if (selectedSize === size) {
       classes += 'selected ';
     }
-    console.log('classes:', classes);
+    // console.log('classes:', classes);
     return classes;
   };
 

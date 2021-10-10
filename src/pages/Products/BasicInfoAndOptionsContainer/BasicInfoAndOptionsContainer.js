@@ -12,15 +12,27 @@ class BasicInfoAndOptionsContainer extends React.Component {
       selectedColor: null,
       selectedSize: null,
       selectedAmount: 0,
-      selectedList: [],
+      selectedList: [
+        // {
+        //   id: 1,
+        //   color: '탭차콜',
+        //   size: 2,
+        //   amount: 10,
+        // },
+        // {
+        //   id: 2,
+        //   color: '핫코랄',
+        //   size: 4,
+        //   amount: 1,
+        // },
+      ],
     };
   }
 
   componentDidMount() {
-    fetch('/data/data.json')
+    fetch('/data/productOptionsData.json')
       .then(res => res.json())
       .then(res => {
-        console.log('res:', res);
         if (res.MESSAGE === 'SUCCESS') {
           this.setState({ product: res.PRODUCT_INFO_DATA[0] });
         }
@@ -40,15 +52,14 @@ class BasicInfoAndOptionsContainer extends React.Component {
     });
   };
 
+  //필요없을 수도 있습니다.
   selectAmount = type => {
     const { selectedAmount } = this.state;
     if (type === 'increment') {
-      console.log('selectAmount INCREMENT');
       this.setState({ selectedAmount: selectedAmount + 1 });
     }
     if (type === 'decrement') {
       if (selectedAmount !== 0) {
-        console.log('selectAmount DECREMENT');
         this.setState({
           selectedAmount: selectedAmount - 1,
         });
@@ -56,19 +67,24 @@ class BasicInfoAndOptionsContainer extends React.Component {
     }
   };
 
-  handleSelectedList = (index, type) => {
+  addSelectedItem = (color, size) => {
+    const { selectedList } = this.state;
     const option = {
-      id: index + 1,
-      color: this.state.selectedColor,
-      size: this.state.selectedSize,
+      id: selectedList.length + 1,
+      color: color,
+      size: size,
       amount: 1,
     };
-    console.log('option basket:', option);
-    // type is "add" or "remove"
-    const selectedList = [...this.state.selectedList];
-    console.log('variable selectedList:', selectedList);
+    // console.log('option basket:', option);
+    this.setState({ selectedList: [...selectedList, option] });
+  };
 
-    // this.setState({selectedList: })
+  deleteSelectedItem = itemId => {
+    let selectedList = [...this.state.selectedList];
+    selectedList = selectedList.filter(
+      selectedItem => selectedItem.id !== itemId
+    );
+    this.setState({ selectedList });
   };
 
   render() {
@@ -76,11 +92,17 @@ class BasicInfoAndOptionsContainer extends React.Component {
       product,
       selectedColor,
       selectedSize,
-      selectedAmount,
+      // selectedAmount,
       selectedList,
     } = this.state;
     const { name, price, salePrice, colors } = product;
-    const { selectColor, selectSize, selectAmount } = this;
+    const {
+      selectColor,
+      selectSize,
+      selectAmount,
+      addSelectedItem,
+      deleteSelectedItem,
+    } = this;
     // const selections = {
     //   selectedColor,
     //   selectedSize,
@@ -96,24 +118,20 @@ class BasicInfoAndOptionsContainer extends React.Component {
 
     return (
       <div className="BasicInfoAndOptionsContainer">
-        <BasicInfoContainer
-          productName={name}
-          price={price}
-          salePrice={salePrice}
-        />
+        <BasicInfoContainer name={name} price={price} salePrice={salePrice} />
         <OptionsContainer
           colors={colors}
           selectedColor={selectedColor}
           selectedSize={selectedSize}
           selectedList={selectedList}
           selectionFunctions={selectionFunctions}
+          addSelectedItem={addSelectedItem}
         />
         <SelectionsContainer
+          name={name}
           price={salePrice || price}
-          selectedColor={selectedColor}
-          selectedAmount={selectedAmount}
           selectedList={selectedList}
-          handleSelectedList={this.handleSelectedList}
+          deleteSelectedItem={deleteSelectedItem}
         />
       </div>
     );

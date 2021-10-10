@@ -1,11 +1,15 @@
 .ColorOption {
   margin-left: 10px;
   font-size: 12px;
-  cursor: pointer;
+  // cursor: pointer;
 
-  &:first-child,
-  &:last-child {
+  &:first-child {
     margin: 0;
+  }
+
+  &.soldout {
+    opacity: 0.2;
+    cursor: not-allowed;
   }
 
   img {
