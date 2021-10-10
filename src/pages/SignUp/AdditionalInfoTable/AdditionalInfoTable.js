@@ -1,19 +1,17 @@
 import React from 'react';
-import Input from '../Input/Input';
+import Title from '../../../components/Title/Title';
 import './AdditionalInfoTable.scss';
 
 class AdditionalInfoTable extends React.Component {
   render() {
-    const {
-      props: { onChange },
-    } = this;
+    const { onChange } = this.props;
     return (
       <div className="AdditionalInfoTable">
         <table>
           <thead>
             <tr className="signUpSubTitle">
               <td colSpan="2">
-                <h1>추가정보</h1>
+                <Title title="추가정보" />
               </td>
             </tr>
           </thead>
@@ -22,19 +20,19 @@ class AdditionalInfoTable extends React.Component {
               <td colSpan="2">생년월일</td>
               <td>
                 <div className="innerRow">
-                  <Input
+                  <input
                     onChange={onChange}
                     name="userBirthYear"
                     className="input userBirthYearInput"
                   />
                   &nbsp;년&nbsp;
-                  <Input
+                  <input
                     onChange={onChange}
                     name="userBirthMonth"
                     className="input userBirthMonthInput"
                   />
                   &nbsp;월&nbsp;
-                  <Input
+                  <input
                     onChange={onChange}
                     name="userBirthDate"
                     className="input userBirthDateInput"

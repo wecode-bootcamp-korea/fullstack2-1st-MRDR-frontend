@@ -4,11 +4,11 @@ import './RadioBtns.scss';
 
 class RadioBtns extends React.Component {
   render() {
-    const { props } = this;
+    const { btns } = this.props;
     return (
       <div className="RadioBtns">
-        {props.btns.map(btn => {
-          return <RadioBtn key={btn.id} {...btn} {...props} />;
+        {btns.map(btn => {
+          return <RadioBtn key={btn.id} {...btn} {...this.props} />;
         })}
       </div>
     );

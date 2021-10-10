@@ -4,14 +4,15 @@ import './TableHeader.scss';
 
 class TableHeader extends React.Component {
   render() {
-    const { props } = this;
+    const { radioBtnOnClick, usertype } = this.props;
     return (
       <thead>
         <tr>
           <td className="signUpSubTitle firstThTd">기본정보</td>
           <td className="secondThTd" colSpan="3">
             <RadioBtns
-              {...props}
+              onClick={radioBtnOnClick}
+              usertype={usertype}
               name={'usertype'}
               btns={[
                 {

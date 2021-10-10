@@ -1,9 +1,9 @@
 import React from 'react';
 import { faAddressCard, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { checkIdValid, checkPasswordValid } from '../../utils';
-import Button from './Button/Button';
-import Title from '../Cart/components/Title/Title';
+import Button from '../../components/Button/Button';
+import { checkIdValid, checkPasswordValid } from '../../util/auth';
+import Title from '../../components/Title/Title';
 import './Login.scss';
 
 class Login extends React.Component {

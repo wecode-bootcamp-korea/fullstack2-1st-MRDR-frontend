@@ -1,24 +1,50 @@
 import React from 'react';
-import CartFuncContext from '../CartFuncContext';
 import ImageSlideItem from '../components/ImageSlideItem/ImageSlideItem';
-import { failAlert } from '../../../util/cart';
-import { getFetch } from '../../../util/fetch';
-import { ROUTES } from '../../../util/constants';
+import { failAlert, getFetch } from '../../../util/fetch';
+import { BTNAME, ROUTES } from '../../../util/constants';
+import Button from '../../../components/Button/Button';
 import './ImageSlider.scss';
 
 class ImageSlider extends React.Component {
-  static contextType = CartFuncContext;
+  state = { curIndex: 0, cartRecomment: [] };
+
+  imgSliderOnClick = id => {
+    const { curIndex, cartRecomment } = this.state;
+
+    switch (id) {
+      case BTNAME.RIGHT:
+        if (cartRecomment.length / 4 === curIndex + 1) return;
+        return this.setState(() => ({ curIndex: curIndex + 1 }));
+
+      case BTNAME.LEFT:
+        if (!curIndex) return;
+        return this.setState(() => ({ curIndex: curIndex - 1 }));
+
+      default:
+        break;
+    }
+  };
 
   componentDidMount = async () => {
-    const actionFunc = this.context('fillRecommendState');
+    const actionFunc = this.fillRecommendState;
     const failFunc = failAlert;
     await getFetch(ROUTES.CART_RECOMMENT, { actionFunc, failFunc });
   };
 
+  fillRecommendState = cartRecomment => {
+    this.setState({ cartRecomment });
+  };
+
   render() {
-    const { curIndex, cartRecomment } = this.props;
+    const { cartRecomment, curIndex } = this.state;
     return (
       <article className="ImageSliderContainer">
+        <Button
+          id={BTNAME.LEFT}
+          message="〈"
+          onClick={() => this.imgSliderOnClick(BTNAME.LEFT)}
+        />
+
         <ul
           className="imageSlider"
           style={{
@@ -30,9 +56,14 @@ class ImageSlider extends React.Component {
               <ImageSlideItem item={item} key={item.id} />
             ))}
         </ul>
+        <Button
+          id={BTNAME.RIGHT}
+          message="〉"
+          onClick={() => this.imgSliderOnClick(BTNAME.RIGHT)}
+        />
       </article>
     );
   }
 }
 
-export default ImageSlider;
+export default React.memo(ImageSlider);
