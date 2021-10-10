@@ -12,7 +12,6 @@
     .leftArrow,
     .rightArrow {
       position: absolute;
-      z-index: 1;
       top: 43%;
       transform: translate(-50%);
       border: 0;
@@ -20,6 +19,7 @@
       font-size: 3.2rem;
       color: #454545;
       cursor: pointer;
+      z-index: 1;
     }
 
     .leftArrow {
