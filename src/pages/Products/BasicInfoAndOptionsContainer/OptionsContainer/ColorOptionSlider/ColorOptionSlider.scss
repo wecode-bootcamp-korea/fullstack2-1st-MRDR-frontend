@@ -1,0 +1,14 @@
+.ColorOptionSlider {
+  margin-left: 108px;
+  user-select: none;
+  overflow: hidden;
+
+  .colorOptionList {
+    display: flex;
+    transition-duration: 200ms;
+  }
+
+  &.active {
+    cursor: grabbing;
+  }
+}

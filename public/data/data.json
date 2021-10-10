@@ -44,11 +44,11 @@
           "name": "에이션블루",
           "img": "https://andar.co.kr/web/product/option_button/202103/9d4c6c588de049e8b8b2540660da9dc5.png",
           "sizes": [
-            { "id": 1, "value": 0, "quantity": 100 },
-            { "id": 2, "value": 2, "quantity": 100 },
-            { "id": 3, "value": 4, "quantity": 100 },
-            { "id": 4, "value": 6, "quantity": 100 },
-            { "id": 5, "value": 8, "quantity": 100 }
+            { "id": 1, "value": 0, "quantity": 0 },
+            { "id": 2, "value": 2, "quantity": 0 },
+            { "id": 3, "value": 4, "quantity": 0 },
+            { "id": 4, "value": 6, "quantity": 0 },
+            { "id": 5, "value": 8, "quantity": 0 }
           ]
         },
         {

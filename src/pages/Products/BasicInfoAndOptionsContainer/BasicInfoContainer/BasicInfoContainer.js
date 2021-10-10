@@ -4,11 +4,11 @@ import './BasicInfoContainer.scss';
 
 class BasicInfoContainer extends Component {
   render() {
-    const { productName, price, salePrice } = this.props;
+    const { name, price, salePrice } = this.props;
 
     return (
       <div className="BasicInfoContainer">
-        <h1 className="productName">{productName}</h1>
+        <h1 className="productName">{name}</h1>
         <div className="priceWrapper">
           <p className="currentPrice">
             {salePrice ? salePrice.toLocaleString() : price.toLocaleString()}원
@@ -23,10 +23,7 @@ class BasicInfoContainer extends Component {
           )}
         </div>
         <div className="shipMileageWrapper">
-          <Line
-            title="배송정보"
-            //  margin="marginBottom18"
-          >
+          <Line title="배송정보" margin="0 0 18px">
             <span>2500원 CJ대한통운 5만원 이상 구매시 무료배송</span>
           </Line>
           <Line title="카드혜택">
