@@ -30,7 +30,7 @@ class BasicInfoAndOptionsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/data.json')
+    fetch('/data/productOptionsData.json')
       .then(res => res.json())
       .then(res => {
         if (res.MESSAGE === 'SUCCESS') {
