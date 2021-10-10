@@ -1,9 +1,8 @@
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { policyAgreements } from '../../util';
-import Title from '../Cart/components/Title/Title';
+import Title from '../../components/Title/Title';
+import { policyAgreements } from '../../util/signUp';
 import AdditionalInfoTable from './AdditionalInfoTable/AdditionalInfoTable';
 import AgreePolicyTable from './AgreePolicyTable/AgreePolicyTable';
 import BasicUserInfoTable from './BasicUserInfoTable/BasicUserInfoTable';
@@ -66,7 +65,6 @@ class SignUp extends React.Component {
         SNSAgree,
       },
     } = this;
-
     return (
       <div className="SignUp">
         <form onSubmit={onSubmit} className="signUpWrapper">

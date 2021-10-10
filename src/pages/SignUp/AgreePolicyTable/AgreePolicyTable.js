@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../Cart/components/Title/Title';
+import Title from '../../../components/Title/Title';
 import CheckBoxRow from '../components/CheckBoxRow/CheckBoxRow';
 import ArgeePolicyDoc from '../signModals/ArgeePolicyDoc/ArgeePolicyDoc';
 import './AgreePolicyTable.scss';

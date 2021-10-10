@@ -1,37 +1,19 @@
 import React from 'react';
 import CartPresenter from './CartPresenter';
 import { BTNAME, ROUTES } from '../../util/constants';
-import { getFetch } from '../../util/fetch';
-import { failAlert } from '../../util/cart';
+import { failAlert, getFetch } from '../../util/fetch';
 
 class CartContainer extends React.Component {
-  state = { curIndex: 0, items: [], cartRecomment: [] };
+  state = { items: [], cartRecomment: [] };
 
   componentDidMount = async () => {
-    const actionFunc = items => this.setState(() => ({ items }));
+    const actionFunc = items => this.setState({ items });
     const failFunc = failAlert;
     await getFetch(ROUTES.CART, { actionFunc, failFunc });
   };
 
   fillRecommendState = cartRecomment => {
-    this.setState(() => ({ cartRecomment }));
-  };
-
-  imgSliderOnClick = id => {
-    const { curIndex, cartRecomment } = this.state;
-
-    switch (id) {
-      case BTNAME.RIGHT:
-        if (cartRecomment.length / 4 === curIndex + 1) return;
-        return this.setState(() => ({ curIndex: curIndex + 1 }));
-
-      case BTNAME.LEFT:
-        if (!curIndex) return;
-        return this.setState(() => ({ curIndex: curIndex - 1 }));
-
-      default:
-        break;
-    }
+    this.setState({ cartRecomment });
   };
 
   addCartNumber = (id, btnId) => {
@@ -40,11 +22,13 @@ class CartContainer extends React.Component {
         if (item.id === id) {
           switch (btnId) {
             case BTNAME.PLUS:
-              item.count = item.count !== undefined ? ++item.count : 1;
+              ++item.count;
               break;
+
             case BTNAME.MINUS:
-              item.count = item.count && --item.count;
+              item.count = item.count - 1 <= 0 ? 0 : --item.count;
               break;
+
             default:
               break;
           }

@@ -7,4 +7,4 @@ class Title extends React.Component {
   }
 }
 
-export default Title;
+export default React.memo(Title);
