@@ -1,3 +1,7 @@
+body {
+  padding-top: 10%;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -52,11 +56,10 @@ nav {
 
     .logo {
       height: 26px;
-      margin-left: 40px;
     }
 
     .menu {
-      margin-right: 200px;
+      margin-right: 300px;
     }
 
     .menuName {
