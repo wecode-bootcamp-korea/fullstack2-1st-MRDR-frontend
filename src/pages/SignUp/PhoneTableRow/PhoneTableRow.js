@@ -9,6 +9,7 @@ class PhoneTableRow extends React.Component {
         <td>
           <div className="innerRow">
             <select
+              onChange={onChange}
               className="phoneNumberInput"
               name="userFirstPhoneNumber"
               id="phoneNumber"
