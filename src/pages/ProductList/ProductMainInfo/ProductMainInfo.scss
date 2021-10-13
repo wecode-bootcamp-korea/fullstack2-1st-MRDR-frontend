@@ -1,0 +1,14 @@
+@import '../../../styles/common.scss';
+
+.productMainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 45px;
+  background-color: $white;
+
+  .productQuantity {
+    line-height: 25px;
+    font-size: 15px;
+  }
+}

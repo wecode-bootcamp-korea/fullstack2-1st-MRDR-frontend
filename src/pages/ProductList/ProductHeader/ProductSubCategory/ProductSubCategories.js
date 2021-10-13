@@ -6,7 +6,7 @@ class ProductSubCategory extends React.Component {
   render() {
     const { id, name } = this.props;
     return (
-      <ul className="headerCategoryList">
+      <ul className="productSubCategory">
         <li className="categoryList">
           <Link to="/productlist" key={id}>
             {name}

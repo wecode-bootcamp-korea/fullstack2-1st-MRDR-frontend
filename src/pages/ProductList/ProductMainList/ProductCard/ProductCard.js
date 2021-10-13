@@ -16,6 +16,7 @@ class ProductCard extends React.Component {
   };
 
   render() {
+    const { isMouseOver } = this.state;
     const {
       id,
       img1,
@@ -25,12 +26,10 @@ class ProductCard extends React.Component {
       originPrice,
       discountedPrice,
       colorAmount,
-      textBox,
     } = this.props;
-    const { isMouseOver } = this.state;
 
     return (
-      <div className="productCards">
+      <div className="ProductCards">
         <ul className="productUnorderedList">
           <li key={id}>
             <Link
@@ -61,9 +60,6 @@ class ProductCard extends React.Component {
             </span>
           </li>
           <li className="productColorAmount">{colorAmount} 컬러</li>
-          <li className="productTextBox">
-            <span>{textBox}</span>
-          </li>
         </ul>
       </div>
     );

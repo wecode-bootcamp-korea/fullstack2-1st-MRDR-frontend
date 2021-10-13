@@ -16,8 +16,10 @@ class ProductSort extends React.Component {
   render() {
     return (
       <section className="productSort">
-        <span>상품정렬</span>
-        <img src="https://andar.co.kr/common/PC/arrow_down.png" />
+        <span className="productSortList">
+          상품정렬
+          <img src="https://andar.co.kr/common/PC/arrow_down.png" />
+        </span>
         <select className="dropDown" onChange={this.valueHandler}>
           <option value="1">낮은 가격</option>
           <option value="2">높은 가격</option>
