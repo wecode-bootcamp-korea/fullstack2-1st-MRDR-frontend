@@ -5,14 +5,58 @@ import AdditionalInfoContainer from './AdditionalInfoContainer/AdditionalInfoCon
 import './Products.scss';
 
 class Products extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      productInfo: {},
+      productImageSlides: [],
+      productColorList: [],
+    };
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    fetch(`http://localhost:8000/products/${id}/images`)
+      .then(res => res.json())
+      .then(data => {
+        const imageList = [];
+        for (let i = 0; i < data.length; i++) {
+          if (i % 5 === 0) {
+            imageList.push([]);
+          }
+          imageList[parseInt(i / 5)].push(data[i]);
+        }
+        this.setState({ productImageSlides: imageList });
+      })
+      .catch(err => console.error(err));
+
+    fetch(`http://localhost:8000/products/${id}/colors`)
+      .then(res => res.json())
+      .then(data => {
+        const colorList = [];
+        for (let i = 0; i < data.length; i++) {
+          if (i % 8 === 0) {
+            colorList.push([]);
+          }
+          colorList[parseInt(i / 8)].push(data[i]);
+        }
+        let colorCount = 0;
+        for (let arr of colorList) {
+          colorCount += arr.length;
+        }
+        this.setState({ productColorList: colorList });
+      });
+  }
+
   render() {
+    const { productInfo, productImageSlides, productColorList } = this.state;
     return (
       <div className="Products">
         <div className="mainInfoWrapper">
-          <ImagesContainer />
+          <ImagesContainer productImageSlides={productImageSlides} />
           <BasicInfoAndOptionsContainer />
         </div>
-        <AdditionalInfoContainer />
+        <AdditionalInfoContainer productColorList={productColorList} />
       </div>
     );
   }

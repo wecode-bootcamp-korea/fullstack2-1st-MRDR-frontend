@@ -12,7 +12,6 @@ class ImagesContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      productImageSlides: [],
       mainImageUrl: '',
       currentSlideIndex: 0,
       isMouseDown: false,
@@ -21,16 +20,6 @@ class ImagesContainer extends React.Component {
       slideScrollLeft: 0,
     };
     this.slideRef = React.createRef();
-  }
-
-  componentDidMount() {
-    fetch('/data/productImagesData.json')
-      .then(res => res.json())
-      .then(data => {
-        const mainImageUrl = data[0][0].imageUrl;
-        this.setState({ productImageSlides: data, mainImageUrl });
-      })
-      .catch(err => console.error(err));
   }
 
   handleImageHoverEvent = imageUrl => {
@@ -47,7 +36,8 @@ class ImagesContainer extends React.Component {
   };
 
   handleBtnNextSlide = () => {
-    const { productImageSlides, currentSlideIndex } = this.state;
+    const { productImageSlides } = this.props;
+    const { currentSlideIndex } = this.state;
     let nextSlideIndex = currentSlideIndex + 1;
     const lastIndex = productImageSlides.length - 1;
     if (nextSlideIndex > lastIndex) {
@@ -71,8 +61,8 @@ class ImagesContainer extends React.Component {
 
   handleMouseMove = e => {
     const { slideRef } = this;
+    const { productImageSlides } = this.props;
     const {
-      productImageSlides,
       currentSlideIndex,
       isMouseDown,
       slideStartX,
@@ -122,8 +112,8 @@ class ImagesContainer extends React.Component {
   };
 
   render() {
-    const { productImageSlides, mainImageUrl, currentSlideIndex, isMouseDown } =
-      this.state;
+    const { productImageSlides } = this.props;
+    const { mainImageUrl, currentSlideIndex, isMouseDown } = this.state;
     const {
       slideRef,
       handleImageHoverEvent,
@@ -143,7 +133,12 @@ class ImagesContainer extends React.Component {
         <div className="mainImageWrapper">
           <img
             className="mainImage"
-            src={mainImageUrl}
+            src={
+              mainImageUrl ||
+              (productImageSlides.length !== 0
+                ? productImageSlides[0][0].imageUrl
+                : '')
+            }
             alt="상품 메인 이미지"
           />
         </div>
