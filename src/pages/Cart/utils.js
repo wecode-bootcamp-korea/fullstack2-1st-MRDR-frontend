@@ -13,3 +13,17 @@ export const priceCaculator = items => {
 export const priceChanger = x => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+
+export const keyNameChanger = (key, newKey, obj) => {
+  const temp = obj[key];
+  delete obj[key];
+  obj[newKey] = temp;
+};
+
+export const deleteKey = (key, obj) => {
+  delete obj[key];
+};
+
+export const addKey = (key, value, obj) => {
+  obj[key] = value;
+};
