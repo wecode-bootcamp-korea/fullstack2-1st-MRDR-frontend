@@ -1,0 +1,10 @@
+@import '../../../styles/common.scss';
+@import '../../../styles/mixins.scss';
+
+tr {
+  .businessInfo {
+    .RadioBtns {
+      @include flex($justify: flex-start);
+    }
+  }
+}

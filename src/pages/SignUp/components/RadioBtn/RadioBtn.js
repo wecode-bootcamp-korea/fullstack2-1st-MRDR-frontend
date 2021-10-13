@@ -4,8 +4,19 @@ import './RadioBtn.scss';
 
 class RadioBtn extends React.Component {
   render() {
-    const { props } = this;
-    return <BasicCheckBox type={'radio'} className={'RadioBtn'} {...props} />;
+    const { id, value, name, onClick, label } = this.props;
+
+    return (
+      <BasicCheckBox
+        type={'radio'}
+        className={'RadioBtn'}
+        id={id}
+        value={value}
+        name={name}
+        label={label}
+        onClick={() => onClick(name, value)}
+      />
+    );
   }
 }
 

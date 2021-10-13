@@ -7,6 +7,7 @@ export const ROUTES = {
   CART: '/data/cart.json',
   CART_OPTION_CHANGE: id => `/product/${id}`,
   CART_RECOMMENT: '/data/cartRecomment.json',
+  LOGIN: 'http://localhost:8000/users/login',
 };
 
 export const BTNAME = {
@@ -18,17 +19,6 @@ export const BTNAME = {
 
 export const CHECKBOX = {
   CHECKALL: 'checkAll',
-};
-
-export const CARTFUNCS = {
-  fillRecommendState: 'fillRecommendState',
-  imgSliderOnClick: 'imgSliderOnClick',
-  addCartNumber: 'addCartNumber',
-  deleteCheckedItem: 'deleteCheckedItem',
-  checkBoxOnClick: 'checkBoxOnClick',
-  checkAllBoxOnClick: 'checkAllBoxOnClick',
-  getCartCount: 'getCartCount',
-  deleteCartById: 'deleteCartById',
 };
 
 export const SCREEN_MOVEMENT = {

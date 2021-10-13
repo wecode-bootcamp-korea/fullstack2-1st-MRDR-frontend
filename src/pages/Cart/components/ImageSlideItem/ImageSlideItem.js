@@ -16,4 +16,4 @@ class ImageSlideItem extends React.Component {
   }
 }
 
-export default ImageSlideItem;
+export default React.memo(ImageSlideItem);

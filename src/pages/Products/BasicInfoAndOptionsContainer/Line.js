@@ -6,7 +6,7 @@ class Line extends Component {
     const { title, children, margin } = this.props;
 
     return (
-      <div className={'Line ' + margin}>
+      <div className="Line" style={{ margin }}>
         <span className="title">{title}</span>
         {children}
       </div>
