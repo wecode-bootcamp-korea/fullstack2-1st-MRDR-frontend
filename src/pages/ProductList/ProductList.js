@@ -41,8 +41,8 @@ class ProductList extends React.Component {
             <ProductSort />
           </div>
           <div className="productMainList">
-            {productList.map(products => {
-              return <ProductCard key={products.id} {...products} />;
+            {productList.map(product => {
+              return <ProductCard key={product.id} {...product} />;
             })}
           </div>
         </main>
