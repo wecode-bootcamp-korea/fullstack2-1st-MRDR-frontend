@@ -58,9 +58,9 @@ class Nav extends React.Component {
           <div className="menu">
             {menuList.map((element, index) => {
               return (
-                <a href="#!" className="menuName" key={index}>
+                <Link to="./productlist" className="menuName" key={index}>
                   {element.title}
-                </a>
+                </Link>
               );
             })}
           </div>
