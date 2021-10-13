@@ -7,6 +7,7 @@ export const ROUTES = {
   CART: '/data/cart.json',
   CART_OPTION_CHANGE: id => `/product/${id}`,
   CART_RECOMMENT: '/data/cartRecomment.json',
+  LOGIN: 'http://localhost:8000/users/login',
 };
 
 export const BTNAME = {

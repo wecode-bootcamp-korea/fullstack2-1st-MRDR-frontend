@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../components/Button/Button';
 import { checkIdValid, checkPasswordValid } from '../../util/auth';
 import Title from '../../components/Title/Title';
+import { failAlert, fetchForCUD } from '../../util/fetch';
+import { ROUTES } from '../../util/constants';
+import { withRouter } from 'react-router';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -19,6 +22,18 @@ class Login extends React.Component {
     const { id, password } = this.state;
     const isValid = this.checkIsValid(id, password);
     if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
+
+    const body = JSON.stringify({ id, password });
+    const payload = { method: 'post', url: ROUTES.LOGIN, body };
+    const actionFunc = ({ message }) => {
+      if (message === '로그인 성공!') {
+        this.props.history.push('/');
+      } else {
+        alert(message);
+      }
+    };
+
+    fetchForCUD(payload, { actionFunc, failFunc: () => failAlert(500) });
   };
 
   checkIsValid = (id, password) => {
@@ -66,4 +81,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
