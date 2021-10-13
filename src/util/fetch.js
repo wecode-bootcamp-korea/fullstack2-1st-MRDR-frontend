@@ -41,7 +41,7 @@ export const fetchForCUD = async (
     const data = await response.json();
     actionFunc(data);
   } catch (e) {
-    failFunc(500);
+    failFunc();
     console.log(e);
   }
 };

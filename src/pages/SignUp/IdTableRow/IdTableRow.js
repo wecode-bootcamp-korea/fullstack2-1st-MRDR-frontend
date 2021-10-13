@@ -9,6 +9,7 @@ class IdTableRow extends React.Component {
         <td colSpan="2" className="idTd">
           <div className="idTdContainer">
             <input
+              required={true}
               onChange={onChange}
               name="userId"
               placeholder={'영소문자/숫자,4~16자'}

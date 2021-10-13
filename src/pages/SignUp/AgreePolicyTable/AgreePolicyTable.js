@@ -14,6 +14,9 @@ class AgreePolicyTable extends React.Component {
       personalInfoAgree,
       emailAgree,
       SNSAgree,
+      emailAgreeBoxBtn,
+      useInfoAgreeBtn,
+      personalInfoAgreeBtn,
     } = this.props;
     return (
       <div className="AgreePolicyTable">
@@ -43,14 +46,14 @@ class AgreePolicyTable extends React.Component {
                 <CheckBoxRow
                   id="useInfoAgree"
                   onClick={() => checkBoxController('useInfoAgree')}
-                  ischecked={useInfoAgree}
+                  ischecked={useInfoAgree || false}
                   label={'[필수] 이용약관 동의'}
                 />
               </td>
               <td className="plusColumn">
                 <span
-                  className="useInfoAgree"
-                  onClick={() => openModal('useInfoAgree')}
+                  id="useInfoAgreeBtn"
+                  onClick={() => openModal('useInfoAgreeBtn')}
                 >
                   +
                 </span>
@@ -58,22 +61,22 @@ class AgreePolicyTable extends React.Component {
             </tr>
             <tr>
               <td colSpan="3" className="docRow">
-                <ArgeePolicyDoc className={useInfoAgree[0] ? 'show' : ''} />
+                <ArgeePolicyDoc className={useInfoAgreeBtn ? 'show' : ''} />
               </td>
             </tr>
             <tr className="subArgeeColumn">
               <td colSpan="2">
                 <CheckBoxRow
                   onClick={() => checkBoxController('personalInfoAgree')}
-                  ischecked={personalInfoAgree}
+                  ischecked={personalInfoAgree || false}
                   id="personalInfoAgree"
                   label={'[필수] 개인정보 수집 및 이용 동의'}
                 />
               </td>
               <td className="plusColumn">
                 <span
-                  className="personalInfoAgree"
-                  onClick={() => openModal('personalInfoAgree')}
+                  id="personalInfoAgreeBtn"
+                  onClick={() => openModal('personalInfoAgreeBtn')}
                 >
                   +
                 </span>
@@ -82,7 +85,7 @@ class AgreePolicyTable extends React.Component {
             <tr>
               <td colSpan="3" className="docRow">
                 <ArgeePolicyDoc
-                  className={personalInfoAgree[0] ? 'show' : ''}
+                  className={personalInfoAgreeBtn ? 'show' : ''}
                 />
               </td>
             </tr>
@@ -91,7 +94,7 @@ class AgreePolicyTable extends React.Component {
                 <div className="flexRow">
                   <CheckBoxRow
                     onClick={() => checkBoxController('SNSAgree')}
-                    ischecked={SNSAgree}
+                    ischecked={SNSAgree || false}
                     id={'SNSAgree'}
                     label={'[선택] SMS 수신을 동의하십니까?'}
                   />
@@ -106,8 +109,8 @@ class AgreePolicyTable extends React.Component {
               </td>
               <td className="plusColumn">
                 <span
-                  className="emailAgree"
-                  onClick={() => openModal('emailAgree')}
+                  id="emailAgreeBoxBtn"
+                  onClick={() => openModal('emailAgreeBoxBtn')}
                 >
                   +
                 </span>
@@ -115,7 +118,7 @@ class AgreePolicyTable extends React.Component {
             </tr>
             <tr>
               <td colSpan="3" className="docRow">
-                <ArgeePolicyDoc className={emailAgree[0] ? 'show' : ''} />
+                <ArgeePolicyDoc className={emailAgreeBoxBtn ? 'show' : ''} />
               </td>
             </tr>
           </tbody>
