@@ -8,7 +8,7 @@ class BasicInfoContainer extends Component {
 
     return (
       <div className="BasicInfoContainer">
-        <h1 className="productName">{name}</h1>
+        <h1 className="productTitle">{name}</h1>
         <div className="priceWrapper">
           <p className="currentPrice">
             {salePrice ? salePrice.toLocaleString() : price.toLocaleString()}원

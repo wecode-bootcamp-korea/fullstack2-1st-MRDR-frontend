@@ -9,7 +9,6 @@ class SizeButtonList extends Component {
       selectedColor,
       selectedSize,
       selectSize,
-      selectAmount,
       selectedList,
       addSelectedItem,
     } = this.props;
@@ -24,11 +23,12 @@ class SizeButtonList extends Component {
           return (
             <SizeButton
               key={size.id}
+              colorOptionId={size.id}
               size={size.value}
+              quantity={size.quantity}
               selectedColor={selectedColor}
               selectedSize={selectedSize}
               selectSize={selectSize}
-              selectAmount={selectAmount}
               selectedList={selectedList}
               addSelectedItem={addSelectedItem}
             />

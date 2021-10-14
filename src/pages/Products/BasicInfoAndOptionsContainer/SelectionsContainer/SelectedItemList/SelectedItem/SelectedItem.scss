@@ -1,12 +1,18 @@
 .SelectedItem {
   position: relative;
   padding: 12px 24px;
-  border: 1px solid #e4e4e4;
+  border-right: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
   background-color: #f9f9f9;
   color: #555;
   font-size: 12px;
 
-  .productName {
+  &:first-child {
+    border: 1px solid #e4e4e4;
+  }
+
+  .productTitle {
     color: #333;
     font-weight: bold;
   }
@@ -44,6 +50,7 @@
         height: 30px;
         border-right: 1px solid #dddddd;
         border-left: 1px solid #dddddd;
+        user-select: none;
       }
     }
 

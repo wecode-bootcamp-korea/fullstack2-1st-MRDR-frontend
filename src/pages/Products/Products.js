@@ -8,14 +8,22 @@ class Products extends React.Component {
   constructor() {
     super();
     this.state = {
-      productInfo: {}, // BasicInfoAndOptionContainer fetch data
+      productInfo: {},
       productImageSlides: [],
       productColorList: [],
     };
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const { id } = this.props.match.params;
+    fetch(`http://localhost:8000/products/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ productInfo: data });
+      })
+      .catch(err => console.log(err));
+
     fetch(`http://localhost:8000/products/${id}/images`)
       .then(res => res.json())
       .then(data => {
@@ -57,7 +65,9 @@ class Products extends React.Component {
             productImageSlides={productImageSlides}
             detailImageUrl={productInfo.detailImageUrl}
           />
-          <BasicInfoAndOptionsContainer />
+          {Object.keys(productInfo).length && (
+            <BasicInfoAndOptionsContainer productInfo={productInfo} />
+          )}
         </div>
         <AdditionalInfoContainer productColorList={productColorList} />
       </div>

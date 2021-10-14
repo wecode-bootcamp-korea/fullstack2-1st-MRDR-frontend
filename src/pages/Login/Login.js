@@ -13,6 +13,7 @@ class Login extends React.Component {
   state = { id: '', password: '' };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     this.setState({
       id: this?.props?.location?.state?.id || '',
       password: this?.props?.location?.state?.password || '',
