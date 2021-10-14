@@ -1,32 +1,5 @@
-@import '../../styles/common.scss';
-
-.productList {
-  margin: 0 30px;
-
-  .productHeader {
-    padding-top: 65px;
-
-    &Title {
-      font-size: 30px;
-    }
-
-    &Category {
-      display: flex;
-      margin-top: 45px;
-    }
-  }
-
-  .productMainInfo {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-    padding: 45px 0 30px 0;
-    top: 0px;
-    background-color: $white;
-
-    .productQuantity {
-      line-height: 25px;
-      font-size: 17px;
-    }
-  }
+.ProductList {
+  padding-top: 15px;
+  width: 1300px;
+  margin: 0 auto;
 }
