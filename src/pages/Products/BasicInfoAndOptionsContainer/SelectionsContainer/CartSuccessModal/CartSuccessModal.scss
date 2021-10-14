@@ -1,0 +1,55 @@
+.CartSuccessModal {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 320px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  box-shadow: 10px 10px 30px grey;
+  font-size: 14px;
+  z-index: 1;
+
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: grey;
+    cursor: pointer;
+  }
+
+  .topMessage {
+    padding: 45px 0 32px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    user-select: none;
+  }
+
+  .bottomButtons {
+    display: flex;
+    justify-content: center;
+    // flex: 1;
+
+    button {
+      flex: 1;
+      padding: 21px 0;
+      border: none;
+      background-color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:first-child {
+        border-right: 1px solid #e8e8e8;
+      }
+    }
+
+    .cartButton {
+      color: #333;
+    }
+
+    .continueButton {
+      color: #c86733;
+    }
+  }
+}

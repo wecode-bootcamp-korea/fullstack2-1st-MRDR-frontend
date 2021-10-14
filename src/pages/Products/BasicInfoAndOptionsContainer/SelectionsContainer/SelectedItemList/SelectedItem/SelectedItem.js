@@ -5,8 +5,16 @@ import './SelectedItem.scss';
 
 class SelectedItem extends Component {
   render() {
-    const { id, name, price, color, size, amount, deleteSelectedItem } =
-      this.props;
+    const {
+      id,
+      name,
+      price,
+      color,
+      size,
+      amount,
+      deleteSelectedItem,
+      handleAmount,
+    } = this.props;
 
     return (
       <div className="SelectedItem">
@@ -16,9 +24,9 @@ class SelectedItem extends Component {
         </div>
         <div className="bottomLine">
           <div className="amountWrapper">
-            <button>-</button>
+            <button onClick={() => handleAmount(id, 'decrement')}>-</button>
             <div className="amount">{amount}</div>
-            <button>+</button>
+            <button onClick={() => handleAmount(id, 'increment')}>+</button>
           </div>
           <span className="price">
             {(price * amount).toLocaleString() + '원'}
