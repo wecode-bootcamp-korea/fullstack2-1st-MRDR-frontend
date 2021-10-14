@@ -1,0 +1,14 @@
+.dropdown {
+  .dropmenu {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-weight: 500px;
+    font-size: 16px;
+  }
+
+  .dropmenu:hover {
+    color: #c86733;
+    text-decoration: underline;
+  }
+}

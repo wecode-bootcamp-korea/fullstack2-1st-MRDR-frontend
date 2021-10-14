@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+import NavDropdown from './NavDropdown';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,7 +18,9 @@ class Nav extends React.Component {
       menuListSub: [],
       menuListHide: false,
       searchInput: '',
+      isHovering: false,
     };
+    this.showMenu = this.showMenu.bind(this);
   }
 
   menuListHide = () => {
@@ -41,6 +44,16 @@ class Nav extends React.Component {
       });
   }
 
+  showMenu() {
+    this.setState(this.toggleMenu);
+  }
+
+  toggleMenu(state) {
+    return {
+      isHovering: !state.isHovering,
+    };
+  }
+
   render() {
     const { menuList, menuListSub, searchInput } = this.state;
     return (
@@ -57,15 +70,20 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="./main">
+          <Link to="./">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
             {menuList.map((element, index) => {
               return (
-                <a href="#!" className="menuName" key={index}>
+                <Link
+                  to="./productlist"
+                  className="menuName"
+                  key={index}
+                  onMouseEnter={this.showMenu}
+                >
                   {element.title}
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -78,13 +96,15 @@ class Nav extends React.Component {
                 onChange={this.getSearchInputValues}
               />
               <Link
-                to={`./productlist?productName=${searchInput}`}
+                to={`/productlist?productName=${searchInput}`}
                 className="searchBtn"
               >
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
             </div>
-            <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            <Link to="./cart">
+              <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            </Link>
             <button onClick={this.menuListHide} className="barIcon">
               <FontAwesomeIcon icon={faBars} id="barIcon" />
             </button>
@@ -119,6 +139,9 @@ class Nav extends React.Component {
             })}
             <div className="salePic">salepic</div>
           </div>
+        </div>
+        <div className="Dropdown" onMouseLeave={this.showMenu}>
+          {this.state.isHovering && <NavDropdown />}
         </div>
       </nav>
     );

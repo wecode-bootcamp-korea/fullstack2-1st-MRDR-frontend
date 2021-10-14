@@ -51,7 +51,7 @@ nav {
     align-items: baseline;
     padding-top: 15px;
     width: 1300px;
-    height: 80px;
+    height: 70px;
     margin: 0 auto;
 
     .logo {
@@ -69,6 +69,13 @@ nav {
       text-decoration: none solid;
       color: rgb(51, 51, 51);
     }
+  }
+
+  .Dropdown {
+    transform: translateX(180px);
+    width: 100px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 12px 15px;
   }
 
   .menuSide {
@@ -122,38 +129,11 @@ nav {
     }
   }
 
-  .sideMenu {
-    height: 543px;
-    width: 1440px;
-    background-color: red;
-
-    .wrapInner {
-      display: flex;
-      flex-wrap: nowrap;
-      margin: 0 auto;
-      width: 1300px;
-      background-color: blue;
-
-      .sideMenuRight {
-        height: 531px;
-        width: 675px;
-        padding-left: 40px;
-        background-color: yellow;
-      }
-
-      .sideMenuLeft {
-        height: 543px;
-        width: 585px;
-        padding-right: 80px;
-        background-color: green;
-      }
-    }
-  }
-
   .menuList {
     position: absolute;
     display: flex;
-    height: 550px;
+    margin-top: 0;
+    height: 580px;
     width: 1440px;
     background-color: #ffffff;
 
