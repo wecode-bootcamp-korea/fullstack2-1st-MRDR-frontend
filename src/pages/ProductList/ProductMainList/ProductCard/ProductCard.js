@@ -19,35 +19,31 @@ class ProductCard extends React.Component {
     const { isMouseOver } = this.state;
     const {
       id,
-      img1,
-      img2,
-      review,
+      imageUrlList,
       name,
-      originPrice,
+      originPirce,
       discountedPrice,
       colorAmount,
     } = this.props;
-
     return (
       <div className="ProductCards">
         <ul className="productUnorderedList">
           <li key={id}>
             <Link
-              to="/productlist"
+              to={`products/${id}`}
               onMouseOver={this.handleMouseHover}
               onMouseOut={this.handleMouseHover}
             >
               <img
                 className={isMouseOver ? 'mouseUp' : 'mouseDown'}
-                src={img1}
+                src={imageUrlList[0]}
               />
               <img
                 className={isMouseOver ? 'mouseDown' : 'mouseUp'}
-                src={img2}
+                src={imageUrlList[1]}
               />
             </Link>
           </li>
-          <li className="productReview">리뷰 {review.toLocaleString()}</li>
           <li className="productName">
             <span>{name}</span>
           </li>
@@ -55,9 +51,11 @@ class ProductCard extends React.Component {
             <span className="discountedPrice">
               {discountedPrice.toLocaleString()}원
             </span>
-            <span className="originPrice">
-              {originPrice.toLocaleString()}원
-            </span>
+            {discountedPrice !== originPirce ? (
+              <span className="originPrice">
+                {originPirce.toLocaleString()}원
+              </span>
+            ) : null}
           </li>
           <li className="productColorAmount">{colorAmount} 컬러</li>
         </ul>

@@ -1,23 +1,4 @@
 {
-  "categoryData": [
-    {
-      "id": 1,
-      "name": "전체"
-    },
-    {
-      "id": 2,
-      "name": "레깅스"
-    },
-    {
-      "id": 3,
-      "name": "팬츠"
-    },
-    {
-      "id": 4,
-      "name": "레깅스 & 드레스"
-    }
-  ],
-
   "productListData": [
     {
       "id": 1,

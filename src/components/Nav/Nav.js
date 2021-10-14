@@ -52,13 +52,17 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="./main">
+          <Link to="/">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
             {menuList.map((element, index) => {
               return (
-                <Link to="./productlist" className="menuName" key={index}>
+                <Link
+                  to="/productlist?typeNum=1"
+                  className="menuName"
+                  key={index}
+                >
                   {element.title}
                 </Link>
               );

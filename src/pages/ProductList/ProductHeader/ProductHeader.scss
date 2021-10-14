@@ -1,12 +1,43 @@
+@import '../../../styles/common.scss';
+
 .productHeader {
-  padding-top: 65px;
+  padding-top: 60px;
 
   &Title {
     font-size: 30px;
   }
 
-  &Category {
-    display: flex;
-    margin-top: 45px;
+  .productSubCategory {
+    padding-top: 55px;
+
+    a {
+      position: relative;
+      margin: 0 40px 0 3px;
+      color: $gray;
+      opacity: 0.7;
+      font-size: 22px;
+    }
+
+    ::after {
+      content: '';
+      position: absolute;
+      left: 0px;
+      bottom: -1rem;
+      height: 3px;
+      width: 100%;
+      background: $gray;
+    }
+
+    :focus::after {
+      transform: scaleX(1);
+      margin-left: 0;
+    }
+
+    ::after {
+      transform: scaleX(0);
+      margin-left: 50%;
+      transform-origin: left;
+      transition: transform 500ms ease, margin-left 0.5s ease;
+    }
   }
 }
