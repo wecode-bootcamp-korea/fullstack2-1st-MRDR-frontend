@@ -9,7 +9,6 @@ class DetailInfoContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      productColorList: [],
       clickedColor: {
         id: 0,
         colorName: '',
@@ -17,24 +16,7 @@ class DetailInfoContainer extends React.Component {
         imageUrlList: [],
       },
       currentSlideIndex: 0,
-      colorCount: 0,
     };
-  }
-
-  componentDidMount() {
-    fetch('/data/productColorsData.json')
-      .then(res => res.json())
-      .then(data => {
-        let colorCount = 0;
-        for (let arr of data) {
-          colorCount += arr.length;
-        }
-        this.setState({
-          productColorList: data,
-          clickedColor: data[0][0],
-          colorCount,
-        });
-      });
   }
 
   handleColorBtnClick = colorObj => {
@@ -63,13 +45,16 @@ class DetailInfoContainer extends React.Component {
   render() {
     const { handleColorBtnClick, handleSlidePrevBtn, handleSlideNextBtn } =
       this;
-    const { productColorList, clickedColor, currentSlideIndex, colorCount } =
-      this.state;
-    const { detailRef } = this.props;
+    const { detailRef, productColorList, detailImageUrl } = this.props;
+    const { clickedColor, currentSlideIndex } = this.state;
     return (
       <div className="DetailInfoContainer" ref={detailRef}>
         <div className="infoImageWrapper">
-          <img className="infoImage" src="" alt="상품 상세 정보 이미지" />
+          <img
+            className="infoImage"
+            src={detailImageUrl}
+            alt="상품 상세 정보 이미지"
+          />
         </div>
         <div className="colorInfoWrapper">
           <p className="colorInfoTextLarge">다채로운 컬러를 담아보세요!</p>
@@ -77,18 +62,32 @@ class DetailInfoContainer extends React.Component {
             <div className="checkImage">
               <FontAwesomeIcon icon={faCheckCircle} />
             </div>
-            <p className="colorInfoTextLarge">{colorCount} COLORS</p>
+            <p className="colorInfoTextLarge">
+              {productColorList.length} COLORS
+            </p>
             <p className="colorInfoTextSmall">
               색상 버튼을 클릭하면 자세한 컬러 이미지를 볼 수 있습니다.
             </p>
           </div>
           <ColorPicker
             productColorList={productColorList}
-            clickedColor={clickedColor}
+            clickedColor={
+              clickedColor.id !== 0
+                ? clickedColor
+                : productColorList.length !== 0
+                ? productColorList[0][0]
+                : clickedColor
+            }
             handleColorBtnClick={handleColorBtnClick}
           />
           <ColorImageCarousel
-            clickedColor={clickedColor}
+            clickedColor={
+              clickedColor.id !== 0
+                ? clickedColor
+                : productColorList.length !== 0
+                ? productColorList[0][0]
+                : clickedColor
+            }
             currentSlideIndex={currentSlideIndex}
             handleSlidePrevBtn={handleSlidePrevBtn}
             handleSlideNextBtn={handleSlideNextBtn}
