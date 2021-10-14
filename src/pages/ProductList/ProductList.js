@@ -1,8 +1,9 @@
 import React from 'react';
-import ProductCard from './ProductCard/ProductCard';
-import ProductSubCategory from './ProductSubCategory/ProductSubCategories';
+import { withRouter } from 'react-router-dom';
 import PagiNation from './PagiNation/PagiNation';
-import ProductSort from './ProductSort/ProductSort';
+import ProductHeader from './ProductHeader/ProductHeader';
+import ProductMainInfo from './ProductMainInfo/ProductMainInfo';
+import ProductMainList from './ProductMainList/ProductMainList';
 import './ProductList.scss';
 
 class ProductList extends React.Component {
@@ -10,46 +11,49 @@ class ProductList extends React.Component {
     super();
     this.state = {
       productList: [],
-      categoryList: [],
+      price: '',
     };
   }
 
   componentDidMount() {
-    fetch('/data/productListData.json')
+    const { search } = this.props.location;
+    fetch(`http://localhost:8000/products${search}`)
       .then(res => res.json())
       .then(res => {
-        this.setState({ categoryList: res.categoryData });
-        this.setState({ productList: res.productListData });
+        this.setState({ productList: res.products });
       });
   }
 
+  valueHandler = () => {
+    const { search } = this.props.location;
+    fetch(`http://localhost:8000/products${search}`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ productList: res.products });
+      });
+  };
+
   render() {
-    const { categoryList, productList } = this.state;
+    const { productList } = this.state;
+    const { search } = this.props.location;
+    const { valueHandler } = this;
+
     return (
-      <div className="productList">
-        <header className="productHeader">
-          <h1 className="productHeaderTitle">베스트</h1>
-          <div className="productHeaderCategory">
-            {categoryList.map(category => {
-              return <ProductSubCategory key={category.id} {...category} />;
-            })}
-          </div>
-        </header>
+      <div className="ProductList">
+        {search ? <ProductHeader /> : null}
         <main className="productMain">
-          <div className="productMainInfo">
-            <section className="productQuantity">229개의 상품</section>
-            <ProductSort />
-          </div>
-          <div className="productMainList">
-            {productList.map(products => {
-              return <ProductCard key={products.id} {...products} />;
-            })}
-          </div>
+          {search ? (
+            <ProductMainInfo
+              valueHandler={valueHandler}
+              productCount={productList.length}
+            />
+          ) : null}
+          <ProductMainList productList={productList} />
         </main>
-        <PagiNation />
+        {search ? <PagiNation /> : null}
       </div>
     );
   }
 }
 
-export default ProductList;
+export default withRouter(ProductList);

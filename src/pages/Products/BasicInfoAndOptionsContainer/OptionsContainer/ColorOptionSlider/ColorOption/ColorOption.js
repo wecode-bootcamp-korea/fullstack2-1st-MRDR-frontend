@@ -10,15 +10,33 @@ class ColorOption extends Component {
     }
   };
 
+  getSoldOutStatus = () => {
+    const { sizes } = this.props;
+    const isSoldOut = sizes.every(size => size.quantity === 0);
+    return isSoldOut;
+  };
+
+  getClasses = () => {
+    // RENDERING WAY TOO MUCH
+    const { isMouseDown } = this.props;
+    let classes = 'ColorOption ';
+    if (isMouseDown) classes += 'dragging ';
+    if (this.getSoldOutStatus()) classes += 'soldout ';
+    // console.log('classes:', classes);
+    return classes;
+  };
+
   render() {
-    const { imgUrl, color, selectedColor, sizes } = this.props;
-    const soldOut = sizes.every(size => size.quantity === 0);
+    const { imgUrl, color, selectedColor } = this.props;
+
+    // console.log('RENDERING TOO MUCH');
 
     return (
       <li
-        className={soldOut ? 'ColorOption soldout' : 'ColorOption'}
+        // className={soldOut ? 'ColorOption soldout' : 'ColorOption'}
+        className={this.getClasses()}
         onClick={
-          soldOut
+          this.getSoldOutStatus()
             ? () => alert('품절된 옵션입니다.')
             : () => this.clickOption(color)
         }

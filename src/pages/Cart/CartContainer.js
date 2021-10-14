@@ -7,6 +7,7 @@ class CartContainer extends React.Component {
   state = { items: [], cartRecomment: [] };
 
   componentDidMount = async () => {
+    window.scrollTo(0, 0);
     const actionFunc = items => {
       this.setState({ items: items || [] });
     };

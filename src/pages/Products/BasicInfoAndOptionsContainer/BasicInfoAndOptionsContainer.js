@@ -8,10 +8,8 @@ class BasicInfoAndOptionsContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      product: {},
       selectedColor: null,
       selectedSize: null,
-      selectedAmount: 0,
       selectedList: [
         // {
         //   id: 1,
@@ -19,25 +17,8 @@ class BasicInfoAndOptionsContainer extends React.Component {
         //   size: 2,
         //   amount: 10,
         // },
-        // {
-        //   id: 2,
-        //   color: '핫코랄',
-        //   size: 4,
-        //   amount: 1,
-        // },
       ],
     };
-  }
-
-  componentDidMount() {
-    fetch('/data/productOptionsData.json')
-      .then(res => res.json())
-      .then(res => {
-        if (res.MESSAGE === 'SUCCESS') {
-          this.setState({ product: res.PRODUCT_INFO_DATA[0] });
-        }
-      })
-      .catch(err => console.log('fetch 에러', err));
   }
 
   selectColor = color => {
@@ -52,69 +33,61 @@ class BasicInfoAndOptionsContainer extends React.Component {
     });
   };
 
-  //필요없을 수도 있습니다.
-  selectAmount = type => {
-    const { selectedAmount } = this.state;
-    if (type === 'increment') {
-      this.setState({ selectedAmount: selectedAmount + 1 });
-    }
-    if (type === 'decrement') {
-      if (selectedAmount !== 0) {
-        this.setState({
-          selectedAmount: selectedAmount - 1,
-        });
-      }
-    }
-  };
-
-  addSelectedItem = (color, size) => {
+  addSelectedItem = (colorOptionId, color, size) => {
     const { selectedList } = this.state;
     const option = {
-      id: selectedList.length + 1,
-      color: color,
-      size: size,
+      id: colorOptionId,
+      color,
+      size,
       amount: 1,
     };
-    // console.log('option basket:', option);
     this.setState({ selectedList: [...selectedList, option] });
   };
 
   deleteSelectedItem = itemId => {
     let selectedList = [...this.state.selectedList];
-    selectedList = selectedList.filter(
-      selectedItem => selectedItem.id !== itemId
-    );
+    selectedList = selectedList.filter(item => item.id !== itemId);
     this.setState({ selectedList });
   };
 
+  handleAmount = (id, type) => {
+    // NEED TO PROPERLY UPDATE STATE
+    let selectedList = [...this.state.selectedList];
+    const index = selectedList.findIndex(item => item.id === id);
+    // 질문
+    // console.log('selectedList Before:', selectedList[index]); //이건 안 변해있습니다.
+    // console.log('selectedList Before:', selectedList); // 이건 "selectedList[index].amount++"이 실행 되기도 전에 바껴있습니다.
+    if (type === 'increment') {
+      selectedList[index].amount === 30
+        ? alert('최대 주문수량은 30개 입니다.')
+        : selectedList[index].amount++;
+      // console.log('selectedList AFTER +:', selectedList[index]);
+      // console.log('selectedList AFTER +:', selectedList);
+    }
+    if (type === 'decrement') {
+      selectedList[index].amount === 1
+        ? alert('최소 주문수량은 1개 입니다.')
+        : selectedList[index].amount--;
+      // console.log('selectedList AFTER -:', selectedList[index]);
+      // console.log('selectedList AFTER -:', selectedList);
+    }
+    this.setState({ selectedList }); // 0개에서 decrement하거나 30개에서 increment하려고 할떄 불필요하게 state update 됨
+  };
+
   render() {
-    const {
-      product,
-      selectedColor,
-      selectedSize,
-      // selectedAmount,
-      selectedList,
-    } = this.state;
-    const { name, price, salePrice, colors } = product;
+    const { selectedColor, selectedSize, selectedList } = this.state;
+    const { productInfo } = this.props;
+    const { name, price, salePrice, colors } = productInfo;
     const {
       selectColor,
       selectSize,
-      selectAmount,
       addSelectedItem,
       deleteSelectedItem,
+      handleAmount,
     } = this;
-    // const selections = {
-    //   selectedColor,
-    //   selectedSize,
-    //   selectedAmount,
-    // };
-    const selectionFunctions = {
-      selectColor,
-      selectSize,
-      selectAmount,
-    };
 
-    if (Object.keys(product).length === 0) return null;
+    // console.log('selectedList:', selectedList);
+    // console.log('productInfo:', productInfo);
 
     return (
       <div className="BasicInfoAndOptionsContainer">
@@ -124,7 +97,8 @@ class BasicInfoAndOptionsContainer extends React.Component {
           selectedColor={selectedColor}
           selectedSize={selectedSize}
           selectedList={selectedList}
-          selectionFunctions={selectionFunctions}
+          selectColor={selectColor}
+          selectSize={selectSize}
           addSelectedItem={addSelectedItem}
         />
         <SelectionsContainer
@@ -132,6 +106,7 @@ class BasicInfoAndOptionsContainer extends React.Component {
           price={salePrice || price}
           selectedList={selectedList}
           deleteSelectedItem={deleteSelectedItem}
+          handleAmount={handleAmount}
         />
       </div>
     );

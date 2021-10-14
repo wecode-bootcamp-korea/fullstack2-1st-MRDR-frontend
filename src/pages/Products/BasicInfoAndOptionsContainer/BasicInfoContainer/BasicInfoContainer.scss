@@ -1,7 +1,7 @@
 .BasicInfoContainer {
   font-size: 24px;
 
-  .productName {
+  .productTitle {
     margin-bottom: 24px;
     color: #333;
     font-weight: bold;
@@ -19,7 +19,7 @@
     }
 
     .originalPrice {
-      padding: 0 5px;
+      padding: 0 10px;
       color: #ccc;
       font-size: 15px;
       text-decoration: line-through;

@@ -4,32 +4,36 @@ import './SizeButton.scss';
 class SizeButton extends Component {
   clickButton = () => {
     const {
+      colorOptionId,
       size,
+      quantity,
       selectedColor,
       selectedSize,
       selectSize,
-      selectAmount,
       selectedList,
       addSelectedItem,
     } = this.props;
 
-    selectSize(size); //selectSize랑 selectAmount 한 함수에다가 합칠 수 있을 듯 ->> don't need these states?
-    if (selectedSize !== size) {
-      selectAmount('increment');
+    // 색상/사이즈 콤보에 재고가 없는데 사이즈 버튼 누를 때
+    if (selectedColor && quantity === 0) {
+      return;
     }
-    // console.log('selectedList:', selectedList);
+
+    // 선택되어있는 사이즈 버튼을 또 누를 때 selectedSize === null로 바꾸기
+    if (selectedColor && selectedSize === size) return selectSize(size);
+
+    // 사이즈 정상적으로 선택시
+    selectSize(size);
     if (
-      selectedList.some(selectedItem => {
-        return (
-          selectedItem.color === selectedColor && selectedItem.size === size
-        );
-      })
+      selectedList.some(
+        item => item.color === selectedColor && item.size === size
+      )
     ) {
-      //이미 SelectedItem 중 하나이면
+      //선택한 색상/사이즈 콤보가 이미 밑에 있는 item 중 하나이면 alert
       alert('아래 리스트에서 이미 선택된 옵션을 삭제 후 다시 선택해 주세요.');
     } else {
-      //아직 고르지 않은 색상/사이즈 콤보이면
-      addSelectedItem(selectedColor, size);
+      //선택한 색상/사이즈 콤보가 아직 고르지 않은 색상/사이즈 콤보이면
+      addSelectedItem(colorOptionId, selectedColor, size);
     }
   };
 
@@ -38,14 +42,16 @@ class SizeButton extends Component {
   };
 
   getClasses = () => {
-    const { size, selectedColor, selectedSize } = this.props;
-    // console.log('selectedSize:', selectedSize);
+    const { size, quantity, selectedColor, selectedSize } = this.props;
     let classes = 'SizeButton ';
     if (!selectedColor) {
       classes += 'disabled ';
     }
     if (selectedSize === size) {
       classes += 'selected ';
+    }
+    if (selectedColor && quantity === 0) {
+      classes += 'outOfStock ';
     }
     // console.log('classes:', classes);
     return classes;
