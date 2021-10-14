@@ -7,8 +7,11 @@ class CartContainer extends React.Component {
   state = { items: [], cartRecomment: [] };
 
   componentDidMount = async () => {
-    const actionFunc = items => this.setState({ items });
+    const actionFunc = items => {
+      this.setState({ items: items || [] });
+    };
     const failFunc = failAlert;
+
     await getFetch(ROUTES.CART, { actionFunc, failFunc });
   };
 

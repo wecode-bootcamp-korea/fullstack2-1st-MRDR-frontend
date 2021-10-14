@@ -5,7 +5,7 @@ export const priceCaculator = items => {
 
   for (let item of items) {
     originPrice += item.price * item.count;
-    discountPrice += item.price * item.sale * item.count;
+    discountPrice += item['sale_price'] * item.count;
   }
   return { originPrice, discountPrice };
 };

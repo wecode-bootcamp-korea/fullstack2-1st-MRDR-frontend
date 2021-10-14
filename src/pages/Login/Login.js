@@ -34,7 +34,8 @@ class Login extends React.Component {
     const payload = { method: 'post', url: ROUTES.LOGIN, body };
     const actionFunc = ({ message, accessToken }) => {
       if (message === '로그인 성공!') {
-        localStorage.setItem('token', JSON.stringify(accessToken));
+        console.log(accessToken);
+        localStorage.setItem('token', accessToken);
         this.props.history.push('/');
       } else {
         alert(message);
