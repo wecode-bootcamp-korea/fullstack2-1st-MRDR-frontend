@@ -19,6 +19,7 @@ class Nav extends React.Component {
       menuListHide: false,
       searchInput: '',
       isHovering: false,
+      isUserLoggedIn: false,
     };
     this.showMenu = this.showMenu.bind(this);
   }
@@ -33,7 +34,19 @@ class Nav extends React.Component {
     this.setState({ searchInput: e.target.value });
   };
 
+  isUserLoggedIn = () => {
+    this.setState(
+      {
+        isUserLoggedIn: localStorage.getItem('token') ? true : false,
+      },
+      () => {
+        console.log(this.state.isUserLoggedIn);
+      }
+    );
+  };
+
   componentDidMount() {
+    this.isUserLoggedIn();
     fetch('/data/menuList.json')
       .then(res => res.json())
       .then(res => {
@@ -59,12 +72,24 @@ class Nav extends React.Component {
     return (
       <nav>
         <div className="navTop">
-          <Link to="./login" className="topLogin">
-            로그인
-          </Link>
-          <Link to="./signup" className="topSignup">
-            회원가입
-          </Link>
+          {this.state.isUserLoggedIn ? (
+            <Link to="./login" className="topLogin">
+              로그아웃
+            </Link>
+          ) : (
+            <Link to="./login" className="topLogin">
+              로그인
+            </Link>
+          )}
+          {this.state.isUserLoggedIn ? (
+            <Link to="./signup" className="topSignup">
+              마이페이지
+            </Link>
+          ) : (
+            <Link to="./signup" className="topSignup">
+              회원가입
+            </Link>
+          )}
           <Link to="#!" className="topService">
             고객센터
           </Link>
