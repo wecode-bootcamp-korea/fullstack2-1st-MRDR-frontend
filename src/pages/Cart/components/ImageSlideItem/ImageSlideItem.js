@@ -1,12 +1,13 @@
 import React from 'react';
+import { basicImageUrl } from '../../../../util/constants';
 import './ImageSlideItem.scss';
 
 class ImageSlideItem extends React.Component {
   render() {
-    const { price, image, name } = this.props.item;
+    const { price, imageUrl, name } = this.props.item;
     return (
       <li className="ImageSlideItem">
-        <img alt={name} className="itemImg" src={image} />
+        <img alt={name} className="itemImg" src={imageUrl || basicImageUrl} />
         <div className="itemInfo">
           <span>{name}</span>
           <span>{price}</span>

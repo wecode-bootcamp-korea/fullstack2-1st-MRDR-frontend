@@ -3,7 +3,6 @@ import './SizeButton.scss';
 
 class SizeButton extends Component {
   clickButton = () => {
-    // console.log('SizeButton click');
     const {
       size,
       selectedColor,

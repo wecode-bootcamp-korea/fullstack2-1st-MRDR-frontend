@@ -6,7 +6,6 @@ class ColorOption extends Component {
     const { selectColor, selectedSize, selectSize } = this.props;
     selectColor(color);
     if (selectedSize !== null) {
-      // console.log('Unselect color');
       selectSize(selectedSize);
     }
   };
