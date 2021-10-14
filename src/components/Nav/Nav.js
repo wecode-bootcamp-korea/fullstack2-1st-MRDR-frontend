@@ -16,6 +16,7 @@ class Nav extends React.Component {
       menuList: [],
       menuListSub: [],
       menuListHide: false,
+      searchInput: '',
     };
   }
 
@@ -23,6 +24,10 @@ class Nav extends React.Component {
     this.setState({
       menuListHide: !this.state.menuListHide,
     });
+  };
+
+  getSearchInputValues = e => {
+    this.setState({ searchInput: e.target.value });
   };
 
   componentDidMount() {
@@ -37,7 +42,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    const { menuList, menuListSub } = this.state;
+    const { menuList, menuListSub, searchInput } = this.state;
     return (
       <nav>
         <div className="navTop">
@@ -70,8 +75,12 @@ class Nav extends React.Component {
                 type="text"
                 className="serchEnter"
                 placeholder="원하는 상품을 검색하세요!"
+                onChange={this.getSearchInputValues}
               />
-              <Link to="" className="searchBtn">
+              <Link
+                to={`./productlist?productName=${searchInput}`}
+                className="searchBtn"
+              >
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
             </div>
