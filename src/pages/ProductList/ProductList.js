@@ -11,7 +11,6 @@ class ProductList extends React.Component {
     super();
     this.state = {
       productList: [],
-      price: '',
     };
   }
 
@@ -24,29 +23,28 @@ class ProductList extends React.Component {
       });
   }
 
-  valueHandler = () => {
-    const { search } = this.props.location;
-    fetch(`http://localhost:8000/products${search}`)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ productList: res.products });
-      });
-  };
+  componentDidUpdate(prevProps) {
+    const { search: currentQuery } = this.props.location;
+    const { search: prevQuery } = prevProps.location;
+    if (currentQuery !== prevQuery) {
+      fetch(`http://localhost:8000/products${currentQuery}`)
+        .then(res => res.json())
+        .then(res => {
+          this.setState({ productList: res.products });
+        });
+    }
+  }
 
   render() {
     const { productList } = this.state;
     const { search } = this.props.location;
-    const { valueHandler } = this;
 
     return (
       <div className="ProductList">
         {search ? <ProductHeader /> : null}
         <main className="productMain">
           {search ? (
-            <ProductMainInfo
-              valueHandler={valueHandler}
-              productCount={productList.length}
-            />
+            <ProductMainInfo productCount={productList.length} />
           ) : null}
           <ProductMainList productList={productList} />
         </main>

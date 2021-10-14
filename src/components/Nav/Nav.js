@@ -30,6 +30,13 @@ class Nav extends React.Component {
     this.setState({ searchInput: e.target.value });
   };
 
+  handleEnterKey = e => {
+    const { searchInput } = this.state;
+    if (e.key === 'Enter') {
+      window.location.href = `http://localhost:3000/productlist?productName=${searchInput}`;
+    }
+  };
+
   componentDidMount() {
     fetch('/data/menuList.json')
       .then(res => res.json())
@@ -64,7 +71,10 @@ class Nav extends React.Component {
             {menuList.map((element, index) => {
               return (
                 <Link
-                  to="/productlist?typeNum=1"
+                  to={{
+                    pathname: '/productlist',
+                    search: '?typeNum=1',
+                  }}
                   className="menuName"
                   key={index}
                 >
@@ -80,10 +90,15 @@ class Nav extends React.Component {
                 className="serchEnter"
                 placeholder="원하는 상품을 검색하세요!"
                 onChange={this.getSearchInputValues}
+                onKeyPress={this.handleEnterKey}
               />
               <Link
-                to={`./productlist?productName=${searchInput}`}
+                to={{
+                  pathname: '/productlist',
+                  search: `?productName=${searchInput}`,
+                }}
                 className="searchBtn"
+                onClick={this.handleClick}
               >
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
