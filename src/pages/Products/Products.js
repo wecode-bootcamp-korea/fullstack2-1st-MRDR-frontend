@@ -11,7 +11,9 @@ class Products extends React.Component {
       productInfo: {}, // BasicInfoAndOptionContainer fetch data
       productImageSlides: [],
       productColorList: [],
+      infoTapOnScroll: false,
     };
+    this.infoTapRef = React.createRef();
   }
 
   componentDidMount() {
@@ -46,20 +48,50 @@ class Products extends React.Component {
         }
         this.setState({ productColorList: colorList });
       });
+
+    window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = e => {
+    const { infoTapRef } = this;
+    const { infoTapOnScroll } = this.state;
+    let windowScrollTop = e.srcElement.scrollingElement.scrollTop;
+    let eventRange = infoTapRef.current.offsetTop - 115 - windowScrollTop;
+    if (eventRange <= 0) {
+      if (!infoTapOnScroll) {
+        this.setState({ infoTapOnScroll: !infoTapOnScroll });
+      }
+    } else {
+      if (infoTapOnScroll) {
+        this.setState({ infoTapOnScroll: !infoTapOnScroll });
+      }
+    }
+  };
+
   render() {
-    const { productInfo, productImageSlides, productColorList } = this.state;
+    const { infoTapRef } = this;
+    const {
+      productInfo,
+      productImageSlides,
+      productColorList,
+      infoTapOnScroll,
+    } = this.state;
     return (
       <div className="Products">
         <div className="mainInfoWrapper">
-          <ImagesContainer
-            productImageSlides={productImageSlides}
-            detailImageUrl={productInfo.detailImageUrl}
-          />
+          <ImagesContainer productImageSlides={productImageSlides} />
           <BasicInfoAndOptionsContainer />
         </div>
-        <AdditionalInfoContainer productColorList={productColorList} />
+        <AdditionalInfoContainer
+          productColorList={productColorList}
+          detailImageUrl={productInfo.detailImageUrl}
+          infoTapRef={infoTapRef}
+          infoTapOnScroll={infoTapOnScroll}
+        />
       </div>
     );
   }
