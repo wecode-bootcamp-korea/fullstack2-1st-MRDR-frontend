@@ -18,7 +18,7 @@ class SelectedItem extends Component {
 
     return (
       <div className="SelectedItem">
-        <div className="productName">{name}</div>
+        <div className="productTitle">{name}</div>
         <div className="colorAndSize">
           {color} / {size}
         </div>

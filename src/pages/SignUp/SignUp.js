@@ -26,6 +26,10 @@ class SignUp extends React.Component {
     personalInfoAgreeBtn: false,
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   openModal = id => {
     this.setState({
       [id]: !this.state[id],

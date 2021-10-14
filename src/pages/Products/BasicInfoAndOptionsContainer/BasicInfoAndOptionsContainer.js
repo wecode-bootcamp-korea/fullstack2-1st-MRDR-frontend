@@ -8,7 +8,6 @@ class BasicInfoAndOptionsContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      productInfo: {},
       selectedColor: null,
       selectedSize: null,
       selectedList: [
@@ -20,16 +19,6 @@ class BasicInfoAndOptionsContainer extends React.Component {
         // },
       ],
     };
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:8000/products/3')
-      .then(res => res.json())
-      .then(res => {
-        // console.log('res:', res);
-        this.setState({ productInfo: res[0] });
-      })
-      .catch(err => console.log('fetch 에러1', err));
   }
 
   selectColor = color => {
@@ -63,9 +52,9 @@ class BasicInfoAndOptionsContainer extends React.Component {
 
   handleAmount = (id, type) => {
     // NEED TO PROPERLY UPDATE STATE
-    const { colors } = this.state.productInfo;
     let selectedList = [...this.state.selectedList];
     const index = selectedList.findIndex(item => item.id === id);
+    // 질문
     // console.log('selectedList Before:', selectedList[index]); //이건 안 변해있습니다.
     // console.log('selectedList Before:', selectedList); // 이건 "selectedList[index].amount++"이 실행 되기도 전에 바껴있습니다.
     if (type === 'increment') {
@@ -86,8 +75,8 @@ class BasicInfoAndOptionsContainer extends React.Component {
   };
 
   render() {
-    const { productInfo, selectedColor, selectedSize, selectedList } =
-      this.state;
+    const { selectedColor, selectedSize, selectedList } = this.state;
+    const { productInfo } = this.props;
     const { name, price, salePrice, colors } = productInfo;
     const {
       selectColor,
@@ -100,7 +89,6 @@ class BasicInfoAndOptionsContainer extends React.Component {
     // console.log('selectedList:', selectedList);
     // console.log('productInfo:', productInfo);
 
-    if (Object.keys(productInfo).length === 0) return null;
     return (
       <div className="BasicInfoAndOptionsContainer">
         <BasicInfoContainer name={name} price={price} salePrice={salePrice} />

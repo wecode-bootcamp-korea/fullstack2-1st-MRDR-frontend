@@ -31,13 +31,12 @@ class SelectionsContainer extends Component {
   addToCart = () => {
     const { selectedList } = this.props;
     const token = localStorage.getItem('token');
-    // this.toggleCartSuccessVisibility(); // comment out or delete later
     if (!token) {
       alert('로그인 먼저 해주세요');
       return this.props.history.push('/login');
     }
 
-    fetch('/cart', {
+    fetch('http://localhost:8000/carts', {
       method: 'POST',
       headers: {
         authorization: `${token}`, // 나중에 'bearer'도 넣는게 좋을 것 같습니다.
@@ -52,16 +51,13 @@ class SelectionsContainer extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log('res.message:', res.message);
         if (res.message === 'SUCCESS') {
-          console.log('SUCCESSFULLY ADDED ITEMS TO CART');
           this.toggleCartSuccessVisibility();
-        } else {
-          console.log('FAILED TO ADD ITEMS TO CART');
         }
       })
       .catch(error => {
-        console.log('Cart error', error);
+        console.log('Carts error', error);
+        alert(error);
       });
   };
 
