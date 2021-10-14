@@ -12,6 +12,13 @@ import './Login.scss';
 class Login extends React.Component {
   state = { id: '', password: '' };
 
+  componentDidMount = () => {
+    this.setState({
+      id: this?.props?.location?.state?.id || '',
+      password: this?.props?.location?.state?.password || '',
+    });
+  };
+
   onChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -21,12 +28,14 @@ class Login extends React.Component {
     e.preventDefault();
     const { id, password } = this.state;
     const isValid = this.checkIsValid(id, password);
-    if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
+    // if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
 
     const body = JSON.stringify({ id, password });
     const payload = { method: 'post', url: ROUTES.LOGIN, body };
-    const actionFunc = ({ message }) => {
+    const actionFunc = ({ message, accessToken }) => {
       if (message === '로그인 성공!') {
+        console.log(accessToken);
+        localStorage.setItem('token', accessToken);
         this.props.history.push('/');
       } else {
         alert(message);
@@ -47,12 +56,14 @@ class Login extends React.Component {
           <Title className="loginTitle title" title="로그인" />
           <form onSubmit={this.onSubmit}>
             <input
+              value={this.state.id}
               name="id"
               placeholder="아이디, 영소문자와 숫자의 조합 4~12자"
               className="loginInput"
               onChange={this.onChange}
             />
             <input
+              value={this.state.password}
               name="password"
               placeholder="비밀번호, 영대소문자,숫자, 특수문자 조합 8~16자"
               className="loginInput"

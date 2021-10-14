@@ -4,10 +4,11 @@ export const ERRORS = {
 };
 
 export const ROUTES = {
-  CART: '/data/cart.json',
+  CART: 'http://localhost:8000/carts',
   CART_OPTION_CHANGE: id => `/product/${id}`,
   CART_RECOMMENT: '/data/cartRecomment.json',
   LOGIN: 'http://localhost:8000/users/login',
+  SIGNUP: 'http://localhost:8000/users/signup',
 };
 
 export const BTNAME = {

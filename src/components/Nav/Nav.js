@@ -16,6 +16,7 @@ class Nav extends React.Component {
       menuList: [],
       menuListSub: [],
       menuListHide: false,
+      searchInput: '',
     };
   }
 
@@ -23,6 +24,10 @@ class Nav extends React.Component {
     this.setState({
       menuListHide: !this.state.menuListHide,
     });
+  };
+
+  getSearchInputValues = e => {
+    this.setState({ searchInput: e.target.value });
   };
 
   componentDidMount() {
@@ -37,7 +42,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    const { menuList, menuListSub } = this.state;
+    const { menuList, menuListSub, searchInput } = this.state;
     return (
       <nav>
         <div className="navTop">
@@ -52,15 +57,19 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="./main">
+          <Link to="/">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
             {menuList.map((element, index) => {
               return (
-                <a href="#!" className="menuName" key={index}>
+                <Link
+                  to="/productlist?typeNum=1"
+                  className="menuName"
+                  key={index}
+                >
                   {element.title}
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -70,8 +79,14 @@ class Nav extends React.Component {
                 type="text"
                 className="serchEnter"
                 placeholder="원하는 상품을 검색하세요!"
+                onChange={this.getSearchInputValues}
               />
-              <FontAwesomeIcon icon={faSearch} id="searchIcon" />
+              <Link
+                to={`./productlist?productName=${searchInput}`}
+                className="searchBtn"
+              >
+                <FontAwesomeIcon icon={faSearch} id="searchIcon" />
+              </Link>
             </div>
             <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
             <button onClick={this.menuListHide} className="barIcon">

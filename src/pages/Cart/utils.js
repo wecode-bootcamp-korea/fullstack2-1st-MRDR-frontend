@@ -5,11 +5,25 @@ export const priceCaculator = items => {
 
   for (let item of items) {
     originPrice += item.price * item.count;
-    discountPrice += item.price * item.sale * item.count;
+    discountPrice += item['sale_price'] * item.count;
   }
   return { originPrice, discountPrice };
 };
 
 export const priceChanger = x => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+export const keyNameChanger = (key, newKey, obj) => {
+  const temp = obj[key];
+  delete obj[key];
+  obj[newKey] = temp;
+};
+
+export const deleteKey = (key, obj) => {
+  delete obj[key];
+};
+
+export const addKey = (key, value, obj) => {
+  obj[key] = value;
 };

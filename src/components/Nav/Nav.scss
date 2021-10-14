@@ -90,12 +90,20 @@ nav {
         color: #9c9c9c;
       }
 
-      #searchIcon {
-        height: 20px;
-        width: 20px;
-        margin-left: 30px;
-        color: #454545;
-        cursor: pointer;
+      .searchBtn {
+        all: unset;
+
+        &:focus {
+          cursor: pointer;
+        }
+
+        #searchIcon {
+          height: 20px;
+          width: 20px;
+          margin-left: 30px;
+          color: #454545;
+          cursor: pointer;
+        }
       }
     }
     .barIcon {

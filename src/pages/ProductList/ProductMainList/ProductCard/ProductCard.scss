@@ -1,0 +1,67 @@
+@import '../../../../styles/common.scss';
+@import '../../../../styles/mixins.scss';
+.productUnorderedList {
+  img {
+    height: 420px;
+    width: 315px;
+    object-fit: cover;
+  }
+
+  .mouseDown {
+    display: none;
+  }
+
+  .productReview {
+    padding: 10px 0;
+    height: 15px;
+    width: 100px;
+    color: $lightRed;
+    font: {
+      size: 15px;
+      weight: 700;
+    }
+  }
+}
+
+.productName {
+  padding-top: 5px;
+  height: 60px;
+  width: 300px;
+  max-height: 400px;
+  line-height: 20px;
+
+  span {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 300px;
+    font-size: 16px;
+  }
+}
+
+.discountedPrice {
+  padding: 5px 15px 0 0;
+  color: $black;
+  line-height: 19px;
+  font: {
+    weight: 700;
+    size: 16px;
+  }
+}
+
+.originPrice {
+  text-decoration: line-through;
+  font-size: 13px;
+  color: $lightGray;
+}
+
+.productColorAmount {
+  margin-top: 10px;
+  height: 16px;
+  width: 310px;
+  color: $middleGray;
+  font: {
+    size: 14px;
+    weight: 600;
+  }
+}
