@@ -4,12 +4,13 @@ import './SelectedItemList.scss';
 
 class SelectedItemList extends Component {
   render() {
-    const { name, price, selectedList, deleteSelectedItem } = this.props;
+    const { name, price, selectedList, deleteSelectedItem, handleAmount } =
+      this.props;
 
     return (
       <ul className="SelectedItemList">
-        {selectedList.map(selectedItem => {
-          const { id, color, size, amount } = selectedItem;
+        {selectedList.map(item => {
+          const { id, color, size, amount } = item;
           return (
             <SelectedItem
               key={id}
@@ -20,6 +21,7 @@ class SelectedItemList extends Component {
               size={size}
               amount={amount}
               deleteSelectedItem={deleteSelectedItem}
+              handleAmount={handleAmount}
             />
           );
         })}

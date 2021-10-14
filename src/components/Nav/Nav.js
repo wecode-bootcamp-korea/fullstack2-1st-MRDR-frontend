@@ -53,10 +53,10 @@ class Nav extends React.Component {
     return (
       <nav>
         <div className="navTop">
-          <Link to="./login" className="topLogin">
+          <Link to="/login" className="topLogin">
             로그인
           </Link>
-          <Link to="./signup" className="topSignup">
+          <Link to="/signup" className="topSignup">
             회원가입
           </Link>
           <Link to="#!" className="topService">

@@ -1,7 +1,7 @@
 .ColorOption {
   margin-left: 10px;
   font-size: 12px;
-  // cursor: pointer;
+  cursor: pointer;
 
   &:first-child {
     margin: 0;
@@ -12,13 +12,17 @@
     cursor: not-allowed;
   }
 
+  &.dragging {
+    cursor: grabbing;
+  }
+
   img {
     width: 88px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     -webkit-user-drag: none;
 
     &.selected {
-      border: 1px solid black;
+      border: 2px solid black;
     }
   }
 
