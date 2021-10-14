@@ -71,7 +71,9 @@ class Nav extends React.Component {
                 className="serchEnter"
                 placeholder="원하는 상품을 검색하세요!"
               />
-              <FontAwesomeIcon icon={faSearch} id="searchIcon" />
+              <Link to="" className="searchBtn">
+                <FontAwesomeIcon icon={faSearch} id="searchIcon" />
+              </Link>
             </div>
             <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
             <button onClick={this.menuListHide} className="barIcon">
