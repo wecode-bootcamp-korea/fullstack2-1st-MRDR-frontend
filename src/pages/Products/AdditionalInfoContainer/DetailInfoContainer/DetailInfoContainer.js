@@ -45,12 +45,16 @@ class DetailInfoContainer extends React.Component {
   render() {
     const { handleColorBtnClick, handleSlidePrevBtn, handleSlideNextBtn } =
       this;
-    const { detailRef, productColorList } = this.props;
+    const { detailRef, productColorList, detailImageUrl } = this.props;
     const { clickedColor, currentSlideIndex } = this.state;
     return (
       <div className="DetailInfoContainer" ref={detailRef}>
         <div className="infoImageWrapper">
-          <img className="infoImage" src="" alt="상품 상세 정보 이미지" />
+          <img
+            className="infoImage"
+            src={detailImageUrl}
+            alt="상품 상세 정보 이미지"
+          />
         </div>
         <div className="colorInfoWrapper">
           <p className="colorInfoTextLarge">다채로운 컬러를 담아보세요!</p>

@@ -8,7 +8,7 @@ class Products extends React.Component {
   constructor() {
     super();
     this.state = {
-      productInfo: {},
+      productInfo: {}, // BasicInfoAndOptionContainer fetch data
       productImageSlides: [],
       productColorList: [],
     };
@@ -53,7 +53,10 @@ class Products extends React.Component {
     return (
       <div className="Products">
         <div className="mainInfoWrapper">
-          <ImagesContainer productImageSlides={productImageSlides} />
+          <ImagesContainer
+            productImageSlides={productImageSlides}
+            detailImageUrl={productInfo.detailImageUrl}
+          />
           <BasicInfoAndOptionsContainer />
         </div>
         <AdditionalInfoContainer productColorList={productColorList} />
