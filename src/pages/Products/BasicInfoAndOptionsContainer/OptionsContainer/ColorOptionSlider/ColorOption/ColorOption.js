@@ -13,8 +13,11 @@ class ColorOption extends Component {
 
   getSoldOutStatus = () => {
     const { sizes } = this.props;
-    const isSoldOut = sizes.every(size => size.quantity === 0);
-    return isSoldOut;
+    if (sizes) {
+      // 준범, undefined 여서 에러 발생하여 있는 경우에만 처리하도록 하였습니다.
+      const isSoldOut = sizes.every(size => size.quantity === 0);
+      return isSoldOut;
+    }
   };
 
   getClasses = () => {
