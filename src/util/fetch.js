@@ -3,6 +3,7 @@ import { ERRORS } from './constants';
 export const failAlert = code => alert(ERRORS[code]);
 
 export const getFetch = async (url, { actionFunc, failFunc }) => {
+  console.log('fetchT', url);
   try {
     const authorization = localStorage.getItem('token');
     const response = await fetch(url, {
@@ -13,8 +14,9 @@ export const getFetch = async (url, { actionFunc, failFunc }) => {
       return;
 
     if (response.status < 400) {
-      const { data } = await response.json();
-      return actionFunc(data);
+      const { data, cart } = await response.json();
+      actionFunc(data || cart);
+      return;
     }
 
     failFunc(500);
