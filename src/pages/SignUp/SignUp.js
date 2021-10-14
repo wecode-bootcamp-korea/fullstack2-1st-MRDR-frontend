@@ -24,6 +24,8 @@ class SignUp extends React.Component {
     emailAgreeBoxBtn: false,
     useInfoAgreeBtn: false,
     personalInfoAgreeBtn: false,
+    userPassword: '',
+    userPasswordConfirm: '',
   };
 
   componentDidMount() {
@@ -185,6 +187,7 @@ class SignUp extends React.Component {
         <form onSubmit={onSubmit} className="signUpWrapper">
           <Title className="signUpTitle" title="회원가입" />
           <BasicUserInfoTable
+            state={this.state}
             checkBoxController={checkBoxController}
             radioBtnOnClick={radioBtnOnClick}
             usertype={usertype}

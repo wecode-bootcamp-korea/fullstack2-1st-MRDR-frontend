@@ -6,8 +6,7 @@ class ColorOption extends Component {
     const { selectColor, selectedSize, selectSize } = this.props;
     selectColor(color);
     if (selectedSize !== null) {
-      // Unselect color
-      selectSize(selectedSize); //selectColor and selectSize are rendering separately so re-rendering too much
+      selectSize(selectedSize);
     }
   };
 
