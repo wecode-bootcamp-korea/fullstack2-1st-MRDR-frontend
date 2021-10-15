@@ -1,27 +1,4 @@
 {
-  "categoryData": [
-    {
-      "id": 1,
-      "name": "전체"
-    },
-    {
-      "id": 2,
-      "name": "상의"
-    },
-    {
-      "id": 3,
-      "name": "아우터"
-    },
-    {
-      "id": 4,
-      "name": "맨즈"
-    },
-    {
-      "id": 5,
-      "name": "용품"
-    }
-  ],
-
   "productListData": [
     {
       "id": 1,

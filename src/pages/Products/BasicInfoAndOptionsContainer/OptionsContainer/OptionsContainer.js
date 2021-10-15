@@ -11,10 +11,10 @@ class OptionsContainer extends Component {
       selectedColor,
       selectedSize,
       selectedList,
+      selectColor,
+      selectSize,
       addSelectedItem,
     } = this.props;
-    const { selectColor, selectSize, selectAmount } =
-      this.props.selectionFunctions;
 
     return (
       <div className="OptionsContainer">
@@ -40,7 +40,7 @@ class OptionsContainer extends Component {
           <div className="lineContent">
             <p className="topLineLeft">
               <span>[필수]</span>
-              {selectedSize !== null ? selectedSize : '옵션을 선택해 주세요'}
+              {selectedSize || '옵션을 선택해 주세요'}
             </p>
           </div>
         </Line>
@@ -50,7 +50,6 @@ class OptionsContainer extends Component {
           selectedColor={selectedColor}
           selectedSize={selectedSize}
           selectSize={selectSize}
-          selectAmount={selectAmount}
           selectedList={selectedList}
           addSelectedItem={addSelectedItem}
         />

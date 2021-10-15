@@ -102,4 +102,16 @@
   .show {
     display: block;
   }
+
+  .ErrorMessage {
+    margin-top: 5px;
+    .message {
+      color: red;
+      font-size: 13px;
+    }
+  }
+
+  .clearError {
+    display: none;
+  }
 }

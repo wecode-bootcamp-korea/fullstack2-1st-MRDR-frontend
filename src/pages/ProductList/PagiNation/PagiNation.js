@@ -6,7 +6,7 @@ class PagiNation extends React.Component {
   render() {
     const pageNumber = [1, 2, 3, 4, 5];
     return (
-      <ul className="pagiNation">
+      <ul className="PagiNation">
         <li>
           <Link to="/productlist">
             <img

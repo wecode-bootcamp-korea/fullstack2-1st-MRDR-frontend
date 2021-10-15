@@ -26,14 +26,16 @@ class PricesBox extends React.Component {
             <li>
               <TwoColumnRow
                 description="배송비"
-                price={originPrice ? '5,000' : 0}
+                price={originPrice ? '2,500' : 0}
               />
             </li>
           </ul>
           <TwoColumnRow
             className="totalPrice"
             description="총 금액"
-            price={priceChanger(originPrice - discountPrice + 5000)}
+            price={priceChanger(
+              originPrice ? originPrice - discountPrice + 5000 : 0
+            )}
           />
         </div>
         <div className="priceBtns">

@@ -13,6 +13,7 @@ class Login extends React.Component {
   state = { id: '', password: '' };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     this.setState({
       id: this?.props?.location?.state?.id || '',
       password: this?.props?.location?.state?.password || '',
@@ -27,14 +28,10 @@ class Login extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const { id, password } = this.state;
-    const isValid = this.checkIsValid(id, password);
-    // if (!isValid) return alert('잘못된 이메일이나 비밀번호가 입력 되었습니다.');
-
     const body = JSON.stringify({ id, password });
     const payload = { method: 'post', url: ROUTES.LOGIN, body };
     const actionFunc = ({ message, accessToken }) => {
       if (message === '로그인 성공!') {
-        console.log(accessToken);
         localStorage.setItem('token', accessToken);
         this.props.history.push('/');
       } else {
