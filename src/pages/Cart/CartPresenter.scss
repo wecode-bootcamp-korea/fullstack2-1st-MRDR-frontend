@@ -2,7 +2,9 @@
 @import '../../styles/common.scss';
 
 .CartPresenter {
+  width: $pageWidth;
   padding-top: 200px;
+  margin: 0 auto;
 
   .cartWrapper {
     width: 1300px;

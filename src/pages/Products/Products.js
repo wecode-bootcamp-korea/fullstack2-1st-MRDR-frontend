@@ -12,6 +12,7 @@ class Products extends React.Component {
       productImageSlides: [],
       productColorList: [],
       infoTapOnScroll: false,
+      colorCount: 0,
     };
     this.infoTapRef = React.createRef();
   }
@@ -54,7 +55,7 @@ class Products extends React.Component {
         for (let arr of colorList) {
           colorCount += arr.length;
         }
-        this.setState({ productColorList: colorList });
+        this.setState({ productColorList: colorList, colorCount });
       });
 
     window.addEventListener('scroll', this.handleScroll);
@@ -87,6 +88,7 @@ class Products extends React.Component {
       productImageSlides,
       productColorList,
       infoTapOnScroll,
+      colorCount,
     } = this.state;
     return (
       <div className="Products">
@@ -104,6 +106,7 @@ class Products extends React.Component {
           detailImageUrl={productInfo.detailImageUrl}
           infoTapRef={infoTapRef}
           infoTapOnScroll={infoTapOnScroll}
+          colorCount={colorCount}
         />
       </div>
     );

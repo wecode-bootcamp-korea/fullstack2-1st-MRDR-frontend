@@ -37,10 +37,12 @@ class ProductCard extends React.Component {
               <img
                 className={isMouseOver ? 'mouseUp' : 'mouseDown'}
                 src={imageUrlList[0]}
+                // alt="mainImage"
               />
               <img
                 className={isMouseOver ? 'mouseDown' : 'mouseUp'}
                 src={imageUrlList[1]}
+                // alt="subImage"
               />
             </Link>
           </li>

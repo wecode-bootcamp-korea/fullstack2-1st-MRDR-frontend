@@ -13,8 +13,13 @@ class AdditionalInfoContainer extends React.Component {
 
   render() {
     const { detailRef, guideRef } = this;
-    const { productColorList, detailImageUrl, infoTapRef, infoTapOnScroll } =
-      this.props;
+    const {
+      productColorList,
+      detailImageUrl,
+      infoTapRef,
+      infoTapOnScroll,
+      colorCount,
+    } = this.props;
     return (
       <div className="AdditionalInfoContainer" ref={infoTapRef}>
         <AdditionalInfoTap
@@ -27,6 +32,7 @@ class AdditionalInfoContainer extends React.Component {
           productColorList={productColorList}
           detailImageUrl={detailImageUrl}
           detailRef={detailRef}
+          colorCount={colorCount}
         />
         <PurchasingGuide guideRef={guideRef} />
       </div>

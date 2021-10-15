@@ -12,7 +12,7 @@ class ProductSort extends React.Component {
       <section className="productSort">
         <span className="productSortList">
           상품정렬
-          <img src="https://andar.co.kr/common/PC/arrow_down.png" />
+          <img src="https://andar.co.kr/common/PC/arrow_down.png" alt="arrow" />
         </span>
         <div className="dropDown">
           <Link

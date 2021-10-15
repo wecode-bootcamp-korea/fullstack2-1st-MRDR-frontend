@@ -103,7 +103,9 @@ class Nav extends React.Component {
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
             </div>
-            <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            <Link to="/cart">
+              <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            </Link>
             <button onClick={this.menuListHide} className="barIcon">
               <FontAwesomeIcon icon={faBars} id="barIcon" />
             </button>

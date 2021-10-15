@@ -11,7 +11,7 @@ class Carousel extends React.Component {
     super();
     this.state = {
       currentIndex: 0,
-      totalSlides: 4,
+      totalSlides: 3,
     };
   }
 
@@ -70,10 +70,9 @@ class Carousel extends React.Component {
                 transform: `translateX(-${this.state.currentIndex * 100}%)`,
               }}
             >
-              <img src="/image/1.png" alt="img1" />
-              <img src="/image/2.png" alt="img2" />
-              <img src="/image/3.png" alt="img3" />
-              <img src="/image/4.png" alt="img4" />
+              <img src="/image/img1.png" alt="img1" />
+              <img src="/image/img2.png" alt="img2" />
+              <img src="/image/img3.png" alt="img3" />
             </div>
           </div>
         </div>
