@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+import NavDropdown from './NavDropdown';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,7 +18,10 @@ class Nav extends React.Component {
       menuListSub: [],
       menuListHide: false,
       searchInput: '',
+      isHovering: false,
+      isUserLoggedIn: false,
     };
+    this.showMenu = this.showMenu.bind(this);
   }
 
   menuListHide = () => {
@@ -30,7 +34,19 @@ class Nav extends React.Component {
     this.setState({ searchInput: e.target.value });
   };
 
+  isUserLoggedIn = () => {
+    this.setState(
+      {
+        isUserLoggedIn: localStorage.getItem('token') ? true : false,
+      },
+      () => {
+        console.log(this.state.isUserLoggedIn);
+      }
+    );
+  };
+
   componentDidMount() {
+    this.isUserLoggedIn();
     fetch('/data/menuList.json')
       .then(res => res.json())
       .then(res => {
@@ -41,32 +57,55 @@ class Nav extends React.Component {
       });
   }
 
+  showMenu() {
+    this.setState(this.toggleMenu);
+  }
+
+  toggleMenu(state) {
+    return {
+      isHovering: !state.isHovering,
+    };
+  }
+
   render() {
     const { menuList, menuListSub, searchInput } = this.state;
     return (
       <nav>
         <div className="navTop">
-          <Link to="/login" className="topLogin">
-            로그인
-          </Link>
-          <Link to="/signup" className="topSignup">
-            회원가입
-          </Link>
+          {this.state.isUserLoggedIn ? (
+            <Link to="./login" className="topLogin">
+              로그아웃
+            </Link>
+          ) : (
+            <Link to="./login" className="topLogin">
+              로그인
+            </Link>
+          )}
+          {this.state.isUserLoggedIn ? (
+            <Link to="./signup" className="topSignup">
+              마이페이지
+            </Link>
+          ) : (
+            <Link to="./signup" className="topSignup">
+              회원가입
+            </Link>
+          )}
           <Link to="#!" className="topService">
             고객센터
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="/">
+          <Link to="./">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
             {menuList.map((element, index) => {
               return (
                 <Link
-                  to="/productlist?typeNum=1"
+                  to="./productlist"
                   className="menuName"
                   key={index}
+                  onMouseEnter={this.showMenu}
                 >
                   {element.title}
                 </Link>
@@ -82,13 +121,15 @@ class Nav extends React.Component {
                 onChange={this.getSearchInputValues}
               />
               <Link
-                to={`./productlist?productName=${searchInput}`}
+                to={`/productlist?productName=${searchInput}`}
                 className="searchBtn"
               >
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
             </div>
-            <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            <Link to="./cart">
+              <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
+            </Link>
             <button onClick={this.menuListHide} className="barIcon">
               <FontAwesomeIcon icon={faBars} id="barIcon" />
             </button>
@@ -123,6 +164,9 @@ class Nav extends React.Component {
             })}
             <div className="salePic">salepic</div>
           </div>
+        </div>
+        <div className="Dropdown" onMouseLeave={this.showMenu}>
+          {this.state.isHovering && <NavDropdown />}
         </div>
       </nav>
     );
