@@ -2,7 +2,7 @@ import React from 'react';
 
 class IdTableRow extends React.Component {
   render() {
-    const { onChange, className, value } = this.props;
+    const { onChange, value } = this.props;
     console.log(value);
     return (
       <tr className="idTr">

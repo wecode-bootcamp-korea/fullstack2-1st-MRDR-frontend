@@ -34,13 +34,13 @@ class PricesBox extends React.Component {
             className="totalPrice"
             description="총 금액"
             price={priceChanger(
-              originPrice ? originPrice - discountPrice + 5000 : 0
+              originPrice ? originPrice - discountPrice + 2500 : 0
             )}
           />
         </div>
         <div className="priceBtns">
           <button className="orderBtn">주문하기</button>
-          <Link to="/product">계속 쇼핑하기</Link>
+          <Link to="/">계속 쇼핑하기</Link>
           <small>최종 결제 금액은 주문결제 페이지에서 확인해주세요.</small>
         </div>
       </div>

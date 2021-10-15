@@ -4,8 +4,16 @@
 .AdditionalInfoTap {
   width: 100%;
   margin-bottom: 50px;
+  background-color: white;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #aaa;
+
+  &.positionFixed {
+    position: fixed;
+    top: 0;
+    margin-top: 115px;
+    z-index: 3;
+  }
 
   .infoTapList {
     @include flex(row, flex-start, flex-start);

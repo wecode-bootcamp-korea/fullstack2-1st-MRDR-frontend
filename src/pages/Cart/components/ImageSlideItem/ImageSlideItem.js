@@ -5,6 +5,7 @@ import './ImageSlideItem.scss';
 class ImageSlideItem extends React.Component {
   render() {
     const { price, imageUrl, name } = this.props.item;
+    console.log(imageUrl);
     return (
       <li className="ImageSlideItem">
         <img alt={name} className="itemImg" src={imageUrl || basicImageUrl} />

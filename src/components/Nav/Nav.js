@@ -1,6 +1,4 @@
 import React from 'react';
-import './Nav.scss';
-import NavDropdown from './NavDropdown';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,9 +6,10 @@ import {
   faShoppingBag,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import NavDropdown from './NavDropdown';
+import './Nav.scss';
 
 class Nav extends React.Component {
-  state = { status: false };
   constructor() {
     super();
     this.state = {
@@ -34,19 +33,20 @@ class Nav extends React.Component {
     this.setState({ searchInput: e.target.value });
   };
 
+  handleEnterKey = e => {
+    const { searchInput } = this.state;
+    if (e.key === 'Enter') {
+      window.location.href = `http://localhost:3000/productlist?productName=${searchInput}`;
+    }
+  };
+
   isUserLoggedIn = () => {
-    this.setState(
-      {
-        isUserLoggedIn: localStorage.getItem('token') ? true : false,
-      },
-      () => {
-        console.log(this.state.isUserLoggedIn);
-      }
-    );
+    this.setState({
+      isUserLoggedIn: localStorage.getItem('token') ? true : false,
+    });
   };
 
   componentDidMount() {
-    this.isUserLoggedIn();
     fetch('/data/menuList.json')
       .then(res => res.json())
       .then(res => {
@@ -57,23 +57,42 @@ class Nav extends React.Component {
       });
   }
 
-  showMenu() {
-    this.setState(this.toggleMenu);
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isUserLoggedIn !== prevState.isUserLoggedIn) {
+      this.isUserLoggedIn();
+    }
   }
 
-  toggleMenu(state) {
+  showMenu = () => {
+    this.setState(this.toggleMenu);
+  };
+
+  toggleMenu = state => {
     return {
       isHovering: !state.isHovering,
     };
-  }
+  };
+
+  signOut = () => {
+    localStorage.removeItem('token');
+    this.isUserLoggedIn();
+    window.location.reload();
+  };
 
   render() {
-    const { menuList, menuListSub, searchInput } = this.state;
+    const { isLogined } = this.props;
+    const { menuList, menuListSub, searchInput, isUserLoggedIn } = this.state;
     return (
       <nav>
         <div className="navTop">
-          {this.state.isUserLoggedIn ? (
-            <Link to="./login" className="topLogin">
+          {isLogined ? (
+            <Link
+              to="/"
+              className="topLogin"
+              onClick={() => {
+                this.signOut();
+              }}
+            >
               로그아웃
             </Link>
           ) : (
@@ -102,7 +121,10 @@ class Nav extends React.Component {
             {menuList.map((element, index) => {
               return (
                 <Link
-                  to="./productlist"
+                  to={{
+                    pathname: '/productlist',
+                    search: '?typeNum=1',
+                  }}
                   className="menuName"
                   key={index}
                   onMouseEnter={this.showMenu}
@@ -119,15 +141,20 @@ class Nav extends React.Component {
                 className="serchEnter"
                 placeholder="원하는 상품을 검색하세요!"
                 onChange={this.getSearchInputValues}
+                onKeyPress={this.handleEnterKey}
               />
               <Link
-                to={`/productlist?productName=${searchInput}`}
+                to={{
+                  pathname: '/productlist',
+                  search: `?productName=${searchInput}`,
+                }}
                 className="searchBtn"
+                onClick={this.handleClick}
               >
                 <FontAwesomeIcon icon={faSearch} id="searchIcon" />
               </Link>
             </div>
-            <Link to="./cart">
+            <Link to="/cart">
               <FontAwesomeIcon icon={faShoppingBag} id="bagIcon" />
             </Link>
             <button onClick={this.menuListHide} className="barIcon">

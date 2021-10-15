@@ -7,7 +7,7 @@ class AdditionalInfoTap extends React.Component {
     window.scrollTo({
       behavior: 'smooth',
       left: 0,
-      top: detailRef.current.offsetTop,
+      top: detailRef.current.offsetTop - 115,
     });
   };
 
@@ -16,14 +16,21 @@ class AdditionalInfoTap extends React.Component {
     window.scrollTo({
       behavior: 'smooth',
       left: 0,
-      top: guideRef.current.offsetTop,
+      top: guideRef.current.offsetTop - 200,
     });
   };
 
   render() {
     const { clickDetailTap, clickGuideTap } = this;
+    const { infoTapOnScroll } = this.props;
     return (
-      <div className="AdditionalInfoTap">
+      <div
+        className={
+          infoTapOnScroll
+            ? 'AdditionalInfoTap positionFixed'
+            : 'AdditionalInfoTap'
+        }
+      >
         <ul className="infoTapList">
           <li className="reviewTap">
             <button>리뷰</button>

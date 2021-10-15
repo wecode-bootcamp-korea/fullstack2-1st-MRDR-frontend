@@ -33,6 +33,7 @@ class Login extends React.Component {
     const actionFunc = ({ message, accessToken }) => {
       if (message === '로그인 성공!') {
         localStorage.setItem('token', accessToken);
+        this.props.login(true);
         this.props.history.push('/');
       } else {
         alert(message);

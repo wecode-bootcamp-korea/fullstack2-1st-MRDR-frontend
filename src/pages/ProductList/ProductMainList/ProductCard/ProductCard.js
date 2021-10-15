@@ -21,7 +21,7 @@ class ProductCard extends React.Component {
       id,
       imageUrlList,
       name,
-      originPirce,
+      originPrice,
       discountedPrice,
       colorAmount,
     } = this.props;
@@ -37,10 +37,12 @@ class ProductCard extends React.Component {
               <img
                 className={isMouseOver ? 'mouseUp' : 'mouseDown'}
                 src={imageUrlList[0]}
+                // alt="mainImage"
               />
               <img
                 className={isMouseOver ? 'mouseDown' : 'mouseUp'}
                 src={imageUrlList[1]}
+                // alt="subImage"
               />
             </Link>
           </li>
@@ -51,9 +53,9 @@ class ProductCard extends React.Component {
             <span className="discountedPrice">
               {discountedPrice.toLocaleString()}원
             </span>
-            {discountedPrice !== originPirce ? (
+            {discountedPrice !== originPrice ? (
               <span className="originPrice">
-                {originPirce.toLocaleString()}원
+                {originPrice.toLocaleString()}원
               </span>
             ) : null}
           </li>

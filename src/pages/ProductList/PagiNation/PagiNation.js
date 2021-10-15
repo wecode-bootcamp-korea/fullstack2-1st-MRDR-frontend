@@ -8,7 +8,12 @@ class PagiNation extends React.Component {
     return (
       <ul className="PagiNation">
         <li>
-          <Link to="/productlist">
+          <Link
+            to={{
+              pathname: '/productlist',
+              search: '?typeNum=1',
+            }}
+          >
             <img
               src="https://andar.co.kr/_wisa/img/common/paging_prev.png"
               alt="화살표"
@@ -18,12 +23,24 @@ class PagiNation extends React.Component {
         {pageNumber.map(page => {
           return (
             <li key={page.toString()}>
-              <Link to="/productlist">{page}</Link>
+              <Link
+                to={{
+                  pathname: '/productlist',
+                  search: '?typeNum=1',
+                }}
+              >
+                {page}
+              </Link>
             </li>
           );
         })}
         <li>
-          <Link to="/productlists">
+          <Link
+            to={{
+              pathname: '/productlist',
+              search: '?typeNum=1',
+            }}
+          >
             <img
               src="https://andar.co.kr/_wisa/img/common/paging_next.png"
               alt="화살표"
