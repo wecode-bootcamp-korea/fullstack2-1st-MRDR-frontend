@@ -10,15 +10,27 @@ import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart';
 
 class Routes extends React.Component {
+  state = { isLogined: false };
+
+  componentDidMount() {
+    this.setState({ isLogined: localStorage.getItem('token') });
+  }
+
+  login = isLogined => {
+    this.setState({ isLogined: isLogined });
+  };
+
   render() {
     return (
       <Router>
-        <Nav />
+        <Nav isLogined={this.state.isLogined} />
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/productlist" component={ProductList} />
           <Route path="/products/:id" component={Products} />
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Login login={this.login} />
+          </Route>
           <Route path="/signup" component={SignUp} />
           <Route path="/cart" component={Cart} />
         </Switch>

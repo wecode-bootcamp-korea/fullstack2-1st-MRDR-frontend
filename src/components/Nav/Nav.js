@@ -1,5 +1,4 @@
 import React from 'react';
-import './Nav.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,9 +6,10 @@ import {
   faShoppingBag,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import NavDropdown from './NavDropdown';
+import './Nav.scss';
 
 class Nav extends React.Component {
-  state = { status: false };
   constructor() {
     super();
     this.state = {
@@ -17,7 +17,10 @@ class Nav extends React.Component {
       menuListSub: [],
       menuListHide: false,
       searchInput: '',
+      isHovering: false,
+      isUserLoggedIn: false,
     };
+    this.showMenu = this.showMenu.bind(this);
   }
 
   menuListHide = () => {
@@ -37,6 +40,12 @@ class Nav extends React.Component {
     }
   };
 
+  isUserLoggedIn = () => {
+    this.setState({
+      isUserLoggedIn: localStorage.getItem('token') ? true : false,
+    });
+  };
+
   componentDidMount() {
     fetch('/data/menuList.json')
       .then(res => res.json())
@@ -48,23 +57,64 @@ class Nav extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isUserLoggedIn !== prevState.isUserLoggedIn) {
+      this.isUserLoggedIn();
+    }
+  }
+
+  showMenu = () => {
+    this.setState(this.toggleMenu);
+  };
+
+  toggleMenu = state => {
+    return {
+      isHovering: !state.isHovering,
+    };
+  };
+
+  signOut = () => {
+    localStorage.removeItem('token');
+    this.isUserLoggedIn();
+    window.location.reload();
+  };
+
   render() {
-    const { menuList, menuListSub, searchInput } = this.state;
+    const { isLogined } = this.props;
+    const { menuList, menuListSub, searchInput, isUserLoggedIn } = this.state;
     return (
       <nav>
         <div className="navTop">
-          <Link to="/login" className="topLogin">
-            로그인
-          </Link>
-          <Link to="/signup" className="topSignup">
-            회원가입
-          </Link>
+          {isLogined ? (
+            <Link
+              to="/"
+              className="topLogin"
+              onClick={() => {
+                this.signOut();
+              }}
+            >
+              로그아웃
+            </Link>
+          ) : (
+            <Link to="./login" className="topLogin">
+              로그인
+            </Link>
+          )}
+          {this.state.isUserLoggedIn ? (
+            <Link to="./signup" className="topSignup">
+              마이페이지
+            </Link>
+          ) : (
+            <Link to="./signup" className="topSignup">
+              회원가입
+            </Link>
+          )}
           <Link to="#!" className="topService">
             고객센터
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="/">
+          <Link to="./">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
@@ -77,6 +127,7 @@ class Nav extends React.Component {
                   }}
                   className="menuName"
                   key={index}
+                  onMouseEnter={this.showMenu}
                 >
                   {element.title}
                 </Link>
@@ -140,6 +191,9 @@ class Nav extends React.Component {
             })}
             <div className="salePic">salepic</div>
           </div>
+        </div>
+        <div className="Dropdown" onMouseLeave={this.showMenu}>
+          {this.state.isHovering && <NavDropdown />}
         </div>
       </nav>
     );
