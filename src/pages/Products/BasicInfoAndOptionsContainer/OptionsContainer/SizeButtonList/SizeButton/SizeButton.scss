@@ -9,6 +9,7 @@
   border: 1px solid #ccc;
   font-size: 14px;
   cursor: pointer;
+  user-select: none;
 
   &:last-child {
     margin-right: 0;
@@ -17,8 +18,13 @@
   &.selected {
     border: 1px solid black;
   }
-}
 
-.disabled {
-  cursor: default;
+  &.disabled {
+    cursor: default;
+  }
+
+  &.outOfStock {
+    color: #ccc;
+    cursor: default;
+  }
 }

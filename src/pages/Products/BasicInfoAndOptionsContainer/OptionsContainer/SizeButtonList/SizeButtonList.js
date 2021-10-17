@@ -9,7 +9,6 @@ class SizeButtonList extends Component {
       selectedColor,
       selectedSize,
       selectSize,
-      selectAmount,
       selectedList,
       addSelectedItem,
     } = this.props;
@@ -20,20 +19,28 @@ class SizeButtonList extends Component {
 
     return (
       <ul className="SizeButtonList">
-        {colors[index].sizes.map(size => {
-          return (
-            <SizeButton
-              key={size.id}
-              size={size.value}
-              selectedColor={selectedColor}
-              selectedSize={selectedSize}
-              selectSize={selectSize}
-              selectAmount={selectAmount}
-              selectedList={selectedList}
-              addSelectedItem={addSelectedItem}
-            />
-          );
-        })}
+        {/* 준범, undefined 여서 에러 발생하여 있는 경우에만 처리하도록 하였습니다. */}
+        {colors[index].sizes
+          ? colors[index].sizes
+              .sort((a, b) => {
+                if (a.value < b.value) return -1;
+              })
+              .map(size => {
+                return (
+                  <SizeButton
+                    key={size.id}
+                    colorOptionId={size.id}
+                    size={size.value}
+                    quantity={size.quantity}
+                    selectedColor={selectedColor}
+                    selectedSize={selectedSize}
+                    selectSize={selectSize}
+                    selectedList={selectedList}
+                    addSelectedItem={addSelectedItem}
+                  />
+                );
+              })
+          : null}
       </ul>
     );
   }

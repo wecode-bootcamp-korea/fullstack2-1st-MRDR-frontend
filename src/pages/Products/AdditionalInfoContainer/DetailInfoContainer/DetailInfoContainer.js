@@ -45,7 +45,8 @@ class DetailInfoContainer extends React.Component {
   render() {
     const { handleColorBtnClick, handleSlidePrevBtn, handleSlideNextBtn } =
       this;
-    const { detailRef, productColorList, detailImageUrl } = this.props;
+    const { detailRef, productColorList, detailImageUrl, colorCount } =
+      this.props;
     const { clickedColor, currentSlideIndex } = this.state;
     return (
       <div className="DetailInfoContainer" ref={detailRef}>
@@ -62,9 +63,7 @@ class DetailInfoContainer extends React.Component {
             <div className="checkImage">
               <FontAwesomeIcon icon={faCheckCircle} />
             </div>
-            <p className="colorInfoTextLarge">
-              {productColorList.length} COLORS
-            </p>
+            <p className="colorInfoTextLarge">{colorCount} COLORS</p>
             <p className="colorInfoTextSmall">
               색상 버튼을 클릭하면 자세한 컬러 이미지를 볼 수 있습니다.
             </p>

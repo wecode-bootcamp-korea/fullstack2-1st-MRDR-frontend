@@ -2,7 +2,7 @@ import React from 'react';
 
 class PhoneTableRow extends React.Component {
   render() {
-    const { onChange } = this.props;
+    const { onChange, require } = this.props;
     return (
       <tr>
         <td colSpan="2">휴대폰 번호</td>
@@ -25,6 +25,8 @@ class PhoneTableRow extends React.Component {
             </select>
             -&nbsp;
             <input
+              placeholder="필수입력"
+              required={require}
               onChange={onChange}
               type="number"
               name="userSecondPhoneNumber"
@@ -32,6 +34,8 @@ class PhoneTableRow extends React.Component {
             />
             -&nbsp;
             <input
+              placeholder="필수입력"
+              required={require}
               onChange={onChange}
               type="number"
               name="userThirdPhoneNumber"

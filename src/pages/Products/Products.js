@@ -8,14 +8,25 @@ class Products extends React.Component {
   constructor() {
     super();
     this.state = {
-      productInfo: {}, // BasicInfoAndOptionContainer fetch data
+      productInfo: {},
       productImageSlides: [],
       productColorList: [],
+      infoTapOnScroll: false,
+      colorCount: 0,
     };
+    this.infoTapRef = React.createRef();
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const { id } = this.props.match.params;
+    fetch(`http://localhost:8000/products/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ productInfo: data });
+      })
+      .catch(err => console.log(err));
+
     fetch(`http://localhost:8000/products/${id}/images`)
       .then(res => res.json())
       .then(data => {
@@ -44,12 +55,41 @@ class Products extends React.Component {
         for (let arr of colorList) {
           colorCount += arr.length;
         }
-        this.setState({ productColorList: colorList });
+        this.setState({ productColorList: colorList, colorCount });
       });
+
+    window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = e => {
+    const { infoTapRef } = this;
+    const { infoTapOnScroll } = this.state;
+    let windowScrollTop = e.srcElement.scrollingElement.scrollTop;
+    let eventRange = infoTapRef.current.offsetTop - 115 - windowScrollTop;
+    if (eventRange <= 0) {
+      if (!infoTapOnScroll) {
+        this.setState({ infoTapOnScroll: !infoTapOnScroll });
+      }
+    } else {
+      if (infoTapOnScroll) {
+        this.setState({ infoTapOnScroll: !infoTapOnScroll });
+      }
+    }
+  };
+
   render() {
-    const { productInfo, productImageSlides, productColorList } = this.state;
+    const { infoTapRef } = this;
+    const {
+      productInfo,
+      productImageSlides,
+      productColorList,
+      infoTapOnScroll,
+      colorCount,
+    } = this.state;
     return (
       <div className="Products">
         <div className="mainInfoWrapper">
@@ -57,9 +97,17 @@ class Products extends React.Component {
             productImageSlides={productImageSlides}
             detailImageUrl={productInfo.detailImageUrl}
           />
-          <BasicInfoAndOptionsContainer />
+          {Object.keys(productInfo).length && (
+            <BasicInfoAndOptionsContainer productInfo={productInfo} />
+          )}
         </div>
-        <AdditionalInfoContainer productColorList={productColorList} />
+        <AdditionalInfoContainer
+          productColorList={productColorList}
+          detailImageUrl={productInfo.detailImageUrl}
+          infoTapRef={infoTapRef}
+          infoTapOnScroll={infoTapOnScroll}
+          colorCount={colorCount}
+        />
       </div>
     );
   }
