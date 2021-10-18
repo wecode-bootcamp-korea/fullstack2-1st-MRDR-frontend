@@ -57,12 +57,6 @@ class Nav extends React.Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.isUserLoggedIn !== prevState.isUserLoggedIn) {
-      this.isUserLoggedIn();
-    }
-  }
-
   showMenu = () => {
     this.setState(this.toggleMenu);
   };
