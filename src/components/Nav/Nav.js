@@ -100,7 +100,7 @@ class Nav extends React.Component {
               로그인
             </Link>
           )}
-          {this.state.isUserLoggedIn ? (
+          {isLogined ? (
             <Link to="./signup" className="topSignup">
               마이페이지
             </Link>
@@ -114,7 +114,7 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className="navMenu">
-          <Link to="./">
+          <Link to="/">
             <img src="/image/logo.png" alt="logo" className="logo" />
           </Link>
           <div className="menu">
