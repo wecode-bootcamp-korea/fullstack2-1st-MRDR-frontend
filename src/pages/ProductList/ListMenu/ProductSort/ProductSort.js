@@ -6,8 +6,10 @@ import './ProductSort.scss';
 class ProductSort extends React.Component {
   render() {
     const { search } = this.props.location;
-    const searchArr = search.split('&');
-    const priceVal = searchArr.length !== 1 ? searchArr[1].split('=')[1] : '';
+    const searchArray = search.split('&');
+    const priceValue =
+      searchArray.length !== 1 ? searchArray[1].split('=')[1] : '';
+
     return (
       <section className="productSort">
         <span className="productSortList">
@@ -19,10 +21,10 @@ class ProductSort extends React.Component {
             to={{
               pathname: '/productlist',
               search:
-                searchArr.length === 1
+                searchArray.length === 1
                   ? search + '&price=DESC'
-                  : priceVal !== 'DESC'
-                  ? searchArr[0] + '&price=DESC'
+                  : priceValue !== 'DESC'
+                  ? searchArray[0] + '&price=DESC'
                   : search,
             }}
           >
@@ -32,10 +34,10 @@ class ProductSort extends React.Component {
             to={{
               pathname: '/productlist',
               search:
-                searchArr.length === 1
+                searchArray.length === 1
                   ? search + '&price=ASC'
-                  : priceVal !== 'ASC'
-                  ? searchArr[0] + '&price=ASC'
+                  : priceValue !== 'ASC'
+                  ? searchArray[0] + '&price=ASC'
                   : search,
             }}
           >

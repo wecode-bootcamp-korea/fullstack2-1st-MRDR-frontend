@@ -1,6 +1,7 @@
 @import '../../../../styles/common.scss';
 @import '../../../../styles/mixins.scss';
-.productUnorderedList {
+
+.productCardList {
   img {
     height: 420px;
     width: 315px;
@@ -23,7 +24,7 @@
   }
 }
 
-.productName {
+.productTitle {
   padding-top: 5px;
   height: 60px;
   width: 300px;
@@ -49,7 +50,7 @@
   }
 }
 
-.originPrice {
+.originalPrice {
   text-decoration: line-through;
   font-size: 13px;
   color: $lightGray;

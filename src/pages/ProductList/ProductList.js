@@ -1,9 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PagiNation from './PagiNation/PagiNation';
-import ProductHeader from './ProductHeader/ProductHeader';
-import ProductMainInfo from './ProductMainInfo/ProductMainInfo';
-import ProductMainList from './ProductMainList/ProductMainList';
+import ListPagiNation from './ListPagiNation/ListPagiNation';
+import ListCategory from './ListCategory/ListCategory';
+import ListMenu from './ListMenu/ListMenu';
+import ListMain from './ListMain/ListMain';
+import API_URL from '../../const/api';
 import './ProductList.scss';
 
 class ProductList extends React.Component {
@@ -16,7 +17,7 @@ class ProductList extends React.Component {
 
   componentDidMount() {
     const { search } = this.props.location;
-    fetch(`http://localhost:8000/products${search}`)
+    fetch(`${API_URL}/products${search}`)
       .then(res => res.json())
       .then(res => {
         this.setState({ productList: res.products });
@@ -27,7 +28,7 @@ class ProductList extends React.Component {
     const { search: currentQuery } = this.props.location;
     const { search: prevQuery } = prevProps.location;
     if (currentQuery !== prevQuery) {
-      fetch(`http://localhost:8000/products${currentQuery}`)
+      fetch(`${API_URL}/products${currentQuery}`)
         .then(res => res.json())
         .then(res => {
           this.setState({ productList: res.products });
@@ -40,15 +41,13 @@ class ProductList extends React.Component {
     const { search } = this.props.location;
 
     return (
-      <div className="ProductList">
-        {search ? <ProductHeader /> : null}
+      <div className="productList">
+        {search && <ListCategory />}
         <main className="productMain">
-          {search ? (
-            <ProductMainInfo productCount={productList.length} />
-          ) : null}
-          <ProductMainList productList={productList} />
+          {search && <ListMenu productCount={productList.length} />}
+          <ListMain productList={productList} />
         </main>
-        {search ? <PagiNation /> : null}
+        {search && <ListPagiNation />}
       </div>
     );
   }

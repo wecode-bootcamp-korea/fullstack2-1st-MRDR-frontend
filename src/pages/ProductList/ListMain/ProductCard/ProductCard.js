@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './ProductCard.scss';
 
 class ProductCard extends React.Component {
@@ -25,9 +26,10 @@ class ProductCard extends React.Component {
       discountedPrice,
       colorAmount,
     } = this.props;
+
     return (
-      <div className="ProductCards">
-        <ul className="productUnorderedList">
+      <div className="productCard">
+        <ul className="productCardList">
           <li key={id}>
             <Link
               to={`products/${id}`}
@@ -37,27 +39,27 @@ class ProductCard extends React.Component {
               <img
                 className={isMouseOver ? 'mouseUp' : 'mouseDown'}
                 src={imageUrlList[0]}
-                // alt="mainImage"
+                alt="MRDR JH 트레이닝 바지"
               />
               <img
                 className={isMouseOver ? 'mouseDown' : 'mouseUp'}
                 src={imageUrlList[1]}
-                // alt="subImage"
+                alt="Dr.HANS 크루 바지"
               />
             </Link>
           </li>
-          <li className="productName">
+          <li className="productTitle">
             <span>{name}</span>
           </li>
           <li className="productPrice">
             <span className="discountedPrice">
               {discountedPrice.toLocaleString()}원
             </span>
-            {discountedPrice !== originPrice ? (
+            {discountedPrice !== originPrice && (
               <span className="originPrice">
                 {originPrice.toLocaleString()}원
               </span>
-            ) : null}
+            )}
           </li>
           <li className="productColorAmount">{colorAmount} 컬러</li>
         </ul>
@@ -65,4 +67,4 @@ class ProductCard extends React.Component {
     );
   }
 }
-export default ProductCard;
+export default withRouter(ProductCard);

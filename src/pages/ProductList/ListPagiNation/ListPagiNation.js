@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PagiNation.scss';
+import './ListPagiNation.scss';
 
-class PagiNation extends React.Component {
+class ListPagiNation extends React.Component {
   render() {
     const pageNumber = [1, 2, 3, 4, 5];
     return (
-      <ul className="PagiNation">
+      <ul className="listPagiNation">
         <li>
           <Link
             to={{
@@ -52,4 +52,4 @@ class PagiNation extends React.Component {
   }
 }
 
-export default PagiNation;
+export default ListPagiNation;

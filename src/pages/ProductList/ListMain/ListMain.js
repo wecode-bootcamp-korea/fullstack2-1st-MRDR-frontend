@@ -1,12 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import ProductCard from './ProductCard/ProductCard';
-import './ProductMainList.scss';
+import './ListMain.scss';
 
-class ProductMainList extends React.Component {
+class ListMain extends React.Component {
   render() {
     const { productList } = this.props;
+
     return (
-      <div className="productMainList">
+      <div className="listMain">
         {productList.map(product => {
           return <ProductCard key={product.id} {...product} />;
         })}
@@ -15,4 +17,4 @@ class ProductMainList extends React.Component {
   }
 }
 
-export default ProductMainList;
+export default withRouter(ListMain);

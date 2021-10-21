@@ -1,13 +1,13 @@
 @import '../../../styles/common.scss';
 
-.productMainInfo {
+.listMenu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 70px;
   background-color: $white;
 
-  .productQuantity {
+  .quantity {
     line-height: 25px;
     font-size: 15px;
   }

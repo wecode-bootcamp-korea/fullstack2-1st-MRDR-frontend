@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import './ProductHeader.scss';
+import './ListCategory.scss';
 
-class ProductHeader extends React.Component {
+class ListCategory extends React.Component {
   render() {
     const { search } = this.props.location;
+
     return (
-      <header className="productHeader">
-        <h1 className="productHeaderTitle">하의</h1>
-        <ul className="productSubCategory">
+      <header className="listCategory">
+        <h1 className="listCategoryTitle">하의</h1>
+        <ul className="listSubCategory">
           <Link to={`/productlist${search}`} className="total">
             전체
           </Link>
@@ -28,4 +29,4 @@ class ProductHeader extends React.Component {
   }
 }
 
-export default withRouter(ProductHeader);
+export default withRouter(ListCategory);
