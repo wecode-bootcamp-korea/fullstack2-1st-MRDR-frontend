@@ -2,12 +2,12 @@ import React from 'react';
 import ImagesContainer from './ImagesContainer/ImagesContainer';
 import BasicInfoAndOptionsContainer from './BasicInfoAndOptionsContainer/BasicInfoAndOptionsContainer';
 import AdditionalInfoContainer from './AdditionalInfoContainer/AdditionalInfoContainer';
-import './Products.scss';
 import {
   apiAddress,
   fetchData,
   getDividedArrByCount,
-} from '../../../api/productsApi';
+} from '../../api/productsApi';
+import './Products.scss';
 
 class Products extends React.Component {
   constructor() {
