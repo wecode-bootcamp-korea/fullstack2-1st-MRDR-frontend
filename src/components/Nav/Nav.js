@@ -7,6 +7,7 @@ import {
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import NavDropdown from './NavDropdown';
+import { host } from '../../api/api';
 import './Nav.scss';
 
 class Nav extends React.Component {
@@ -36,7 +37,7 @@ class Nav extends React.Component {
   handleEnterKey = e => {
     const { searchInput } = this.state;
     if (e.key === 'Enter') {
-      window.location.href = `http://localhost:3000/productlist?productName=${searchInput}`;
+      window.location.href = `http://${host}:3000/productlist?productName=${searchInput}`;
     }
   };
 

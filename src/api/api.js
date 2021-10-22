@@ -3,4 +3,4 @@ const port = 10010;
 
 const API_ENDPOINT = `http://${host}:${port}/`;
 
-export { API_ENDPOINT };
+export { host, API_ENDPOINT };
