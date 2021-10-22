@@ -3,6 +3,11 @@ import ImagesContainer from './ImagesContainer/ImagesContainer';
 import BasicInfoAndOptionsContainer from './BasicInfoAndOptionsContainer/BasicInfoAndOptionsContainer';
 import AdditionalInfoContainer from './AdditionalInfoContainer/AdditionalInfoContainer';
 import './Products.scss';
+import {
+  apiAddress,
+  fetchData,
+  getDividedArrByCount,
+} from '../../../api/productsApi';
 
 class Products extends React.Component {
   constructor() {
@@ -17,48 +22,30 @@ class Products extends React.Component {
     this.infoTapRef = React.createRef();
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    const { id } = this.props.match.params;
-    fetch(`http://localhost:8000/products/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ productInfo: data });
-      })
-      .catch(err => console.log(err));
-
-    fetch(`http://localhost:8000/products/${id}/images`)
-      .then(res => res.json())
-      .then(data => {
-        const imageList = [];
-        for (let i = 0; i < data.length; i++) {
-          if (i % 5 === 0) {
-            imageList.push([]);
-          }
-          imageList[parseInt(i / 5)].push(data[i]);
-        }
-        this.setState({ productImageSlides: imageList });
-      })
-      .catch(err => console.error(err));
-
-    fetch(`http://localhost:8000/products/${id}/colors`)
-      .then(res => res.json())
-      .then(data => {
-        const colorList = [];
-        for (let i = 0; i < data.length; i++) {
-          if (i % 8 === 0) {
-            colorList.push([]);
-          }
-          colorList[parseInt(i / 8)].push(data[i]);
-        }
-        let colorCount = 0;
-        for (let arr of colorList) {
-          colorCount += arr.length;
-        }
-        this.setState({ productColorList: colorList, colorCount });
+  async componentDidMount() {
+    try {
+      window.scrollTo(0, 0);
+      const { id } = this.props.match.params;
+      const jsonData = await Promise.all([
+        fetchData(id, apiAddress.productInfo),
+        fetchData(id, apiAddress.productImages),
+        fetchData(id, apiAddress.productColors),
+      ]);
+      this.setState({ productInfo: jsonData[0] });
+      this.setState({
+        productImageSlides: getDividedArrByCount(jsonData[1], 5),
       });
 
-    window.addEventListener('scroll', this.handleScroll);
+      const productColorList = getDividedArrByCount(jsonData[2], 8);
+      let colorCount = 0;
+      for (let arr of productColorList) {
+        colorCount += arr.length;
+      }
+      this.setState({ productColorList, colorCount });
+      window.addEventListener('scroll', this.handleScroll);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   componentWillUnmount() {
@@ -90,20 +77,18 @@ class Products extends React.Component {
       infoTapOnScroll,
       colorCount,
     } = this.state;
+    const { detailImageUrl } = productInfo;
     return (
       <div className="Products">
         <div className="mainInfoWrapper">
-          <ImagesContainer
-            productImageSlides={productImageSlides}
-            detailImageUrl={productInfo.detailImageUrl}
-          />
+          <ImagesContainer productImageSlides={productImageSlides} />
           {Object.keys(productInfo).length && (
             <BasicInfoAndOptionsContainer productInfo={productInfo} />
           )}
         </div>
         <AdditionalInfoContainer
           productColorList={productColorList}
-          detailImageUrl={productInfo.detailImageUrl}
+          detailImageUrl={detailImageUrl}
           infoTapRef={infoTapRef}
           infoTapOnScroll={infoTapOnScroll}
           colorCount={colorCount}
