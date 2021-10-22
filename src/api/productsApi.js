@@ -1,7 +1,9 @@
+import { API_ENDPOINT } from './api';
+
 const apiAddress = {
-  productInfo: 'http://localhost:8000/products/ID',
-  productImages: 'http://localhost:8000/products/ID/images',
-  productColors: 'http://localhost:8000/products/ID/colors',
+  productInfo: `${API_ENDPOINT}products/ID`,
+  productImages: `${API_ENDPOINT}products/ID/images`,
+  productColors: `${API_ENDPOINT}products/ID/colors`,
 };
 
 const fetchData = async (id, apiAddr) => {

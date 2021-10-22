@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import SelectedItemList from './SelectedItemList/SelectedItemList';
 import CartSuccessModal from './CartSuccessModal/CartSuccessModal';
+import { API_ENDPOINT } from '../../../../api/api';
 import './SelectionsContainer.scss';
 
 class SelectionsContainer extends Component {
@@ -36,7 +37,7 @@ class SelectionsContainer extends Component {
       return this.props.history.push('/login');
     }
 
-    fetch('http://localhost:8000/carts', {
+    fetch(`${API_ENDPOINT}carts`, {
       method: 'POST',
       headers: {
         authorization: `${token}`, // 나중에 'bearer'도 넣는게 좋을 것 같습니다.

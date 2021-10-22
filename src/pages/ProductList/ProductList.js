@@ -5,6 +5,7 @@ import ProductHeader from './ProductHeader/ProductHeader';
 import ProductMainInfo from './ProductMainInfo/ProductMainInfo';
 import ProductMainList from './ProductMainList/ProductMainList';
 import './ProductList.scss';
+import { API_ENDPOINT } from '../../api/api';
 
 class ProductList extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class ProductList extends React.Component {
 
   componentDidMount() {
     const { search } = this.props.location;
-    fetch(`http://localhost:8000/products${search}`)
+    fetch(`${API_ENDPOINT}products${search}`)
       .then(res => res.json())
       .then(res => {
         this.setState({ productList: res.products });
@@ -27,7 +28,7 @@ class ProductList extends React.Component {
     const { search: currentQuery } = this.props.location;
     const { search: prevQuery } = prevProps.location;
     if (currentQuery !== prevQuery) {
-      fetch(`http://localhost:8000/products${currentQuery}`)
+      fetch(`${API_ENDPOINT}products${currentQuery}`)
         .then(res => res.json())
         .then(res => {
           this.setState({ productList: res.products });
